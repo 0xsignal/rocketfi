@@ -12,7 +12,7 @@ export default function LiquidityList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {liquidityMarkets.map((market) => (
-        <Card key={market.id} className="bg-white">
+        <Card key={market.id} className="bg-white text-[#272E35]">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               {market.name}
@@ -22,21 +22,21 @@ export default function LiquidityList() {
           <CardContent>
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground flex items-center">
+                <span className="text-sm flex items-center">
                   <DollarSign className="mr-1 h-4 w-4" />
                   TVL
                 </span>
                 <span className="font-bold">${market.tvl}B</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground flex items-center">
+                <span className="text-sm flex items-center">
                   <Percent className="mr-1 h-4 w-4" />
                   APR
                 </span>
                 <span className="font-bold">{market.apy}%</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground flex items-center">
+                <span className="text-sm flex items-center">
                   Chain
                 </span>
                 <span className="font-bold">{market.chain}</span>
