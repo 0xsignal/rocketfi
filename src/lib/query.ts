@@ -100,6 +100,20 @@ export const moonwellBaseQuery = `{
     }
   }
 
+  /* MOONWELL OP */
+  export const moonwellBaseQuery = `{
+    markets(where:{name:"Moonwell Rocket Ether"}) {
+      id
+      name
+      rates{
+        id
+        side
+        rate
+      }
+      totalValueLockedUSD
+      }
+    }
+
 
 /* Morpho Ethereum rETH */
 export const morphEthereumQuery = `{
