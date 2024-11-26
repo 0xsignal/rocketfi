@@ -6,6 +6,7 @@ export const aaveEthereumQuery = `{
     totalValueLockedUSD
     rates {
       rate
+      side
     }
   }
 }`;
@@ -18,6 +19,7 @@ export const aaveArbitrumQuery = `{
     totalValueLockedUSD
     rates {
       rate
+      side
     }
   }
 }`;
@@ -30,6 +32,21 @@ export const aaveOptimismQuery = `{
     totalValueLockedUSD
     rates {
       rate
+      side
+    }
+  }
+}`;
+
+export const aaveEthereumRPLQuery = `{
+  {
+    markets(where:{id:"0xb76cf92076adbf1d9c39294fa8e7a67579fde357"}){
+      id
+      name
+      totalValueLockedUSD
+      rates {
+        rate
+        side
+      }
     }
   }
 }`;
@@ -99,9 +116,10 @@ export const moonwellBaseQuery = `{
     totalValueLockedUSD
     }
   }
+}`;
 
-  /* MOONWELL OP */
-  export const moonwellBaseQuery = `{
+/* MOONWELL OP */
+export const moonwellOpQuery = `{
     markets(where:{name:"Moonwell Rocket Ether"}) {
       id
       name
@@ -112,8 +130,7 @@ export const moonwellBaseQuery = `{
       }
       totalValueLockedUSD
       }
-    }
-
+}`;
 
 /* Morpho Ethereum rETH */
 export const morphEthereumQuery = `{

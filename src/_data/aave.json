@@ -1,0 +1,81 @@
+[
+  {
+    "protocol": "AAVE",
+    "chain": "Ethereum",
+    "data": {
+      "markets": [
+        {
+          "id": "0xcc9ee9483f662091a1de4795249e24ac0ac2630f",
+          "name": "Aave Ethereum rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.4911002553240453",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.0131787348211569",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "168706596.7822575068258546872811101"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Arbitrum",
+    "data": {
+      "markets": [
+        {
+          "id": "0x8eb270e296023e9d92081fdf967ddd7878724424",
+          "name": "Aave Arbitrum rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.4188840775585203",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.0095878472057514",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "13012383.41123285486326381361205408"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Optimism",
+    "data": {
+      "markets": [
+        {
+          "id": "0x724dc807b04555b71ed48a6896b6f41593b8c637",
+          "name": "Aave Optimism rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.6456512609136379",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.022778724735737",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "2811118.46229870994262587195613568"
+        }
+      ]
+    }
+  }
+]
