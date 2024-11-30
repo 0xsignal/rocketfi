@@ -1,0 +1,101 @@
+[
+  {
+    "protocol": "SILO",
+    "chain": "Arbitrum",
+    "pair": "rETH/ETH",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0x170a90981843461295a6ce0e0a631ee440222e29-0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+          "name": "rETH-WETH",
+          "rates": [
+            {
+              "id": "BORROWER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+              "rate": "9.953582765904"
+            },
+            {
+              "id": "LENDER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+              "rate": "8.089727578754779"
+            }
+          ],
+          "totalValueLockedUSD": "7940.221184359497191994465469053853"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Arbitrum",
+    "pair": "rETH/USDC.e",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0x170a90981843461295a6ce0e0a631ee440222e29-0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+          "name": "rETH-USDC",
+          "rates": [
+            {
+              "id": "BORROWER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+              "rate": "26.6469770483712"
+            },
+            {
+              "id": "LENDER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+              "rate": "21.4206533685089723"
+            }
+          ],
+          "totalValueLockedUSD": "76975.803531"
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "SILO",
+    "chain": "Optimism",
+    "pair": "rETH/ETH",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x4200000000000000000000000000000000000006",
+          "name": "rETH-WETH",
+          "rates": [
+            {
+              "id": "BORROWER-VARIABLE-0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x4200000000000000000000000000000000000006",
+              "rate": "0.8374886033184"
+            },
+            {
+              "id": "LENDER-VARIABLE-0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x4200000000000000000000000000000000000006",
+              "rate": "0.1867598950949497"
+            }
+          ],
+          "totalValueLockedUSD": "20872.13296550223333953919965512389"
+        }
+      ]
+    }
+  },
+  {
+    "protocol": "SILO",
+    "chain": "Optimism",
+    "pair": "rETH/ETH",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "name": "rETH-USDC",
+          "rates": [
+            {
+              "id": "BORROWER-VARIABLE-0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "rate": "43.7538223811232"
+            },
+            {
+              "id": "LENDER-VARIABLE-0xa0cf0085f3df7d44eaa7ab7eff41d7867210db62-0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+              "rate": "43.8927085716257891"
+            }
+          ],
+          "totalValueLockedUSD": "24865.237698"
+        }
+      ]
+    }
+  }
+]

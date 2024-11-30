@@ -2,6 +2,8 @@
   {
     "protocol": "AAVE",
     "chain": "Ethereum",
+    "pair": "rETH",
+    "link": "",
     "data": {
       "markets": [
         {
@@ -28,6 +30,8 @@
   },
   {
     "chain": "Arbitrum",
+    "pair": "rETH",
+    "link": "",
     "data": {
       "markets": [
         {
@@ -54,6 +58,7 @@
   },
   {
     "chain": "Optimism",
+    "pair": "rETH",
     "data": {
       "markets": [
         {

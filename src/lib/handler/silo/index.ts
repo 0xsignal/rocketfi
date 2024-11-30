@@ -9,42 +9,63 @@ import {
 } from "@/lib/query";
 import fs from "fs";
 import path from "path";
+import {
+  ethers,
+  JsonRpcProvider,
+  Contract,
+  formatUnits,
+  BigNumberish,
+} from "ethers";
+import { ContractABIs } from "./abi";
 
 const DATA_DIR = path.join(process.cwd(), "src", "_data");
-const AAVE_JSON_PATH = path.join(DATA_DIR, "silo.json");
+const SILO_JSON_PATH = path.join(DATA_DIR, "silo.json");
+
+const OP_RPC_URL = "https://optimism.llamarpc.com";
+const ARB_RPC_URL = "https://arbitrum.llamarpc.com";
+const rETHWETH__OP_CONTRACT_ADDRESS =
+  "0xb69841c679fe733c550a351a896a2169be5da13e";
+const rETHUSDC_OP_CONTRACT_ADDRESS =
+  "0xe7265df285ED7eC35cf502666Df997DF7B25034e";
+const rETHUSDC_ARB_CONTRACT_ADDRESS = "";
+const rETHWETH__ARB_CONTRACT_ADDRESS = "";
 
 const endpoints = [
   {
     protocol: "SILO",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
+    url: "https://gateway.thegraph.com/api/subgraphs/id/2ufoztRpybsgogPVW6j9NTn1JmBWFYPKbP7pAabizADU",
     pair: "rETH/ETH",
     chain: "Arbitrum",
     query: siloArbitrumETHQuery,
     link: "",
+    leverageLink: "",
   },
   {
     name: "SILO",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/4xyasjQeREe7PxnF6wVdobZvCw5mhoHZq3T7guRpuNPf",
+    url: "https://gateway.thegraph.com/api/subgraphs/id/2ufoztRpybsgogPVW6j9NTn1JmBWFYPKbP7pAabizADU",
     pair: "rETH/USDC.e",
     chain: "Arbitrum",
     query: siloArbitrumUSDCQuery,
     link: "",
+    leverageLink: "",
   },
   {
     protocol: "SILO",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
+    url: "https://gateway.thegraph.com/api/subgraphs/id/HVhUwbDrY5uGyz5u3bvKQVfmagVet3Uwy7jWjFrvT6s6",
     pair: "rETH/ETH",
     chain: "Optimism",
     query: siloOptimismETHQuery,
     link: "",
+    leverageLink: "",
   },
   {
     protocol: "SILO",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
+    url: "https://gateway.thegraph.com/api/subgraphs/id/HVhUwbDrY5uGyz5u3bvKQVfmagVet3Uwy7jWjFrvT6s6",
     pair: "rETH/ETH",
     chain: "Optimism",
     query: siloOptimismUSDCQuery,
     link: "",
+    leverageLink: "",
   },
 ];
 
@@ -82,7 +103,43 @@ async function Process(endpoint: (typeof endpoints)[0]) {
   }
 }
 
-export async function updateAaveData() {
+async function readContractMethod(
+  contractAddress: string,
+  contractABI: string[],
+  methodName: string,
+  methodArgs: any[] = [],
+  providerUrl: string = "https://mainnet.infura.io/v3/YOUR-PROJECT-ID",
+): Promise<any> {
+  try {
+    const provider = ethers.getDefaultProvider(providerUrl);
+    const contract = new ethers.Contract(
+      contractAddress,
+      contractABI,
+      provider,
+    );
+
+    if (!contract[methodName]) {
+      throw new Error(`Method ${methodName} not found in contract ABI`);
+    }
+
+    const result = await contract[methodName](...methodArgs);
+
+    if (result && typeof result === "object" && "toString" in result) {
+      try {
+        return formatUnits(result as BigNumberish, 18);
+      } catch {
+        return result.toString();
+      }
+    }
+
+    return result;
+  } catch (error) {
+    console.error(`Error reading contract method ${methodName}:`, error);
+    throw error;
+  }
+}
+
+export async function updateData() {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR);
   }
@@ -105,12 +162,12 @@ export async function updateAaveData() {
 
     // Write results to JSON
     fs.writeFileSync(
-      AAVE_JSON_PATH,
+      SILO_JSON_PATH,
       JSON.stringify(unifiedData, null, 2),
       "utf-8",
     );
-    console.log(`AAVE data updated successfully at ${AAVE_JSON_PATH}`);
+    console.log(`SILO data updated successfully at ${SILO_JSON_PATH}`);
   } catch (error) {
-    console.error("Failed to update AAVE data:", error);
+    console.error("Failed to update SILO data:", error);
   }
 }
