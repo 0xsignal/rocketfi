@@ -1,7 +1,6 @@
 import { updateData } from "@/lib/handler/silo";
 import { NextRequest, NextResponse } from "next/server";
 
-// API route to trigger AAVE data update
 export async function GET(request: NextRequest) {
   try {
     await updateData();

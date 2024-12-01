@@ -1,0 +1,57 @@
+[
+  {
+    "marketIndex": 1,
+    "totalSupplyUSD": "3646537.66837436",
+    "supplyAPR": "0.20774750451064453",
+    "borrowAPR": "-1.4881159989239459",
+    "baseSupplyAPR": "0.040834057580418914",
+    "baseBorrowAPR": "0.040834057580418914",
+    "chain": 8453,
+    "incentive": [
+      {
+        "liquidStakingApr": 0,
+        "borrowApr": -2.0863557410497737,
+        "supplyApr": 0.1669134469302256,
+        "token": {
+          "address": "0xA88594D404727625A9437C3f886C7643872296AE",
+          "decimals": 18,
+          "name": "WELL",
+          "symbol": "WELL"
+        }
+      }
+    ]
+  },
+  {
+    "marketIndex": 2,
+    "totalSupplyUSD": "1374120.8863511735",
+    "supplyAPR": "2.0604076813249907",
+    "borrowAPR": "3.706665706065671",
+    "baseSupplyAPR": "1.634982815866226",
+    "baseBorrowAPR": "1.634982815866226",
+    "chain": 10,
+    "incentive": [
+      {
+        "liquidStakingApr": 0,
+        "borrowApr": -0.5500028558791106,
+        "supplyApr": 0.16122260496394725,
+        "token": {
+          "address": "0x4200000000000000000000000000000000000042",
+          "decimals": 18,
+          "name": "Optimism",
+          "symbol": "OP"
+        }
+      },
+      {
+        "liquidStakingApr": 0,
+        "borrowApr": -0.9013128018515674,
+        "supplyApr": 0.26420226049481754,
+        "token": {
+          "address": "0xA88594D404727625A9437C3f886C7643872296AE",
+          "decimals": 18,
+          "name": "WELL",
+          "symbol": "WELL"
+        }
+      }
+    ]
+  }
+]
