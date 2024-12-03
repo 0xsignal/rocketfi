@@ -1,0 +1,50 @@
+[
+  {
+    "uniqueKey": "0xdc69cf2caae7b7d1783fb5a9576dc875888afad17ab3d1a3fc102f741441c165",
+    "loanAsset": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "collateralAsset": {
+      "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+      "symbol": "rETH",
+      "decimals": 18,
+      "chain": {
+        "id": 8453,
+        "network": "base"
+      }
+    },
+    "state": {
+      "borrowApy": 0.02114273623707985,
+      "borrowAssets": "452522764766709377640",
+      "borrowAssetsUsd": 1677017.7623115724,
+      "supplyApy": 0.019754483069951475,
+      "supplyAssetsUsd": 1793646.2905520136
+    }
+  },
+  {
+    "uniqueKey": "0xdb0bc9f10a174f29a345c5f30a719933f71ccea7a2a75a632a281929bba1b535",
+    "loanAsset": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "collateralAsset": {
+      "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+      "symbol": "rETH",
+      "decimals": 18,
+      "chain": {
+        "id": 8453,
+        "network": "base"
+      }
+    },
+    "state": {
+      "borrowApy": 1.2416580581618843,
+      "borrowAssets": 5187919611,
+      "borrowAssetsUsd": 5187.721899383625,
+      "supplyApy": 1.2416580581618843,
+      "supplyAssetsUsd": 5187.721899383625
+    }
+  }
+]
