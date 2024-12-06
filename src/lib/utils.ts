@@ -1,8 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { customAlphabet } from "nanoid";
 import { twMerge } from "tailwind-merge";
-import path from "path";
-import fs from "fs/promises";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -90,13 +88,27 @@ export const getMessageFromCode = (resultCode: string) => {
   }
 };
 
-export async function readJsonFile<T>(filename: string): Promise<T[]> {
-  try {
-    const dataFilePath = path.join(process.cwd(), "src", "_data", filename);
-    const jsonData = await fs.readFile(dataFilePath, "utf8");
-    return JSON.parse(jsonData);
-  } catch (error) {
-    console.error(`Error reading file ${filename}:`, error);
-    return [];
+export function formatTVL(num: number): string {
+  if (num === 0) return "0";
+  const absNum = Math.abs(num);
+
+  if (absNum >= 1_000_000) {
+    const millions = Math.floor((num / 1_000_000) * 100) / 100;
+    return `${millions.toFixed(2)}M`;
   }
+
+  if (absNum >= 1_000) {
+    const thousands = Math.floor((num / 1_000) * 100) / 100;
+    return `${thousands.toFixed(2)}K`;
+  }
+
+  return num.toFixed(2);
+}
+
+export function formatPercentage(numStr: string | number): string {
+  const num = typeof numStr === "string" ? parseFloat(numStr) : numStr;
+
+  if (isNaN(num)) return "-";
+
+  return `${(num * 100).toFixed(2)}%`;
 }

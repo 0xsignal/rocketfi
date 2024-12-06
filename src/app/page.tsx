@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, BarChart2, Zap } from "lucide-react";
 import LendingList from "@/components/lendingList";
 import LiquidityList from "@/components/liquidityList";
+import AaveList from "@/components/aave";
 
 const lendingStrategies = [
   {
@@ -170,59 +171,57 @@ export default function Home() {
                 <div className="text-base text-[#272E35] font-medium font-inter">
                   AAVE
                 </div>
-
+                <AaveList />
+              </div>
+            </div>
+            <div className="mt-24">
+              <div className="text-2xl text-[#272E35] font-medium">
+                Liquidity Market
+              </div>
+              <div className="mt-10 bg-white rounded-lg overflow-hidden px-6 py-4 text-gray-500">
+                <Accordion type="single" collapsible className="w-full">
+                  {liquidityStrategies.map((strategy) => (
+                    <AccordionItem
+                      value={`strategy-${strategy.id}`}
+                      key={strategy.id}
+                    >
+                      <AccordionTrigger>
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center">
+                            <span className="font-medium text-[#272E35]">
+                              {strategy.name}
+                            </span>
+                          </div>
+                          <div className="flex items-center space-x-4 text-base">
+                            <Badge
+                              variant={
+                                strategy.risk === "Low"
+                                  ? "secondary"
+                                  : strategy.risk === "Medium"
+                                    ? "destructive"
+                                    : "outline"
+                              }
+                            >
+                              {strategy.risk}Risk
+                            </Badge>
+                            <span className="">APR: {strategy.apy}</span>
+                          </div>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="mt-4 space-y-4">
+                          <p className="text-base">{strategy.description}</p>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
           </div>
-          <div className="mt-24">
-            <div className="text-2xl text-[#272E35] font-medium">
-              Liquidity Market
-            </div>
-            <div className="mt-10 bg-white rounded-lg overflow-hidden px-6 py-4 text-gray-500">
-              <Accordion type="single" collapsible className="w-full">
-                {liquidityStrategies.map((strategy) => (
-                  <AccordionItem
-                    value={`strategy-${strategy.id}`}
-                    key={strategy.id}
-                  >
-                    <AccordionTrigger>
-                      <div className="flex items-center justify-between w-full">
-                        <div className="flex items-center">
-                          <span className="font-medium text-[#272E35]">
-                            {strategy.name}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-4 text-base">
-                          <Badge
-                            variant={
-                              strategy.risk === "Low"
-                                ? "secondary"
-                                : strategy.risk === "Medium"
-                                  ? "destructive"
-                                  : "outline"
-                            }
-                          >
-                            {strategy.risk}Risk
-                          </Badge>
-                          <span className="">APR: {strategy.apy}</span>
-                        </div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="mt-4 space-y-4">
-                        <p className="text-base">{strategy.description}</p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-            <div className="mt-10">
-              <LiquidityList />
-            </div>
+          <div className="mt-20">
+            <div className=""></div>
           </div>
-        </div>
-        <div className="mt-20">
-          <div className=""></div>
         </div>
       </div>
     </main>
