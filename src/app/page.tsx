@@ -12,7 +12,6 @@ import { ShieldCheck, BarChart2, Zap } from "lucide-react";
 import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
-import type { GetServerSideProps } from "next";
 import path from "path";
 import { updateData } from "@/lib/dataupdater";
 import { updateUniData } from "@/lib/handler/uniswap";
