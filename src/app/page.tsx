@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, BarChart2, Zap } from "lucide-react";
 import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
+import MoonwellList from "@/components/moonwell";
 
 const lendingStrategies = [
   {
@@ -119,10 +120,10 @@ export default function Home() {
             </nav>
           </div>
           <div className="mt-24">
-            <div className="text-xl text-[#272E35] font-medium font-inter">
+            <div className="text-xl text-[#272E35] font-bold font-inter">
               Lending/Borrow Market
             </div>
-            <div className="mt-10 bg-white rounded-xl overflow-hidden px-6 py-4 text-gray-500">
+            <div className="mt-10 bg-white rounded-2xl overflow-hidden px-6 py-4 text-gray-500">
               <Accordion type="single" collapsible className="w-full">
                 {lendingStrategies.map((strategy) => (
                   <AccordionItem
@@ -166,20 +167,28 @@ export default function Home() {
               </Accordion>
             </div>
             <div className="mt-10">
-              <div className="mt-6">
+              <div className="mt-10">
                 <div className="w-20 h-fit">
                   <ProtocolIcon icon="Aave" />
                 </div>
-                <div className="mt-4">
+                <div className="mt-10">
                   <AaveList />
                 </div>
               </div>
-              <div className="mt-6">
+              <div className="mt-10">
                 <div className="w-16">
                   <ProtocolIcon icon="Silo" />
                 </div>
-                <div className="mt-4">
+                <div className="mt-10">
                   <SiloList />
+                </div>
+              </div>
+              <div className="mt-10">
+                <div className="w-36 h-fit bg-[#2474DA] p-2 rounded-md">
+                  <ProtocolIcon icon="Moonwell" />
+                </div>
+                <div className="mt-10">
+                  <MoonwellList />
                 </div>
               </div>
             </div>

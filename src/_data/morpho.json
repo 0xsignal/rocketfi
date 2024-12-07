@@ -16,11 +16,11 @@
       }
     },
     "state": {
-      "borrowApy": 0.02114273623707985,
-      "borrowAssets": "452522764766709377640",
-      "borrowAssetsUsd": 1677017.7623115724,
-      "supplyApy": 0.019754483069951475,
-      "supplyAssetsUsd": 1793646.2905520136
+      "borrowApy": 0.013627821304609627,
+      "borrowAssets": "453619876295386066728",
+      "borrowAssetsUsd": 1822392.7486312888,
+      "supplyApy": 0.012354722208285948,
+      "supplyAssetsUsd": 2008916.7721306756
     }
   },
   {
@@ -40,11 +40,11 @@
       }
     },
     "state": {
-      "borrowApy": 1.2416580581618843,
-      "borrowAssets": 5187919611,
-      "borrowAssetsUsd": 5187.721899383625,
-      "supplyApy": 1.2416580581618843,
-      "supplyAssetsUsd": 5187.721899383625
+      "borrowApy": 3.63751972580836,
+      "borrowAssets": 937937188,
+      "borrowAssetsUsd": 937.8152561655601,
+      "supplyApy": 3.63751972580836,
+      "supplyAssetsUsd": 937.8152561655601
     }
   }
 ]

@@ -112,3 +112,31 @@ export function formatPercentage(numStr: string | number): string {
 
   return `${num.toFixed(2)}%`;
 }
+
+export function getChainName(chainId: number | string): string {
+  const id =
+    typeof chainId === "string"
+      ? chainId.startsWith("0x")
+        ? parseInt(chainId, 16)
+        : parseInt(chainId, 10)
+      : chainId;
+
+  const chainIdToName: { [key: number]: string } = {
+    1: "Ethereum Mainnet",
+    56: "Binance Smart Chain Mainnet",
+    97: "Binance Smart Chain Testnet",
+    43114: "Avalanche C-Chain Mainnet",
+    43113: "Avalanche Fuji Testnet",
+    42161: "Arbitrum One",
+    421613: "Arbitrum Goerli Testnet",
+    10: "Optimism",
+    420: "Optimism Goerli Testnet",
+    250: "Fantom Opera",
+    4002: "Fantom Testnet",
+    100: "Gnosis Chain (xDai)",
+    8453: "Base",
+  };
+
+  // 查找对应的 Chain Name
+  return chainIdToName[id] || "Unknown Chain";
+}

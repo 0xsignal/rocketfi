@@ -1,17 +1,17 @@
 [
   {
     "marketIndex": 1,
-    "totalSupplyUSD": "3646537.66837436",
-    "supplyAPR": "0.20774750451064453",
-    "borrowAPR": "-1.4881159989239459",
-    "baseSupplyAPR": "0.040834057580418914",
-    "baseBorrowAPR": "0.040834057580418914",
+    "totalSupplyUSD": "3854799.2048621653",
+    "supplyAPR": "0.37920376750007573",
+    "borrowAPR": "-0.008092097066934478",
+    "baseSupplyAPR": "0.17373194151015792",
+    "baseBorrowAPR": "0.17373194151015792",
     "chain": 8453,
     "incentive": [
       {
         "liquidStakingApr": 0,
-        "borrowApr": -2.0863557410497737,
-        "supplyApr": 0.1669134469302256,
+        "borrowApr": -1.245559644898096,
+        "supplyApr": 0.2054718259899178,
         "token": {
           "address": "0xA88594D404727625A9437C3f886C7643872296AE",
           "decimals": 18,
@@ -23,17 +23,17 @@
   },
   {
     "marketIndex": 2,
-    "totalSupplyUSD": "1374120.8863511735",
-    "supplyAPR": "2.0604076813249907",
-    "borrowAPR": "3.706665706065671",
-    "baseSupplyAPR": "1.634982815866226",
-    "baseBorrowAPR": "1.634982815866226",
+    "totalSupplyUSD": "1658630.1055150894",
+    "supplyAPR": "1.0006193141176272",
+    "borrowAPR": "0.34066042332062785",
+    "baseSupplyAPR": "0.5691826369885744",
+    "baseBorrowAPR": "0.5691826369885744",
     "chain": 10,
     "incentive": [
       {
         "liquidStakingApr": 0,
-        "borrowApr": -0.5500028558791106,
-        "supplyApr": 0.16122260496394725,
+        "borrowApr": -0.55726679182796,
+        "supplyApr": 0.14660129434283567,
         "token": {
           "address": "0x4200000000000000000000000000000000000042",
           "decimals": 18,
@@ -43,8 +43,8 @@
       },
       {
         "liquidStakingApr": 0,
-        "borrowApr": -0.9013128018515674,
-        "supplyApr": 0.26420226049481754,
+        "borrowApr": -1.0827278208960662,
+        "supplyApr": 0.2848353827862171,
         "token": {
           "address": "0xA88594D404727625A9437C3f886C7643872296AE",
           "decimals": 18,

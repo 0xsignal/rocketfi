@@ -34,7 +34,7 @@ export interface Silo {
   };
 }
 
-export interface Moowell {
+export interface Moonwell {
   marketIndex: number;
   totalSupplyUSD: string;
   supplyAPR: string;
