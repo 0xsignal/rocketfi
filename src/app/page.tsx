@@ -92,7 +92,17 @@ const liquidityStrategies = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const dataFilePath = path.join(process.cwd(), "src", "_data", "job.json");
+
+  const updatedData = await updateData({
+    maxAgeMinutes: 5,
+    filePath: dataFilePath,
+    fetchDataFn: fetchLatestData,
+  });
+
+  console.log(updatedData);
+
   return (
     <main className="bg-background">
       <div className="max-w-7xl mx-auto">
@@ -262,34 +272,4 @@ async function fetchLatestData() {
   await updateSiloData();
 }
 
-const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const dataFilePath = path.join(process.cwd(), "src", "_data", "job.json");
-
-    const updatedData = await updateData({
-      maxAgeMinutes: 5,
-      filePath: dataFilePath,
-      fetchDataFn: fetchLatestData,
-    });
-
-    return {
-      props: {
-        data: updatedData,
-      },
-    };
-  } catch (error) {
-    console.error("Error in getServerSideProps:", error);
-
-    return {
-      props: {
-        data: {
-          metadata: {
-            timestamp: new Date().toISOString(),
-            generatedAt: "fail",
-          },
-          data: null,
-        },
-      },
-    };
-  }
-};
+export const revalidate = 300;
