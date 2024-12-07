@@ -269,6 +269,10 @@ async function fetchLatestData() {
   await updateAaveData();
   await updateMoonwellData();
   await updateSiloData();
+
+  return {
+    status: "update successfully",
+  };
 }
 
 export const revalidate = 300;
