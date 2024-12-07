@@ -61,7 +61,7 @@ const endpoints = [
   {
     protocol: "SILO",
     url: "https://gateway.thegraph.com/api/subgraphs/id/HVhUwbDrY5uGyz5u3bvKQVfmagVet3Uwy7jWjFrvT6s6",
-    pair: "rETH/ETH",
+    pair: "rETH/USDC",
     chain: "Optimism",
     query: siloOptimismUSDCQuery,
     link: "",

@@ -110,5 +110,5 @@ export function formatPercentage(numStr: string | number): string {
 
   if (isNaN(num)) return "-";
 
-  return `${(num * 100).toFixed(2)}%`;
+  return `${num.toFixed(2)}%`;
 }

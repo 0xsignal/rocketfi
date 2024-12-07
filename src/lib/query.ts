@@ -38,7 +38,6 @@ export const aaveOptimismQuery = `{
 }`;
 
 export const aaveEthereumRPLQuery = `{
-  {
     markets(where:{id:"0xb76cf92076adbf1d9c39294fa8e7a67579fde357"}){
       id
       name
@@ -48,7 +47,6 @@ export const aaveEthereumRPLQuery = `{
         side
       }
     }
-  }
 }`;
 
 /* Silo Arbitrum rETH/ETH */

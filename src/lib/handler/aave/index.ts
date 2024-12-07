@@ -20,7 +20,7 @@ const endpoints = [
     pair: "rETH",
     chain: "Ethereum",
     query: aaveEthereumQuery,
-    link: "",
+    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0xae78736cd615f374d3085123a210448e74fc6393&marketName=proto_mainnet_v3",
   },
   {
     name: "AAVE",
@@ -28,7 +28,7 @@ const endpoints = [
     pair: "rETH",
     chain: "Arbitrum",
     query: aaveArbitrumQuery,
-    link: "",
+    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8&marketName=proto_arbitrum_v3",
   },
   {
     name: "AAVE",
@@ -36,6 +36,7 @@ const endpoints = [
     pair: "rETH",
     chain: "Optimism",
     query: aaveOptimismQuery,
+    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0x9bcef72be871e61ed4fbbc7630889bee758eb81d&marketName=proto_optimism_v3",
   },
   {
     name: "AAVE",
@@ -43,6 +44,7 @@ const endpoints = [
     pair: "RPL",
     chain: "Ethereum",
     query: aaveEthereumRPLQuery,
+    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0xd33526068d116ce69f19a9ee46f0bd304f21a51f&marketName=proto_mainnet_v3",
   },
 ];
 

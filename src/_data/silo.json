@@ -76,7 +76,7 @@
   {
     "protocol": "SILO",
     "chain": "Optimism",
-    "pair": "rETH/ETH",
+    "pair": "rETH/USDC",
     "link": "",
     "data": {
       "markets": [

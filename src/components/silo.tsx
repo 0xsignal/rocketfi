@@ -1,7 +1,7 @@
 import React from "react";
 import fs from "fs/promises";
 import path from "path";
-import { Aave } from "@/lib/type";
+import { Silo } from "@/lib/type";
 import {
   Table,
   TableBody,
@@ -16,13 +16,13 @@ import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components//icon";
 
 async function getData() {
-  const filePath = path.join(process.cwd(), "src/_data/aave.json");
+  const filePath = path.join(process.cwd(), "src/_data/silo.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
-  return data as Aave[];
+  return data as Silo[];
 }
 
-export default async function AaveList() {
+export default async function SiloList() {
   const data = await getData();
   return (
     <div className="">
@@ -31,19 +31,19 @@ export default async function AaveList() {
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px] text-[#6B7280] text-xs font-medium">
-                Assert
+                Pair
               </TableHead>
               <TableHead className="text-[#6B7280] text-xs font-medium">
                 Chain
               </TableHead>
               <TableHead className="text-[#6B7280] text-xs font-medium">
-                Total Supply USD
+                Total Value Locked USD
               </TableHead>
               <TableHead className="text-[#6B7280] text-xs font-medium">
-                Supply APY
+                Supply APR
               </TableHead>
               <TableHead className="text-[#6B7280] text-xs font-medium">
-                Borrow APY
+                Borrow APR
               </TableHead>
               <TableHead className="text-[#6B7280] text-xs font-medium">
                 Action
@@ -68,10 +68,10 @@ export default async function AaveList() {
                   {formatTVL(Number(item.data.markets[0].totalValueLockedUSD))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0].rates[2].rate))}
+                  {formatPercentage(Number(item.data.markets[0].rates[1].rate))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0].rates[1].rate))}
+                  {formatPercentage(Number(item.data.markets[0].rates[0].rate))}
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-4 items-center">
@@ -87,9 +87,9 @@ export default async function AaveList() {
                     >
                       Borrow
                     </ExternalLinkButton>
-                    {item.pair == "rETH" && (
+                    {item.pair == "rETH/ETH" && (
                       <ExternalLinkButton
-                        href="https://aave.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144"
+                        href="https://silo.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144"
                         className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Lervage

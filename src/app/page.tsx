@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoIcon } from "@/components/icon";
+import { LogoIcon, ProtocolIcon } from "@/components/icon";
 import Link from "next/link";
 import {
   Accordion,
@@ -9,9 +9,8 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, BarChart2, Zap } from "lucide-react";
-import LendingList from "@/components/lendingList";
-import LiquidityList from "@/components/liquidityList";
 import AaveList from "@/components/aave";
+import SiloList from "@/components/silo";
 
 const lendingStrategies = [
   {
@@ -120,7 +119,7 @@ export default function Home() {
             </nav>
           </div>
           <div className="mt-24">
-            <div className="text-base text-[#272E35] font-medium font-inter">
+            <div className="text-xl text-[#272E35] font-medium font-inter">
               Lending/Borrow Market
             </div>
             <div className="mt-10 bg-white rounded-xl overflow-hidden px-6 py-4 text-gray-500">
@@ -167,11 +166,21 @@ export default function Home() {
               </Accordion>
             </div>
             <div className="mt-10">
-              <div className="mt-4">
-                <div className="text-base text-[#272E35] font-medium font-inter">
-                  AAVE
+              <div className="mt-6">
+                <div className="w-20 h-fit">
+                  <ProtocolIcon icon="Aave" />
                 </div>
-                <AaveList />
+                <div className="mt-4">
+                  <AaveList />
+                </div>
+              </div>
+              <div className="mt-6">
+                <div className="w-16">
+                  <ProtocolIcon icon="Silo" />
+                </div>
+                <div className="mt-4">
+                  <SiloList />
+                </div>
               </div>
             </div>
             <div className="mt-24">
