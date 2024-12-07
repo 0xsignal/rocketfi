@@ -15,6 +15,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "ethers": "^6.13.4",
+    "fs-extra": "^11.2.0",
     "graphql-request": "^7.1.0",
     "lucide-react": "^0.447.0",
     "next": "latest",
@@ -24,6 +25,7 @@
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

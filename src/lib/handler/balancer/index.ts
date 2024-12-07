@@ -80,7 +80,7 @@ async function Process(endpoint: (typeof endpoints)[0]) {
   }
 }
 
-export async function updateData() {
+export async function updateBalData() {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR);
   }

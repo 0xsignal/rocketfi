@@ -12,6 +12,14 @@ import { ShieldCheck, BarChart2, Zap } from "lucide-react";
 import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
+import type { GetServerSideProps } from "next";
+import path from "path";
+import { updateData } from "@/lib/dataupdater";
+import { updateUniData } from "@/lib/handler/uniswap";
+import { updateBalData } from "@/lib/handler/balancer";
+import { updateAaveData } from "@/lib/handler/aave";
+import { updateMoonwellData } from "@/lib/handler/moonwell";
+import { updateSiloData } from "@/lib/handler/silo";
 
 const lendingStrategies = [
   {
@@ -245,3 +253,43 @@ export default function Home() {
     </main>
   );
 }
+
+async function fetchLatestData() {
+  await updateUniData();
+  await updateBalData();
+  await updateAaveData();
+  await updateMoonwellData();
+  await updateSiloData();
+}
+
+const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const dataFilePath = path.join(process.cwd(), "src", "_data", "job.json");
+
+    const updatedData = await updateData({
+      maxAgeMinutes: 5,
+      filePath: dataFilePath,
+      fetchDataFn: fetchLatestData,
+    });
+
+    return {
+      props: {
+        data: updatedData,
+      },
+    };
+  } catch (error) {
+    console.error("Error in getServerSideProps:", error);
+
+    return {
+      props: {
+        data: {
+          metadata: {
+            timestamp: new Date().toISOString(),
+            generatedAt: "fail",
+          },
+          data: null,
+        },
+      },
+    };
+  }
+};
