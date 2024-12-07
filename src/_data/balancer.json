@@ -1,0 +1,113 @@
+[
+  {
+    "protocol": "AAVE",
+    "chain": "Ethereum",
+    "pair": "rETH",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0xcc9ee9483f662091a1de4795249e24ac0ac2630f",
+          "name": "Aave Ethereum rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.5273439568361677",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.0151957222386353",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "195000570.5216781959332863121154482"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Arbitrum",
+    "pair": "rETH",
+    "link": "",
+    "data": {
+      "markets": [
+        {
+          "id": "0x8eb270e296023e9d92081fdf967ddd7878724424",
+          "name": "Aave Arbitrum rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.5461165820069011",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.0162968671910228",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "10470538.15779795454919708975077971"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Optimism",
+    "pair": "rETH",
+    "data": {
+      "markets": [
+        {
+          "id": "0x724dc807b04555b71ed48a6896b6f41593b8c637",
+          "name": "Aave Optimism rETH",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.5703898395840383",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "0.0177777568115742",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "3251833.1145039347772061662938158"
+        }
+      ]
+    }
+  },
+  {
+    "chain": "Ethereum",
+    "pair": "RPL",
+    "data": {
+      "markets": [
+        {
+          "id": "0xb76cf92076adbf1d9c39294fa8e7a67579fde357",
+          "name": "Aave Ethereum RPL",
+          "rates": [
+            {
+              "rate": "0",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "4.5855100486782064",
+              "side": "BORROWER"
+            },
+            {
+              "rate": "1.5832020635504043",
+              "side": "LENDER"
+            }
+          ],
+          "totalValueLockedUSD": "8464250.956235006255115077411107"
+        }
+      ]
+    }
+  }
+]
