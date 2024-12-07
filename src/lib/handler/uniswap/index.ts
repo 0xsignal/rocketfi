@@ -79,7 +79,7 @@ export async function updateData() {
       JSON.stringify(unifiedData, null, 2),
       "utf-8",
     );
-    console.log(`AAVE data updated successfully at ${UNI_JSON_PATH}`);
+    console.log(`Uniswap data updated successfully at ${UNI_JSON_PATH}`);
   } catch (error) {
     console.error("Failed to update AAVE data:", error);
   }
