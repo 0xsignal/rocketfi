@@ -42,7 +42,6 @@ export async function updateBalData() {
       endpoints.map((endpoint) => Process(endpoint)),
     );
 
-    // Collect only successful results
     const successfulResults = results.filter((result) => !result.error);
 
     const unifiedData = successfulResults.map((result) => ({
@@ -50,9 +49,11 @@ export async function updateBalData() {
       data: result.data,
     }));
 
+    console.log(`BAL data updated successfully `);
+
+
     return unifiedData
 
-    console.log(`BAL data updated successfully `);
   } catch (error) {
     console.error("Failed to update BAL data:", error);
   }

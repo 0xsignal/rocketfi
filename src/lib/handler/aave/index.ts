@@ -82,7 +82,9 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
 
 export const updateAaveData = unstable_cache(
   async () => {   
-    const results = await Promise.all(endpoints.map(Process));    
+    const results = await Promise.all(endpoints.map(Process));
+    
+    console.log(results)
 
     const successfulResults = results.filter(     
       (result): result is Aave => result !== null    
@@ -107,5 +109,6 @@ export const updateAaveData = unstable_cache(
 
 export async function revalidateAaveData() {
   const { revalidateTag } = require('next/cache');
+  console.log("Aave data revalidate");    
   revalidateTag('aave-data');
 }

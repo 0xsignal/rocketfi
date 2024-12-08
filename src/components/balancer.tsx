@@ -1,6 +1,4 @@
 import React from "react";
-import fs from "fs/promises";
-import path from "path";
 import { Balancer } from "@/lib/type";
 import {
   Table,
@@ -14,19 +12,16 @@ import {
 import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
-import os from "os"
 
-async function getData() {
-  const TEMP_DIR = os.tmpdir();
-  const TEMP_FILE_PATH = path.join(TEMP_DIR, 'balancer.json');
-  const filePath = path.join(process.cwd(), TEMP_FILE_PATH);
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(fileContents);
-  return data as Balancer[];
+
+interface BalancerListProps {
+  data: Balancer[]; 
 }
 
-export default async function BalancerList() {
-  const data = await getData();
+const BalancerList: React.FC<BalancerListProps>  = ({ data }) => {
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
   return (
     <div className="">
       <div>
