@@ -35,6 +35,7 @@ export async function updateMorphoData() {
       JSON.stringify(rETHMarketData, null, 2),
       "utf-8",
     );
+    console.log(`MORPHO data updated successfully at ${MORPHO_JSON_PATH}`);
   } catch (error) {
     console.error("Application error:", error);
   }
