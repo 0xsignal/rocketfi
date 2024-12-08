@@ -7,8 +7,6 @@ import {
   siloOptimismETHQuery,
   siloOptimismUSDCQuery,
 } from "@/lib/query";
-import fs from "fs";
-import path from "path";
 import {
   ethers,
   JsonRpcProvider,
@@ -17,12 +15,7 @@ import {
   BigNumberish,
 } from "ethers";
 import { ContractABIs } from "./abi";
-import os from "os"
-
-const TEMP_DIR = os.tmpdir();
-
-const DATA_DIR = path.join(process.cwd(), TEMP_DIR);
-const SILO_JSON_PATH = path.join(DATA_DIR, "silo.json");
+import { Silo } from "@/lib/type";
 
 const OP_RPC_URL = "https://optimism.llamarpc.com";
 const ARB_RPC_URL = "https://arbitrum.llamarpc.com";
@@ -142,20 +135,19 @@ async function readContractMethod(
   }
 }
 
-export async function updateSiloData() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-  }
+export async function updateSiloData(): Promise<Silo[]> {
 
   try {
-    const results = await Promise.all(
-      endpoints.map((endpoint) => Process(endpoint)),
+    const results = await Promise.all(endpoints.map(Process));
+
+    const successfulResults = results.filter(
+      (result): result is Silo => result !== null
     );
 
-    // Collect only successful results
-    const successfulResults = results.filter((result) => !result.error);
+    console.log(`SILO data updated successfully`);
 
-    const unifiedData = successfulResults.map((result) => ({
+
+    return successfulResults.map((result) => ({
       protocol: result.protocol,
       chain: result.chain,
       pair: result.pair,
@@ -163,14 +155,9 @@ export async function updateSiloData() {
       data: result.data,
     }));
 
-    // Write results to JSON
-    fs.writeFileSync(
-      SILO_JSON_PATH,
-      JSON.stringify(unifiedData, null, 2),
-      "utf-8",
-    );
-    console.log(`SILO data updated successfully at ${SILO_JSON_PATH}`);
+
   } catch (error) {
     console.error("Failed to update SILO data:", error);
+    return []
   }
 }

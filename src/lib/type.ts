@@ -1,20 +1,25 @@
+export interface Market {
+  id: string;
+  name: string;
+  rates: {
+    rate: string;
+    side: "BORROWER" | "LENDER";
+  }[];
+  totalValueLockedUSD: string;
+}
+
+export interface AaveData {
+  markets: Market[];
+}
+
 export interface Aave {
   protocol: string;
   chain: string;
   pair: string;
   link: string;
-  data: {
-    markets: {
-      id: string;
-      name: string;
-      rates: {
-        rate: string;
-        side: "BORROWER" | "LENDER";
-      }[];
-      totalValueLockedUSD?: string;
-    }[];
-  };
+  data: AaveData;
 }
+
 
 export interface Silo {
   protocol: string;
@@ -78,7 +83,7 @@ export interface Morpho {
     supplyApy: number;
     supplyAssetsUsd: number;
   };
-}
+};
 
 export interface Balancer {
   id: string;

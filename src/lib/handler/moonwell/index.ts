@@ -1,13 +1,5 @@
 import { createMoonwellClient } from "@moonwell-fi/moonwell-sdk";
-import fs from "fs";
-import path from "path";
-import os from "os"
-
-const TEMP_DIR = os.tmpdir();
-
-const DATA_DIR = path.join(process.cwd(), TEMP_DIR);
-
-const MOONWELL_JSON_PATH = path.join(DATA_DIR, "moonwell.json");
+import { Moonwell } from "@/lib/type";
 
 async function fetchMoonwellMarketData() {
   try {
@@ -34,10 +26,7 @@ async function fetchMoonwellMarketData() {
   }
 }
 
-export async function updateMoonwellData() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-  }
+export async function updateMoonwellData(): Promise<Moonwell[]> {
 
   try {
     const rETHMarketData = await fetchMoonwellMarketData();
@@ -53,12 +42,11 @@ export async function updateMoonwellData() {
       incentive: rETHMarket.rewards,
     }));
 
-    fs.writeFileSync(
-      MOONWELL_JSON_PATH,
-      JSON.stringify(rETHMarketDetails, null, 2),
-      "utf-8",
-    );
+    return rETHMarketDetails
+
+   
   } catch (error) {
     console.error("Application error:", error);
+    return []
   }
 }

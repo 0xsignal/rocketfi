@@ -2,15 +2,7 @@ import { GraphQLClient } from "graphql-request";
 import { z } from "zod";
 import { env } from "@/env/server";
 import { balancerQuery } from "@/lib/query";
-import fs from "fs";
-import path from "path";
-import os from "os"
 
-const TEMP_DIR = os.tmpdir();
-
-const DATA_DIR = path.join(process.cwd(), TEMP_DIR);
-
-const BAL_JSON_PATH = path.join(DATA_DIR, "balancer.json");
 
 const endpoints = [
   {
@@ -19,12 +11,6 @@ const endpoints = [
     query: balancerQuery,
   },
 ];
-
-const GraphqlReqSchema = z.object({
-  query: z.string().min(1),
-  operationName: z.string().optional().nullable(),
-  variables: z.record(z.unknown()).optional().nullable(),
-});
 
 async function Process(endpoint: (typeof endpoints)[0]) {
   const client = new GraphQLClient(endpoint.url, {
@@ -49,9 +35,7 @@ async function Process(endpoint: (typeof endpoints)[0]) {
 }
 
 export async function updateBalData() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-  }
+
 
   try {
     const results = await Promise.all(
@@ -66,13 +50,9 @@ export async function updateBalData() {
       data: result.data,
     }));
 
-    // Write results to JSON
-    fs.writeFileSync(
-      BAL_JSON_PATH,
-      JSON.stringify(unifiedData, null, 2),
-      "utf-8",
-    );
-    console.log(`BAL data updated successfully at ${BAL_JSON_PATH}`);
+    return unifiedData
+
+    console.log(`BAL data updated successfully `);
   } catch (error) {
     console.error("Failed to update BAL data:", error);
   }

@@ -1,7 +1,4 @@
 import React from "react";
-import fs from "fs/promises";
-import path from "path";
-import { Aave } from "@/lib/type";
 import {
   Table,
   TableBody,
@@ -14,20 +11,16 @@ import {
 import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
-import os from "os"
+import { Aave } from "@/lib/type";
 
-
-async function getData() {
-  const TEMP_DIR = os.tmpdir();
-  const TEMP_FILE_PATH = path.join(TEMP_DIR, 'aave.json');
-  const filePath = path.join(process.cwd(), TEMP_FILE_PATH);
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(fileContents);
-  return data as Aave[];
+interface AaveListProps {
+  data: Aave[]; 
 }
 
-export default async function AaveList() {
-  const data = await getData();
+const AaveList: React.FC<AaveListProps>  = ({ data }) => {
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
   return (
     <div className="">
       <div>
@@ -55,7 +48,7 @@ export default async function AaveList() {
             </TableRow>
           </TableHeader>
           <TableBody className="items-center">
-            {data.map((item, i) => (
+            {data.map((item:Aave, i:number) => (
               <TableRow key={i}>
                 <TableCell className="font-medium text-[#272E35] text-sm items-center">
                   {item.pair}
@@ -109,3 +102,6 @@ export default async function AaveList() {
     </div>
   );
 }
+
+
+export default AaveList;

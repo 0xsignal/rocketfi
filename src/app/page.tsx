@@ -13,15 +13,13 @@ import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
 import MorphoList from "@/components/morpho";
-import path from "path";
-import { updateData } from "@/lib/dataupdater";
 import { updateUniData } from "@/lib/handler/uniswap";
 import { updateBalData } from "@/lib/handler/balancer";
 import { updateAaveData } from "@/lib/handler/aave";
 import { updateMoonwellData } from "@/lib/handler/moonwell";
 import { updateSiloData } from "@/lib/handler/silo";
 import { updateMorphoData } from "@/lib/handler/morpho";
-import os from "os"
+
 
 
 const lendingStrategies = [
@@ -95,20 +93,15 @@ const liquidityStrategies = [
   },
 ];
 
+
 export default async function Home() {
 
-
-  const TEMP_DIR = os.tmpdir();
-
-  const dataFilePath = path.join(process.cwd(), TEMP_DIR, "job.json");
-
-  const updatedData = await updateData({
-    maxAgeMinutes: 5,
-    filePath: dataFilePath,
-    fetchDataFn: fetchLatestData,
-  });
-
-  console.log(updatedData);
+  const [aaveData,moonwellData,siloData,morphoData] = await Promise.all([
+    updateAaveData(),
+    updateMoonwellData(),
+    updateSiloData(),
+    updateMorphoData(),
+  ]);
 
   return (
     <main className="bg-background">
@@ -197,7 +190,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Aave" />
                 </div>
                 <div className="mt-10">
-                  <AaveList />
+                  <AaveList data={aaveData}/>
                 </div>
               </div>
               <div className="mt-10">
@@ -205,7 +198,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Moonwell" />
                 </div>
                 <div className="mt-10">
-                  <MoonwellList />
+                  <MoonwellList data={moonwellData}/>
                 </div>
               </div>
               <div className="mt-10">
@@ -213,7 +206,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Silo" />
                 </div>
                 <div className="mt-10">
-                  <SiloList />
+                  <SiloList data={siloData}/>
                 </div>
               </div>
               <div className="mt-10">
@@ -221,7 +214,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Morpho" />
                 </div>
                 <div className="mt-10">
-                  <MorphoList />
+                  <MorphoList data={morphoData}/>
                 </div>
               </div>
             </div>
@@ -279,17 +272,3 @@ export default async function Home() {
   );
 }
 
-async function fetchLatestData() {
-  await updateUniData();
-  await updateBalData();
-  await updateAaveData();
-  await updateMoonwellData();
-  await updateSiloData();
-  await updateMorphoData();
-
-  return {
-    status: "update successfully",
-  };
-}
-
-export const revalidate = 300;

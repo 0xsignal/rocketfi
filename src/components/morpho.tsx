@@ -1,6 +1,4 @@
 import React from "react";
-import fs from "fs/promises";
-import path from "path";
 import { Morpho } from "@/lib/type";
 import {
   Table,
@@ -15,19 +13,16 @@ import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
 import { capitalizeFirstLetter } from "@/lib/utils";
-import os from "os"
 
-async function getData() {
-  const TEMP_DIR = os.tmpdir();
-  const TEMP_FILE_PATH = path.join(TEMP_DIR, 'morpho.json');
-  const filePath = path.join(process.cwd(), TEMP_FILE_PATH);
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(fileContents);
-  return data as Morpho[];
+
+interface MorphoListProps {
+  data: Morpho[]; 
 }
 
-export default async function MorphoList() {
-  const data = await getData();
+const MorphoList: React.FC<MorphoListProps>  = ({ data }) => {
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
   return (
     <div className="">
       <div>
@@ -58,7 +53,7 @@ export default async function MorphoList() {
             </TableRow>
           </TableHeader>
           <TableBody className="items-center">
-            {data.map((item, i) => (
+            {data.map((item:Morpho, i:number) => (
               <TableRow key={i}>
                 <TableCell className="font-medium text-[#272E35] text-sm items-center">
                   {item.loanAsset.symbol}
@@ -140,3 +135,5 @@ export default async function MorphoList() {
     </div>
   );
 }
+
+export default MorphoList
