@@ -2,8 +2,13 @@ import { GraphQLClient } from "graphql-request";
 import { morphoQuery } from "@/lib/query";
 import fs from "fs";
 import path from "path";
+import os from "os"
+import { Morpho } from "@/lib/type";
 
-const DATA_DIR = path.join(process.cwd(), "tmp");
+const TEMP_DIR = os.tmpdir();
+
+const DATA_DIR = path.join(process.cwd(), TEMP_DIR);
+
 const MORPHO_JSON_PATH = path.join(DATA_DIR, "morpho.json");
 
 const MORPHO_GRAPHQL_URL = "https://blue-api.morpho.org/graphql";
@@ -11,10 +16,11 @@ const MORPHO_GRAPHQL_URL = "https://blue-api.morpho.org/graphql";
 async function Process() {
   const client = new GraphQLClient(MORPHO_GRAPHQL_URL);
   try {
-    const data = await client.request(morphoQuery);
+    
+    const data: { markets: { items: Morpho[] } } = await client.request<{ markets: { items: Morpho[] } }>(morphoQuery);
+  
     const rethMarkets = data.markets.items.filter(
-      (market) =>
-        market.collateralAsset && market.collateralAsset.symbol === "rETH",
+      (market) => market.collateralAsset && market.collateralAsset.symbol === "rETH"
     );
     return rethMarkets;
   } catch (error) {

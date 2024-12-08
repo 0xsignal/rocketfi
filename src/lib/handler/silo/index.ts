@@ -17,8 +17,11 @@ import {
   BigNumberish,
 } from "ethers";
 import { ContractABIs } from "./abi";
+import os from "os"
 
-const DATA_DIR = path.join(process.cwd(), "/tmp");
+const TEMP_DIR = os.tmpdir();
+
+const DATA_DIR = path.join(process.cwd(), TEMP_DIR);
 const SILO_JSON_PATH = path.join(DATA_DIR, "silo.json");
 
 const OP_RPC_URL = "https://optimism.llamarpc.com";

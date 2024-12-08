@@ -21,6 +21,8 @@ import { updateAaveData } from "@/lib/handler/aave";
 import { updateMoonwellData } from "@/lib/handler/moonwell";
 import { updateSiloData } from "@/lib/handler/silo";
 import { updateMorphoData } from "@/lib/handler/morpho";
+import os from "os"
+
 
 const lendingStrategies = [
   {
@@ -94,7 +96,11 @@ const liquidityStrategies = [
 ];
 
 export default async function Home() {
-  const dataFilePath = path.join(process.cwd(), "/tmp", "job.json");
+
+
+  const TEMP_DIR = os.tmpdir();
+
+  const dataFilePath = path.join(process.cwd(), TEMP_DIR, "job.json");
 
   const updatedData = await updateData({
     maxAgeMinutes: 5,

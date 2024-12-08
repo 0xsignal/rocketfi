@@ -14,9 +14,12 @@ import {
 import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
+import os from "os"
 
 async function getData() {
-  const filePath = path.join(process.cwd(), "/tmp/morpho.json");
+  const TEMP_DIR = os.tmpdir();
+  const TEMP_FILE_PATH = path.join(TEMP_DIR, 'balancer.json');
+  const filePath = path.join(process.cwd(), TEMP_FILE_PATH);
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
   return data as Balancer[];

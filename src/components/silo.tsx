@@ -1,6 +1,7 @@
 import React from "react";
 import fs from "fs/promises";
 import path from "path";
+import os from "os"
 import { Silo } from "@/lib/type";
 import {
   Table,
@@ -16,7 +17,9 @@ import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
 
 async function getData() {
-  const filePath = path.join(process.cwd(), "/tmp/silo.json");
+  const TEMP_DIR = os.tmpdir();
+  const TEMP_FILE_PATH = path.join(TEMP_DIR, 'silo.json');
+  const filePath = path.join(process.cwd(), TEMP_FILE_PATH);
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
   return data as Silo[];
