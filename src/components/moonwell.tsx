@@ -62,7 +62,7 @@ const MoonwellList: React.FC<MoonwellListProps>  = ({ data }) => {
                 <TableCell className="font-medium text-[#272E35] text-sm ">
                   <div className="flex gap-2 items-center">
                     <div className="w-5">
-                      <ChainIcon icon={getChainName(item.chain)} />
+                      <ChainIcon icon={getChainName(item.chain).toLowerCase()} />
                     </div>
                     {getChainName(item.chain)}
                   </div>

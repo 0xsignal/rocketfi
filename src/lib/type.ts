@@ -85,23 +85,56 @@ export interface Morpho {
   };
 };
 
+export interface PoolToken {
+  address: string;
+  symbol: string;
+  balance: string;
+  hasNestedPool: boolean;
+}
+
+export interface AprItem {
+  type: string;
+  apr: number;
+}
+
+export interface DynamicData {
+  totalLiquidity: string;
+  aprItems: AprItem[];
+}
+
 export interface Balancer {
   id: string;
   name: string;
   type: string;
   version: number;
   chain: string;
-  poolTokens: {
-    address: string;
-    symbol: string;
-    balance: string;
-    hasNestedPool: boolean;
-  }[];
-  dynamicData: {
-    totalLiquidity: string;
-    aprItems: {
-      type: string;
-      apr: number;
-    }[];
-  };
+  poolTokens: PoolToken[];
+  dynamicData: DynamicData;
 }
+
+export interface BalancerResponse {
+  [key: string]: Balancer;
+}
+
+export interface PoolDayData {
+  date: number;
+  feesUSD: string;
+  tvlUSD: string;
+  volumeUSD: string;
+}
+
+export interface Pool {
+  poolDayData: PoolDayData[];
+  totalValueLockedUSD: string;
+}
+
+export interface ChainData {
+  [poolName: string]: Pool;
+}
+
+export interface Uniswap {
+  chain: string;
+  link: string;
+  data: ChainData;
+}
+

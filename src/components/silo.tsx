@@ -57,7 +57,7 @@ const SiloList: React.FC<SiloListProps>  = ({ data }) => {
                 <TableCell className="font-medium text-[#272E35] text-sm ">
                   <div className="flex gap-2 items-center">
                     <div className="w-5">
-                      <ChainIcon icon={item.chain} />
+                      <ChainIcon icon={item.chain.toLowerCase()} />
                     </div>
                     {item.chain}
                   </div>

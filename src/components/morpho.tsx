@@ -16,10 +16,10 @@ import { capitalizeFirstLetter } from "@/lib/utils";
 
 
 interface MorphoListProps {
-  data: Morpho[]; 
+  data: Morpho[];
 }
 
-const MorphoList: React.FC<MorphoListProps>  = ({ data }) => {
+const MorphoList: React.FC<MorphoListProps> = ({ data }) => {
   if (!data || data.length === 0) {
     return <div>No data available</div>;
   }
@@ -53,7 +53,7 @@ const MorphoList: React.FC<MorphoListProps>  = ({ data }) => {
             </TableRow>
           </TableHeader>
           <TableBody className="items-center">
-            {data.map((item:Morpho, i:number) => (
+            {data.map((item: Morpho, i: number) => (
               <TableRow key={i}>
                 <TableCell className="font-medium text-[#272E35] text-sm items-center">
                   {item.loanAsset.symbol}
@@ -65,9 +65,7 @@ const MorphoList: React.FC<MorphoListProps>  = ({ data }) => {
                   <div className="flex gap-2 items-center">
                     <div className="w-5">
                       <ChainIcon
-                        icon={capitalizeFirstLetter(
-                          item.collateralAsset.chain.network,
-                        )}
+                        icon={item.collateralAsset.chain.network}
                       />
                     </div>
                     {capitalizeFirstLetter(item.collateralAsset.chain.network)}

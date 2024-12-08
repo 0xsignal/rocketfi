@@ -113,7 +113,14 @@ export function formatPercentage(numStr: string | number): string {
   return `${num.toFixed(2)}%`;
 }
 
+export function toPercentage (value: number): string {
+  const percentage = (value * 100).toFixed(2); 
+  return `${percentage}%`;
+};
+
+
 export function getChainName(chainId: number | string): string {
+  // Convert string chainId to a number, handling hex or decimal formats
   const id =
     typeof chainId === "string"
       ? chainId.startsWith("0x")
@@ -121,26 +128,30 @@ export function getChainName(chainId: number | string): string {
         : parseInt(chainId, 10)
       : chainId;
 
-  const chainIdToName: { [key: number]: string } = {
-    1: "Ethereum Mainnet",
-    56: "Binance Smart Chain Mainnet",
-    97: "Binance Smart Chain Testnet",
-    43114: "Avalanche C-Chain Mainnet",
-    43113: "Avalanche Fuji Testnet",
-    42161: "Arbitrum One",
-    421613: "Arbitrum Goerli Testnet",
-    10: "Optimism",
-    420: "Optimism Goerli Testnet",
-    250: "Fantom Opera",
-    4002: "Fantom Testnet",
-    100: "Gnosis Chain (xDai)",
-    8453: "Base",
+  const chainIdToNames: { [key: number]: string[] } = {
+    1: ["Ethereum", "MAINNET"],
+    56: ["Binance Smart Chain Mainnet", "BSC Mainnet"],
+    97: ["Binance Smart Chain Testnet", "BSC Testnet"],
+    43114: ["Avalanche C-Chain Mainnet", "Avalanche Mainnet"],
+    43113: ["Avalanche Fuji Testnet", "Avalanche Testnet"],
+    42161: ["Arbitrum One", "Arbitrum", "ARBITRUM"],
+    421613: ["Arbitrum Goerli Testnet", "Arbitrum Goerli"],
+    10: ["Optimism", "Optimism Mainnet","OPTIMISM"],
+    420: ["Optimism Goerli Testnet", "Optimism Testnet"],
+    250: ["Fantom Opera", "Fantom Mainnet"],
+    4002: ["Fantom Testnet", "Fantom Testnet"],
+    100: ["Gnosis Chain (xDai)", "xDai"],
+    8453: ["Base", "Base Layer","BASE"],
   };
 
-  return chainIdToName[id] || "Unknown Chain";
+  const names = chainIdToNames[id];
+
+  return names ? names[0] : "Unknown Chain";
 }
 
 export function capitalizeFirstLetter(str: string): string {
   if (!str) return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+

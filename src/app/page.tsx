@@ -13,12 +13,14 @@ import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
 import MorphoList from "@/components/morpho";
-import { updateUniData } from "@/lib/handler/uniswap";
-import { updateBalData } from "@/lib/handler/balancer";
+import BalancerList from "@/components/balancer";
+import { updateUniswapData } from "@/lib/handler/uniswap";
+import { updateBalancerData } from "@/lib/handler/balancer";
 import { updateAaveData } from "@/lib/handler/aave";
 import { updateMoonwellData } from "@/lib/handler/moonwell";
 import { updateSiloData } from "@/lib/handler/silo";
 import { updateMorphoData } from "@/lib/handler/morpho";
+import UniswapList from "@/components/uniswap";
 
 
 
@@ -96,11 +98,13 @@ const liquidityStrategies = [
 
 export default async function Home() {
 
-  const [aaveData,moonwellData,siloData,morphoData] = await Promise.all([
+  const [aaveData, moonwellData, siloData, morphoData, balancerData,uniswapData] = await Promise.all([
     updateAaveData(),
     updateMoonwellData(),
     updateSiloData(),
     updateMorphoData(),
+    updateBalancerData(),
+    updateUniswapData(),
   ]);
 
   return (
@@ -190,7 +194,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Aave" />
                 </div>
                 <div className="mt-10">
-                  <AaveList data={aaveData}/>
+                  <AaveList data={aaveData} />
                 </div>
               </div>
               <div className="mt-10">
@@ -198,7 +202,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Moonwell" />
                 </div>
                 <div className="mt-10">
-                  <MoonwellList data={moonwellData}/>
+                  <MoonwellList data={moonwellData} />
                 </div>
               </div>
               <div className="mt-10">
@@ -206,7 +210,7 @@ export default async function Home() {
                   <ProtocolIcon icon="Silo" />
                 </div>
                 <div className="mt-10">
-                  <SiloList data={siloData}/>
+                  <SiloList data={siloData} />
                 </div>
               </div>
               <div className="mt-10">
@@ -214,12 +218,12 @@ export default async function Home() {
                   <ProtocolIcon icon="Morpho" />
                 </div>
                 <div className="mt-10">
-                  <MorphoList data={morphoData}/>
+                  <MorphoList data={morphoData} />
                 </div>
               </div>
             </div>
             <div className="mt-24">
-              <div className="text-2xl text-[#272E35] font-medium">
+              <div className="text-xl text-[#272E35] font-bold">
                 Liquidity Market
               </div>
               <div className="mt-10 bg-white rounded-lg overflow-hidden px-6 py-4 text-gray-500">
@@ -236,7 +240,7 @@ export default async function Home() {
                               {strategy.name}
                             </span>
                           </div>
-                          <div className="flex items-center space-x-4 text-base">
+                          <div className="flex items-center space-x-4 text-sm">
                             <Badge
                               variant={
                                 strategy.risk === "Low"
@@ -254,7 +258,7 @@ export default async function Home() {
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="mt-4 space-y-4">
-                          <p className="text-base">{strategy.description}</p>
+                          <p className="text-sm">{strategy.description}</p>
                         </div>
                       </AccordionContent>
                     </AccordionItem>
@@ -264,7 +268,22 @@ export default async function Home() {
             </div>
           </div>
           <div className="mt-20">
-            <div className=""></div>
+            <div className="mt-10">
+              <div className="w-24 h-fit">
+                <ProtocolIcon icon="Balancer" />
+              </div>
+              <div className="mt-10">
+                <BalancerList data={balancerData} />
+              </div>
+            </div>
+            <div className="mt-10">
+              <div className="w-24 h-fit">
+                <ProtocolIcon icon="Uniswap" />
+              </div>
+              <div className="mt-10">
+                <UniswapList data={uniswapData} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
