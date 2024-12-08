@@ -15,7 +15,7 @@ import { formatTVL, formatPercentage, getChainName } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
 async function getData() {
-  const filePath = path.join(process.cwd(), "src/_data/moonwell.json");
+  const filePath = path.join(process.cwd(), "tmp/_data/moonwell.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
   return data as Moonwell[];

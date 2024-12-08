@@ -93,7 +93,7 @@ const liquidityStrategies = [
 ];
 
 export default async function Home() {
-  const dataFilePath = path.join(process.cwd(), "/tmp", "_data", "job.json");
+  const dataFilePath = path.join(process.cwd(), "tmp", "_data", "job.json");
 
   const updatedData = await updateData({
     maxAgeMinutes: 5,

@@ -17,7 +17,7 @@ import { ChainIcon } from "@/components/icon";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 async function getData() {
-  const filePath = path.join(process.cwd(), "src/_data/morpho.json");
+  const filePath = path.join(process.cwd(), "tmp/_data/morpho.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
   return data as Morpho[];

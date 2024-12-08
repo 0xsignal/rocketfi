@@ -3,7 +3,7 @@ import { morphoQuery } from "@/lib/query";
 import fs from "fs";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "/tmp", "_data");
+const DATA_DIR = path.join(process.cwd(), "tmp", "_data");
 const MORPHO_JSON_PATH = path.join(DATA_DIR, "morpho.json");
 
 const MORPHO_GRAPHQL_URL = "https://blue-api.morpho.org/graphql";
