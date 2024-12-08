@@ -20,6 +20,7 @@ import { updateBalData } from "@/lib/handler/balancer";
 import { updateAaveData } from "@/lib/handler/aave";
 import { updateMoonwellData } from "@/lib/handler/moonwell";
 import { updateSiloData } from "@/lib/handler/silo";
+import { updateMorphoData } from "@/lib/handler/morpho";
 
 const lendingStrategies = [
   {
@@ -278,6 +279,7 @@ async function fetchLatestData() {
   await updateAaveData();
   await updateMoonwellData();
   await updateSiloData();
+  await updateMorphoData();
 
   return {
     status: "update successfully",
