@@ -11,7 +11,7 @@ export interface Aave {
         rate: string;
         side: "BORROWER" | "LENDER";
       }[];
-      totalValueLockedUSD: string;
+      totalValueLockedUSD?: string;
     }[];
   };
 }
@@ -29,7 +29,7 @@ export interface Silo {
         id: string;
         rate: string;
       }[];
-      totalValueLockedUSD: string;
+      totalValueLockedUSD?: string;
     }[];
   };
 }
