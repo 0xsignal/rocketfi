@@ -12,6 +12,7 @@ import { ShieldCheck, BarChart2, Zap } from "lucide-react";
 import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
+import MorphoList from "@/components/morpho";
 import path from "path";
 import { updateData } from "@/lib/dataupdater";
 import { updateUniData } from "@/lib/handler/uniswap";
@@ -92,7 +93,7 @@ const liquidityStrategies = [
 ];
 
 export default async function Home() {
-  const dataFilePath = path.join(process.cwd(), "src", "_data", "job.json");
+  const dataFilePath = path.join(process.cwd(), "/tmp", "_data", "job.json");
 
   const updatedData = await updateData({
     maxAgeMinutes: 5,
@@ -193,7 +194,15 @@ export default async function Home() {
                 </div>
               </div>
               <div className="mt-10">
-                <div className="w-16">
+                <div className="w-24 h-fit bg-[#2474DA] p-2 rounded-md">
+                  <ProtocolIcon icon="Moonwell" />
+                </div>
+                <div className="mt-10">
+                  <MoonwellList />
+                </div>
+              </div>
+              <div className="mt-10">
+                <div className="w-14">
                   <ProtocolIcon icon="Silo" />
                 </div>
                 <div className="mt-10">
@@ -201,11 +210,11 @@ export default async function Home() {
                 </div>
               </div>
               <div className="mt-10">
-                <div className="w-36 h-fit bg-[#2474DA] p-2 rounded-md">
-                  <ProtocolIcon icon="Moonwell" />
+                <div className="w-24 h-fit">
+                  <ProtocolIcon icon="Morpho" />
                 </div>
                 <div className="mt-10">
-                  <MoonwellList />
+                  <MorphoList />
                 </div>
               </div>
             </div>

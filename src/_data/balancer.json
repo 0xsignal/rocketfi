@@ -1,113 +1,393 @@
 [
   {
-    "protocol": "AAVE",
-    "chain": "Ethereum",
-    "pair": "rETH",
-    "link": "",
+    "protocol": "Balancer",
     "data": {
-      "markets": [
-        {
-          "id": "0xcc9ee9483f662091a1de4795249e24ac0ac2630f",
-          "name": "Aave Ethereum rETH",
-          "rates": [
+      "pool1": {
+        "id": "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",
+        "name": "Balancer rETH Stable Pool",
+        "type": "META_STABLE",
+        "version": 1,
+        "chain": "MAINNET",
+        "poolTokens": [
+          {
+            "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+            "symbol": "rETH",
+            "balance": "4484.497311598457",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "balance": "4525.524044226101",
+            "hasNestedPool": false
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "38253533.26",
+          "aprItems": [
             {
-              "rate": "0",
-              "side": "BORROWER"
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.02415055683198227
             },
             {
-              "rate": "0.5273439568361677",
-              "side": "BORROWER"
+              "type": "STAKING_BOOST",
+              "apr": 0.03622583524797341
             },
             {
-              "rate": "0.0151957222386353",
-              "side": "LENDER"
+              "type": "SWAP_FEE_7D",
+              "apr": 0.4634517745386356
+            },
+            {
+              "type": "SWAP_FEE_30D",
+              "apr": 0.1022890678820605
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.007082486682468276
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.0004163290573807285
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.0004163290573807285
             }
-          ],
-          "totalValueLockedUSD": "195000570.5216781959332863121154482"
+          ]
         }
-      ]
-    }
-  },
-  {
-    "chain": "Arbitrum",
-    "pair": "rETH",
-    "link": "",
-    "data": {
-      "markets": [
-        {
-          "id": "0x8eb270e296023e9d92081fdf967ddd7878724424",
-          "name": "Aave Arbitrum rETH",
-          "rates": [
+      },
+      "pool2": {
+        "id": "0x05ff47afada98a98982113758878f9a8b9fdda0a000000000000000000000645",
+        "name": "Balancer weETH/rETH StablePool",
+        "type": "COMPOSABLE_STABLE",
+        "version": 5,
+        "chain": "MAINNET",
+        "poolTokens": [
+          {
+            "address": "0x05ff47afada98a98982113758878f9a8b9fdda0a",
+            "symbol": "weETH/rETH",
+            "balance": "2596148429267561",
+            "hasNestedPool": true
+          },
+          {
+            "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+            "symbol": "rETH",
+            "balance": "2317.004078960507",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+            "symbol": "weETH",
+            "balance": "1157.5155915358043",
+            "hasNestedPool": false
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "15289347.81",
+          "aprItems": [
             {
-              "rate": "0",
-              "side": "BORROWER"
+              "type": "IB_YIELD",
+              "apr": 0.00915333513639558
             },
             {
-              "rate": "0.5461165820069011",
-              "side": "BORROWER"
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.02116666512170006
             },
             {
-              "rate": "0.0162968671910228",
-              "side": "LENDER"
+              "type": "STAKING_BOOST",
+              "apr": 0.03174999768255008
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.004451785578022628
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.0008807451825841523
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.0008807451825841523
+            },
+            {
+              "type": "SWAP_FEE_7D",
+              "apr": 0.5306879092253254
+            },
+            {
+              "type": "SWAP_FEE_30D",
+              "apr": 0.1191491805343533
             }
-          ],
-          "totalValueLockedUSD": "10470538.15779795454919708975077971"
+          ]
         }
-      ]
-    }
-  },
-  {
-    "chain": "Optimism",
-    "pair": "rETH",
-    "data": {
-      "markets": [
-        {
-          "id": "0x724dc807b04555b71ed48a6896b6f41593b8c637",
-          "name": "Aave Optimism rETH",
-          "rates": [
+      },
+      "pool3": {
+        "id": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b",
+        "name": "wstETH-rETH-sfrxETH-BPT",
+        "type": "COMPOSABLE_STABLE",
+        "version": 5,
+        "chain": "MAINNET",
+        "poolTokens": [
+          {
+            "address": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af7",
+            "symbol": "wstETH-rETH-sfrxETH-BPT",
+            "balance": "2596148429267558",
+            "hasNestedPool": true
+          },
+          {
+            "address": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+            "symbol": "wstETH",
+            "balance": "218.8415333462593",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xac3e018457b222d93114458476f3e3416abbe38f",
+            "symbol": "sfrxETH",
+            "balance": "881.5442632890581",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+            "symbol": "rETH",
+            "balance": "772.1675926636672",
+            "hasNestedPool": false
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "8406662.64",
+          "aprItems": [
             {
-              "rate": "0",
-              "side": "BORROWER"
+              "type": "SWAP_FEE_7D",
+              "apr": 0.2846040202318478
             },
             {
-              "rate": "0.5703898395840383",
-              "side": "BORROWER"
+              "type": "SWAP_FEE_30D",
+              "apr": 0.06464063070034544
             },
             {
-              "rate": "0.0177777568115742",
-              "side": "LENDER"
+              "type": "IB_YIELD",
+              "apr": 0.001855572387848577
+            },
+            {
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.01003600502815263
+            },
+            {
+              "type": "STAKING_BOOST",
+              "apr": 0.01505400754222895
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.001335525378174488
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.001335525378174488
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.00554779284768141
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.007162858791186092
             }
-          ],
-          "totalValueLockedUSD": "3251833.1145039347772061662938158"
+          ]
         }
-      ]
-    }
-  },
-  {
-    "chain": "Ethereum",
-    "pair": "RPL",
-    "data": {
-      "markets": [
-        {
-          "id": "0xb76cf92076adbf1d9c39294fa8e7a67579fde357",
-          "name": "Aave Ethereum RPL",
-          "rates": [
+      },
+      "pool4": {
+        "id": "0xd0ec47c54ca5e20aaae4616c25c825c7f48d40690000000000000000000004ef",
+        "name": "Balancer rETH/wETH StablePool",
+        "type": "COMPOSABLE_STABLE",
+        "version": 5,
+        "chain": "ARBITRUM",
+        "poolTokens": [
+          {
+            "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "symbol": "WETH",
+            "balance": "250.8767703881252",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xd0ec47c54ca5e20aaae4616c25c825c7f48d4069",
+            "symbol": "rETH/wETH BPT",
+            "balance": "2596148429267580.5",
+            "hasNestedPool": true
+          },
+          {
+            "address": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+            "symbol": "rETH",
+            "balance": "799.8569471616548",
+            "hasNestedPool": false
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "4595188.61",
+          "aprItems": [
             {
-              "rate": "0",
-              "side": "BORROWER"
+              "type": "IB_YIELD",
+              "apr": 0.01051438261079658
             },
             {
-              "rate": "4.5855100486782064",
-              "side": "BORROWER"
+              "type": "SWAP_FEE_7D",
+              "apr": 0.09365040299801174
             },
             {
-              "rate": "1.5832020635504043",
-              "side": "LENDER"
+              "type": "SWAP_FEE_30D",
+              "apr": 0.02054908414506505
+            },
+            {
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.01585466266762453
+            },
+            {
+              "type": "STAKING_BOOST",
+              "apr": 0.023781994001436803
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.001442822886962124
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.001442822886962124
             }
-          ],
-          "totalValueLockedUSD": "8464250.956235006255115077411107"
+          ]
         }
-      ]
+      },
+      "pool5": {
+        "id": "0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106",
+        "name": "Ethereum Triplets",
+        "type": "COMPOSABLE_STABLE",
+        "version": 5,
+        "chain": "OPTIMISM",
+        "poolTokens": [
+          {
+            "address": "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+            "symbol": "wstETH",
+            "balance": "90.2007816795164",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0x484c2d6e3cdd945a8b2df735e079178c1036578c",
+            "symbol": "sfrxETH",
+            "balance": "301.31844402796145",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0x5f8893506ddc4c271837187d14a9c87964a074dc",
+            "symbol": "bpt-ethtri",
+            "balance": "2596148429271169.5",
+            "hasNestedPool": true
+          },
+          {
+            "address": "0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+            "symbol": "rETH",
+            "balance": "486.60741244642793",
+            "hasNestedPool": false
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "3946234.63",
+          "aprItems": [
+            {
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.0147851793702416
+            },
+            {
+              "type": "STAKING_BOOST",
+              "apr": 0.0221777690553624
+            },
+            {
+              "type": "SWAP_FEE_7D",
+              "apr": 0.163248351150676
+            },
+            {
+              "type": "SWAP_FEE_30D",
+              "apr": 0.03659644280202261
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.007448924480378056
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.001629538548999023
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.002847857608275687
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.002847857608275687
+            },
+            {
+              "type": "IB_YIELD",
+              "apr": 0.005216439411635487
+            }
+          ]
+        }
+      },
+      "pool6": {
+        "id": "0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",
+        "name": "Balancer rETH-WETH Stable Pool",
+        "type": "COMPOSABLE_STABLE",
+        "version": 5,
+        "chain": "BASE",
+        "poolTokens": [
+          {
+            "address": "0x4200000000000000000000000000000000000006",
+            "symbol": "WETH",
+            "balance": "317.87070846538836",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+            "symbol": "rETH",
+            "balance": "553.7789424567884",
+            "hasNestedPool": false
+          },
+          {
+            "address": "0xc771c1a5905420daec317b154eb13e4198ba97d0",
+            "symbol": "rETH-WETH-BPT",
+            "balance": "2596148429267411.5",
+            "hasNestedPool": true
+          }
+        ],
+        "dynamicData": {
+          "totalLiquidity": "3759882.80",
+          "aprItems": [
+            {
+              "type": "IB_YIELD",
+              "apr": 0.008897333800853892
+            },
+            {
+              "type": "SWAP_FEE_30D",
+              "apr": 0.02791936768611847
+            },
+            {
+              "type": "SWAP_FEE_7D",
+              "apr": 0.1654341147590357
+            },
+            {
+              "type": "SWAP_FEE_24H",
+              "apr": 0.03017914795096694
+            },
+            {
+              "type": "SWAP_FEE",
+              "apr": 0.03017914795096694
+            },
+            {
+              "type": "VEBAL_EMISSIONS",
+              "apr": 0.0271032876211941
+            },
+            {
+              "type": "STAKING_BOOST",
+              "apr": 0.040654931431791164
+            }
+          ]
+        }
+      }
     }
   }
 ]

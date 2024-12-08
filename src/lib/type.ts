@@ -54,3 +54,49 @@ export interface Moonwell {
     };
   }[];
 }
+
+export interface Morpho {
+  uniqueKey: string;
+  loanAsset: {
+    address: string;
+    symbol: string;
+    decimals: number;
+  };
+  collateralAsset: {
+    address: string;
+    symbol: string;
+    decimals: number;
+    chain: {
+      id: number;
+      network: string;
+    };
+  };
+  state: {
+    borrowApy: number;
+    borrowAssets: string;
+    borrowAssetsUsd: number;
+    supplyApy: number;
+    supplyAssetsUsd: number;
+  };
+}
+
+export interface Balancer {
+  id: string;
+  name: string;
+  type: string;
+  version: number;
+  chain: string;
+  poolTokens: {
+    address: string;
+    symbol: string;
+    balance: string;
+    hasNestedPool: boolean;
+  }[];
+  dynamicData: {
+    totalLiquidity: string;
+    aprItems: {
+      type: string;
+      apr: number;
+    }[];
+  };
+}

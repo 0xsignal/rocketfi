@@ -1,48 +1,18 @@
 import { GraphQLClient } from "graphql-request";
 import { z } from "zod";
 import { env } from "@/env/server";
-import {
-  aaveArbitrumQuery,
-  aaveEthereumQuery,
-  aaveOptimismQuery,
-  aaveEthereumRPLQuery,
-} from "@/lib/query";
+import { balancerQuery } from "@/lib/query";
 import fs from "fs";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "src", "_data");
+const DATA_DIR = path.join(process.cwd(), "/tmp", "_data");
 const BAL_JSON_PATH = path.join(DATA_DIR, "balancer.json");
 
 const endpoints = [
   {
-    protocol: "AAVE",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
-    pair: "rETH",
-    chain: "Ethereum",
-    query: aaveEthereumQuery,
-    link: "",
-  },
-  {
-    name: "AAVE",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/4xyasjQeREe7PxnF6wVdobZvCw5mhoHZq3T7guRpuNPf",
-    pair: "rETH",
-    chain: "Arbitrum",
-    query: aaveArbitrumQuery,
-    link: "",
-  },
-  {
-    name: "AAVE",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/3RWFxWNstn4nP3dXiDfKi9GgBoHx7xzc7APkXs1MLEgi",
-    pair: "rETH",
-    chain: "Optimism",
-    query: aaveOptimismQuery,
-  },
-  {
-    name: "AAVE",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
-    pair: "RPL",
-    chain: "Ethereum",
-    query: aaveEthereumRPLQuery,
+    protocol: "Balancer",
+    url: "https://api-v3.balancer.fi/",
+    query: balancerQuery,
   },
 ];
 
@@ -63,18 +33,12 @@ async function Process(endpoint: (typeof endpoints)[0]) {
     const data = await client.request(endpoint.query);
     return {
       protocol: endpoint.protocol,
-      chain: endpoint.chain,
-      pair: endpoint.pair,
-      link: endpoint.link,
       data: data,
     };
   } catch (error) {
-    console.error(`Failed to fetch data from ${endpoint.chain}:`, error);
+    console.error(`Failed to fetch data:`, error);
     return {
       protocol: endpoint.protocol,
-      chain: endpoint.chain,
-      pair: endpoint.pair,
-      link: endpoint.link,
       error: error instanceof Error ? error.message : "Unknown error",
     };
   }
@@ -95,9 +59,6 @@ export async function updateBalData() {
 
     const unifiedData = successfulResults.map((result) => ({
       protocol: result.protocol,
-      chain: result.chain,
-      pair: result.pair,
-      link: result.link,
       data: result.data,
     }));
 
@@ -107,8 +68,8 @@ export async function updateBalData() {
       JSON.stringify(unifiedData, null, 2),
       "utf-8",
     );
-    console.log(`AAVE data updated successfully at ${BAL_JSON_PATH}`);
+    console.log(`BAL data updated successfully at ${BAL_JSON_PATH}`);
   } catch (error) {
-    console.error("Failed to update AAVE data:", error);
+    console.error("Failed to update BAL data:", error);
   }
 }

@@ -2,7 +2,7 @@ import { createMoonwellClient } from "@moonwell-fi/moonwell-sdk";
 import fs from "fs";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "src", "_data");
+const DATA_DIR = path.join(process.cwd(), "/tmp", "_data");
 const MOONWELL_JSON_PATH = path.join(DATA_DIR, "moonwell.json");
 
 async function fetchMoonwellMarketData() {

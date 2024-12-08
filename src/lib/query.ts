@@ -161,13 +161,14 @@ export const morphoQuery = `{
 }`;
 
 /* Balancer Pool */
-export const balancerQuery = `{
+export const balancerQuery = `
   query {
     pool1:poolGetPool(id:"0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",chain:MAINNET){
       id
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -187,6 +188,7 @@ export const balancerQuery = `{
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -206,6 +208,7 @@ export const balancerQuery = `{
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -225,6 +228,7 @@ export const balancerQuery = `{
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -244,6 +248,7 @@ export const balancerQuery = `{
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -263,6 +268,7 @@ export const balancerQuery = `{
       name
       type
       version
+      chain
       poolTokens {
         address
         symbol
@@ -277,7 +283,6 @@ export const balancerQuery = `{
         }
       }
     }
-  }
 }`;
 
 export const uniswapEthereumQuery = `{

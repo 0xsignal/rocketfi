@@ -5,7 +5,7 @@ import { uniswapEthereumQuery, uniswapArbitrumQuery } from "@/lib/query";
 import fs from "fs";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "src", "_data");
+const DATA_DIR = path.join(process.cwd(), "/tmp", "_data");
 const UNI_JSON_PATH = path.join(DATA_DIR, "uniswap.json");
 
 const endpoints = [

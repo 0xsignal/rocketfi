@@ -137,6 +137,10 @@ export function getChainName(chainId: number | string): string {
     8453: "Base",
   };
 
-  // 查找对应的 Chain Name
   return chainIdToName[id] || "Unknown Chain";
+}
+
+export function capitalizeFirstLetter(str: string): string {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }

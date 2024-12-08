@@ -1,17 +1,17 @@
 [
   {
     "marketIndex": 1,
-    "totalSupplyUSD": "3847751.7836047164",
-    "supplyAPR": "0.379046973441143",
-    "borrowAPR": "-0.007130587510708608",
-    "baseSupplyAPR": "0.17373277550050137",
-    "baseBorrowAPR": "0.17373277550050137",
+    "totalSupplyUSD": "3799268.7939359215",
+    "supplyAPR": "0.3687080005769896",
+    "borrowAPR": "0.05437190444410933",
+    "baseSupplyAPR": "0.17364295071529146",
+    "baseBorrowAPR": "0.17364295071529146",
     "chain": 8453,
     "incentive": [
       {
         "liquidStakingApr": 0,
-        "borrowApr": -1.2446011235388044,
-        "supplyApr": 0.20531419794064162,
+        "borrowApr": -1.1827770019342065,
+        "supplyApr": 0.19506504986169812,
         "token": {
           "address": "0xA88594D404727625A9437C3f886C7643872296AE",
           "decimals": 18,
@@ -23,17 +23,17 @@
   },
   {
     "marketIndex": 2,
-    "totalSupplyUSD": "1654042.4507555536",
-    "supplyAPR": "1.001282196790778",
-    "borrowAPR": "0.3381406467914989",
-    "baseSupplyAPR": "0.5691826369885744",
-    "baseBorrowAPR": "0.5691826369885744",
+    "totalSupplyUSD": "1622335.5406566935",
+    "supplyAPR": "0.9986773793203945",
+    "borrowAPR": "0.40514924441565214",
+    "baseSupplyAPR": "0.5774176250043839",
+    "baseBorrowAPR": "0.5774176250043839",
     "chain": 10,
     "incentive": [
       {
         "liquidStakingApr": 0,
-        "borrowApr": -0.5595998652004086,
-        "supplyApr": 0.1472150606415161,
+        "borrowApr": -0.5615269111821166,
+        "supplyApr": 0.14878376313097058,
         "token": {
           "address": "0x4200000000000000000000000000000000000042",
           "decimals": 18,
@@ -43,8 +43,8 @@
       },
       {
         "liquidStakingApr": 0,
-        "borrowApr": -1.0829145240527465,
-        "supplyApr": 0.28488449916068737,
+        "borrowApr": -1.0283555038645853,
+        "supplyApr": 0.27247599118504007,
         "token": {
           "address": "0xA88594D404727625A9437C3f886C7643872296AE",
           "decimals": 18,

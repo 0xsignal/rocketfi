@@ -12,14 +12,14 @@
           "rates": [
             {
               "id": "BORROWER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
-              "rate": "2.9799249344928"
+              "rate": "2.9797628520672"
             },
             {
               "id": "LENDER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
-              "rate": "1.9424919336159883"
+              "rate": "1.942278450673913"
             }
           ],
-          "totalValueLockedUSD": "10707.21669463637917117374859541471"
+          "totalValueLockedUSD": "10699.87032848034567397552582471014"
         }
       ]
     }
@@ -36,14 +36,14 @@
           "rates": [
             {
               "id": "BORROWER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
-              "rate": "27.9546292531296"
+              "rate": "28.1966030795088"
             },
             {
               "id": "LENDER-VARIABLE-0x170a90981843461295a6ce0e0a631ee440222e29-0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
-              "rate": "25.0128590591189152"
+              "rate": "25.2304082993968256"
             }
           ],
-          "totalValueLockedUSD": "38384.86902"
+          "totalValueLockedUSD": "38385.607085"
         }
       ]
     }
@@ -68,7 +68,7 @@
               "rate": "0.0000000609998842"
             }
           ],
-          "totalValueLockedUSD": "22635.34479689576667431250328548715"
+          "totalValueLockedUSD": "22579.40724086317493975212329516716"
         }
       ]
     }
