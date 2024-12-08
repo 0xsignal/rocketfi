@@ -14,10 +14,10 @@ import { ChainIcon } from "@/components/icon";
 import { Aave } from "@/lib/type";
 
 interface AaveListProps {
-  data: Aave[]; 
+  data: Aave[];
 }
 
-const AaveList: React.FC<AaveListProps>  = ({ data }) => {
+const AaveList: React.FC<AaveListProps> = ({ data }) => {
   if (!data || data.length === 0) {
     return <div>No data available</div>;
   }
@@ -48,7 +48,7 @@ const AaveList: React.FC<AaveListProps>  = ({ data }) => {
             </TableRow>
           </TableHeader>
           <TableBody className="items-center">
-            {data.map((item:Aave, i:number) => (
+            {data.map((item: Aave, i: number) => (
               <TableRow key={i}>
                 <TableCell className="font-medium text-[#272E35] text-sm items-center">
                   {item.pair}
@@ -62,13 +62,13 @@ const AaveList: React.FC<AaveListProps>  = ({ data }) => {
                   </div>
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatTVL(Number(item.data.markets[0]?.totalValueLockedUSD))}
+                  {formatTVL(Number(item.data.markets[0].totalValueLockedUSD))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0]?.rates[2]?.rate))}
+                  {formatPercentage(Number(item.data.markets[0].rates[2].rate))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0]?.rates[1]?.rate))}
+                  {formatPercentage(Number(item.data.markets[0].rates[1].rate))}
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-4 items-center">
