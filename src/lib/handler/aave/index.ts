@@ -59,7 +59,10 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
     },
   });
 
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
   try {
+    await delay(100);
     const data = await client.request(endpoint.query);
     return {
       protocol: endpoint.protocol,
@@ -81,34 +84,35 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
 }
 
 export const updateAaveData = unstable_cache(
-  async () => {   
+  async () => {
+
     const results = await Promise.all(endpoints.map(Process));
-    
+
     console.log(results)
 
-    const successfulResults = results.filter(     
-      (result): result is Aave => result !== null    
-    );    
+    const successfulResults = results.filter(
+      (result): result is Aave => result !== null
+    );
 
-    console.log("Aave data updated from cache");    
+    console.log("Aave data updated from cache");
 
-    return successfulResults.map((result) => ({     
-      protocol: result.protocol,     
-      chain: result.chain,     
-      pair: result.pair,     
-      link: result.link,     
-      data: result.data,   
+    return successfulResults.map((result) => ({
+      protocol: result.protocol,
+      chain: result.chain,
+      pair: result.pair,
+      link: result.link,
+      data: result.data,
     }));
-  }, 
-  ['aave-data'], 
+  },
+  ['aave-data'],
   {
-    revalidate: 300, 
+    revalidate: 300,
     tags: ['aave-data']
   }
 );
 
 export async function revalidateAaveData() {
   const { revalidateTag } = require('next/cache');
-  console.log("Aave data revalidate");    
+  console.log("Aave data revalidate");
   revalidateTag('aave-data');
 }
