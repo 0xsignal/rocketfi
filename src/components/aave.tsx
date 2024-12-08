@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
-import { ChainIcon } from "@/components//icon";
+import { ChainIcon } from "@/components/icon";
 
 async function getData() {
   const filePath = path.join(process.cwd(), "/tmp/aave.json");

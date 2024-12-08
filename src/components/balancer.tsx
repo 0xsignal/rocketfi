@@ -14,7 +14,6 @@ import {
 import { formatTVL, formatPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
-import { capitalizeFirstLetter } from "@/lib/utils";
 
 async function getData() {
   const filePath = path.join(process.cwd(), "/tmp/morpho.json");
