@@ -16,7 +16,7 @@ import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components//icon";
 
 async function getData() {
-  const filePath = path.join(process.cwd(), "tmp/_data/aave.json");
+  const filePath = path.join(process.cwd(), "/tmp/aave.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(fileContents);
   return data as Aave[];

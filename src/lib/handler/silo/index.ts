@@ -18,7 +18,7 @@ import {
 } from "ethers";
 import { ContractABIs } from "./abi";
 
-const DATA_DIR = path.join(process.cwd(), "tmp", "_data");
+const DATA_DIR = path.join(process.cwd(), "/tmp");
 const SILO_JSON_PATH = path.join(DATA_DIR, "silo.json");
 
 const OP_RPC_URL = "https://optimism.llamarpc.com";

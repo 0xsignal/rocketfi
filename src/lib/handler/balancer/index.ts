@@ -5,7 +5,7 @@ import { balancerQuery } from "@/lib/query";
 import fs from "fs";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "tmp", "_data");
+const DATA_DIR = path.join(process.cwd(), "/tmp");
 const BAL_JSON_PATH = path.join(DATA_DIR, "balancer.json");
 
 const endpoints = [
