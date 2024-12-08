@@ -65,13 +65,13 @@ export default async function SiloList() {
                   </div>
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatTVL(Number(item.data.markets[0].totalValueLockedUSD))}
+                  {formatTVL(Number(item.data.markets[0]?.totalValueLockedUSD))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0].rates[1].rate))}
+                  {formatPercentage(Number(item.data.markets[0]?.rates[1]?.rate))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatPercentage(Number(item.data.markets[0].rates[0].rate))}
+                  {formatPercentage(Number(item.data.markets[0]?.rates[0]?.rate))}
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-4 items-center">
