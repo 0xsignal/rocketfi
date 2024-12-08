@@ -65,7 +65,7 @@ export default async function AaveList() {
                   </div>
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
-                  {formatTVL(Number(item.data.markets[0].totalValueLockedUSD))}
+                  {formatTVL(Number(item.data.markets[0]?.totalValueLockedUSD))}
                 </TableCell>
                 <TableCell className="font-medium text-[#272E35] text-sm">
                   {formatPercentage(Number(item.data.markets[0].rates[2].rate))}
