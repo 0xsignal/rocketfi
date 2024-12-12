@@ -7,8 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily:{
+    fontFamily: {
       inter: ['Inter'],
+      serif: ['Noto Serif'],
     },
     extend: {
       colors: {
