@@ -200,7 +200,7 @@ export default function LendingStrategy() {
         <Dialog key={index} open={openDialog === index} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <Card className="bg-white rounded-2xl">
             <CardHeader className='flex flex-row items-center space-x-2 space-y-0'>
-              <div className='text-base font-bold text-[#272E35]'>
+              <div className='text-sm md:text-base font-bold text-[#272E35]'>
                 {strategy.title}
               </div>
               <div className='grow'></div>
@@ -219,7 +219,7 @@ export default function LendingStrategy() {
                 </DialogTrigger>
               </div>
             </CardHeader>
-            <CardContent className='text-sm text-[#6B7280]'>
+            <CardContent className='text-xs md:text-sm text-[#6B7280]'>
               <CardDescription className='leading-relaxed'>{strategy.description}</CardDescription>
               <div className="flex items-center space-x-2 text-xs mt-4">
                 <Badge
@@ -249,7 +249,7 @@ export default function LendingStrategy() {
           </Card>
           <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className='text-center text-[#272E35] text-xl font-bold'>{strategy.title}</DialogTitle>
+              <DialogTitle className='text-center text-[#272E35] text-base md:text-xl font-bold'>{strategy.title}</DialogTitle>
             </DialogHeader>
             {serializedContent && openDialog === index && (
               <div className="prose dark:prose-invert">

@@ -45,7 +45,7 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
         <Table className="bg-white rounded-2xl">
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[160px] text-[#6B7280] text-xs font-medium">
+              <TableHead className="w-[100px] text-[#6B7280] text-xs font-medium">
                 Pool
               </TableHead>
               <TableHead className=" text-[#6B7280] text-xs font-medium">

@@ -1,13 +1,6 @@
 import React from "react";
 import { LogoIcon, ProtocolIcon } from "@/components/icon";
 import Link from "next/link";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import AaveList from "@/components/aave";
 import SiloList from "@/components/silo";
 import MoonwellList from "@/components/moonwell";
@@ -23,42 +16,6 @@ import { updateMorphoData } from "@/lib/handler/morpho";
 import LendingStrategy from "@/components/lendingstrategy";
 import LiquidityStrategy from "@/components/liquiditystrategy";
 
-const liquidityStrategies = [
-  {
-    id: 1,
-    name: "rETH/ETH Stable Concentrated",
-    apy: "Medium",
-    risk: "Low",
-    description:
-      "rETH/ETH stable concentrated pools experience low volatility, which can provide steady returns. Since rETH is a yield-bearing token, its exchange rate with ETH will steadily rise over time. As a result, you'll need to frequently adjust your pool position to account for this changing ratio to maintain optimal returns.",
-  },
-  {
-    id: 2,
-    name: "RPL/ETH Wide Concentrated",
-    apy: "Medium",
-    risk: "Low",
-    description:
-      "RPL/ETH concentrated pools are subject to high volatility, making it easy to fall out of the market-making range. It is advisable to use automated liquidity management protocols, such as Gamma, to effectively manage these risks and optimize returns.",
-  },
-  {
-    id: 3,
-    name: "Auto Market Liquidity Management",
-    apy: "Medium",
-    risk: "Low",
-    description:
-      "Liquidity management protocols, such as Gamma and Steer, can assist in managing pool positions automatically, eliminating the need for frequent manual adjustments due to price fluctuations. These tools optimize liquidity and enhance yield potential, allowing users to respond more effectively to market changes.",
-  },
-  {
-    id: 4,
-    name: "LP APR Boost",
-    apy: "High",
-    risk: "Low",
-    description:
-      "LP APR Boost allows users to stake LP tokens in protocols like Aura, Beefy, and Cakepie to earn enhanced yields. Typically, this can result in an APR boost of 1.5x to 2.5x, maximizing returns on liquidity provision.",
-  },
-];
-
-
 export default async function Home() {
 
   const [aaveData, moonwellData, siloData, morphoData, balancerData, uniswapData] = await Promise.all([
@@ -72,8 +29,8 @@ export default async function Home() {
 
   return (
     <main className="bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="px-12 py-12">
+      <div className="md:max-w-7xl mx-auto">
+        <div className="md:px-12 md:py-12 px-4 py-4">
           <div className="flex items-center justify-center space-x-2 cursor-pointer">
             <Link href="/">
               <div className="w-10 h-10">
@@ -81,35 +38,35 @@ export default async function Home() {
               </div>
             </Link>
             <Link href="/">
-              <div className="text-2xl text-[#272E35] font-bold">RocketFi</div>
+              <div className="text-base md:text-2xl text-[#272E35] font-bold">RocketFi</div>
             </Link>
             <div className="grow"></div>
             <nav>
               <div className="flex items-center justify-center space-x-6">
                 <Link href="https://rocketpool.net" target="_blank">
-                  <div className="text-lg text-[#1E2528]">RocketPool</div>
+                  <div className="text-sm md:text-lg text-[#1E2528]">RocketPool</div>
                 </Link>
                 <Link
                   href="https://rocketpool.net/node-staking/what-is-node-staking"
                   target="_blank"
                 >
-                  <div className="text-lg text-[#1E2528]">Node Staking</div>
+                  <div className="text-sm md:text-lg text-[#1E2528]">Node Staking</div>
                 </Link>
                 <Link
                   href="https://rocketpool.net/liquid-staking/what-is-liquid-staking"
                   target="_blank"
                 >
-                  <div className="text-lg text-[#1E2528]">Liquid Staking</div>
+                  <div className="text-sm md:text-lg text-[#1E2528]">Liquid Staking</div>
                 </Link>
               </div>
             </nav>
           </div>
-          <div className="mt-24">
-            <div className="text-3xl text-[#272E35] font-medium font-serif">
+          <div className="mt-16 md:mt-24">
+            <div className="text-xl md:text-3xl text-[#272E35] font-medium font-serif">
               Lending/Borrow Market
             </div>
-            <div className="mt-20">
-              <div className="text-[#272E35] text-base font-inter font-medium">
+            <div className="mt-12 md:mt-20">
+              <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
                 Learn Strategy
               </div>
               <div className="mt-10">
@@ -150,12 +107,12 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-24">
-              <div className="text-3xl text-[#272E35] font-medium font-serif">
+            <div className="mt-16 md:mt-24">
+              <div className="text-xl md:text-3xl text-[#272E35] font-medium font-serif">
                 Liquidity Market
               </div>
-              <div className="mt-20">
-                <div className="text-[#272E35] text-base font-inter font-medium">
+              <div className="mt-12 md:mt-20">
+                <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
                   Learn Strategy
                 </div>
                 <div className="mt-10">
