@@ -89,11 +89,11 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                   {toPercentage(Number(calculateTotalApr(item.dynamicData.aprItems)))}
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-4 items-center">
+                  <div className="flex gap-2 md:gap-4 items-center">
                     {(item.name == "Balancer rETH Stable Pool") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/ethereum/v2/0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -101,14 +101,14 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "Balancer rETH Stable Pool") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/1/pool/109"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}
                     {(item.name == "Balancer weETH/rETH StablePool") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/ethereum/v2/0x05ff47afada98a98982113758878f9a8b9fdda0a000000000000000000000645"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -116,14 +116,14 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "Balancer weETH/rETH StablePool") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/1/pool/182"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}
                     {(item.name == "wstETH-rETH-sfrxETH-BPT") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/ethereum/v2/0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -131,14 +131,14 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "wstETH-rETH-sfrxETH-BPT") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/1/pool/139"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}
                     {(item.name == "Balancer rETH/wETH StablePool") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/arbitrum/v2/0xd0ec47c54ca5e20aaae4616c25c825c7f48d40690000000000000000000004ef"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -146,14 +146,14 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "Balancer rETH/wETH StablePool") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/42161/pool/52"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}
                     {(item.name == "Ethereum Triplets") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/optimism/v2/0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -161,14 +161,14 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "Ethereum Triplets") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/10/pool/14"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}
                     {(item.name == "Balancer rETH-WETH Stable Pool") &&
                       <ExternalLinkButton
                         href="https://balancer.fi/pools/base/v2/0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>
@@ -176,7 +176,7 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                     {(item.name == "Balancer rETH-WETH Stable Pool") &&
                       <ExternalLinkButton
                         href="https://app.aura.finance/#/8453/pool/7"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         LP APR Boost
                       </ExternalLinkButton>}

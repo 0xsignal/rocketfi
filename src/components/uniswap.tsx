@@ -74,46 +74,46 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                     {formatTVL(Number(poolData.poolDayData[0].feesUSD))}
                   </TableCell>
                   <TableCell>
-                    <div className="flex gap-4 items-center">
+                    <div className="flex gap-2 md:gap-4 items-center">
                       {(poolKey == "pool1" && chainData.chain == "Ethereum") && <ExternalLinkButton
                         href="https://app.uniswap.org/explore/pools/ethereum/0x553e9C493678d8606d6a5ba284643dB2110Df823"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>}
                       {(poolKey == "pool1" && chainData.chain == "Ethereum") && <ExternalLinkButton
                         href="https://app.gamma.xyz/vault/uni/ethereum/details/reth-weth-500-pegged-price"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Liquidity Management
                       </ExternalLinkButton>}
                       {(poolKey == "pool2" && chainData.chain == "Ethereum") && <ExternalLinkButton
                         href="https://app.uniswap.org/explore/pools/ethereum/0xe42318eA3b998e8355a3Da364EB9D48eC725Eb45"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>}
                       {(poolKey == "pool1" && chainData.chain == "Arbitrum") && <ExternalLinkButton
                         href="https://app.uniswap.org/explore/pools/arbitrum/0x09ba302A3f5ad2bF8853266e271b005A5b3716fe"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>}
                       {(poolKey == "pool1" && chainData.chain == "Arbitrum") && <ExternalLinkButton
                         href="https://app.gamma.xyz/vault/uni/arbitrum/details/weth-reth-500-pegged-price"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Liquidity Management
                       </ExternalLinkButton>}
                       {(poolKey == "pool2" && chainData.chain == "Arbitrum") && <ExternalLinkButton
                         href="https://app.uniswap.org/explore/pools/arbitrum/0x09ba302A3f5ad2bF8853266e271b005A5b3716fe"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>}
                       {(poolKey == "pool2" && chainData.chain == "Arbitrum") && <ExternalLinkButton
                         href="https://app.gamma.xyz/vault/uni/arbitrum/details/weth-rpl-10000-narrow"
-                        className="bg-[#191D200F] px-2 text-sm text-[#272E35] gap-1 font-medium"
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                       >
                         Liquidity Management
                       </ExternalLinkButton>}

@@ -15,6 +15,7 @@ import { updateSiloData } from "@/lib/handler/silo";
 import { updateMorphoData } from "@/lib/handler/morpho";
 import LendingStrategy from "@/components/lendingstrategy";
 import LiquidityStrategy from "@/components/liquiditystrategy";
+import { ExternalLinkButton } from "@/components/ui/externallink";
 
 export default async function Home() {
 
@@ -40,32 +41,45 @@ export default async function Home() {
             <Link href="/">
               <div className="text-base md:text-2xl text-[#272E35] font-bold">RocketFi</div>
             </Link>
-            <div className="grow"></div>
-            <nav>
-              <div className="flex items-center justify-center space-x-6">
-                <Link href="https://rocketpool.net" target="_blank">
-                  <div className="text-sm md:text-lg text-[#1E2528]">RocketPool</div>
-                </Link>
-                <Link
-                  href="https://rocketpool.net/node-staking/what-is-node-staking"
-                  target="_blank"
-                >
-                  <div className="text-sm md:text-lg text-[#1E2528]">Node Staking</div>
-                </Link>
-                <Link
-                  href="https://rocketpool.net/liquid-staking/what-is-liquid-staking"
-                  target="_blank"
-                >
-                  <div className="text-sm md:text-lg text-[#1E2528]">Liquid Staking</div>
-                </Link>
-              </div>
-            </nav>
           </div>
-          <div className="mt-16 md:mt-24">
-            <div className="text-xl md:text-3xl text-[#272E35] font-medium font-serif">
+
+          <div className="mt-10 md:mt-16">
+            <div className="text-sm md:text-base text-[#272E35] font-inter leading-relaxed">
+              RocketFi is a community-driven, unofficial explorer for Rocket Pool DeFi integration. It helps rETH holders maximize their participation in DeFi to earn rewards and unlock the utility of rETH. Additionally, it supports node operators in leveraging DeFi to enhance their node operations.
+            </div>
+            <div className="mt-4 md:flex md:items-center gap-2 md:gap-3 grid grid-cols-3">
+              <ExternalLinkButton
+                href="https://rocketpool.net"
+                className="bg-white px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium grid-cols-1"
+              >
+                RocketPool
+              </ExternalLinkButton>
+              <ExternalLinkButton
+                href="https://stake.rocketpool.net/"
+                className="bg-white px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium grid-cols-1"
+              >
+                Get rETH
+              </ExternalLinkButton>
+              <ExternalLinkButton
+                href="https://rocketpool.net/protocol/integrations"
+                className="bg-white px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium grid-cols-1"
+              >
+                Integrate rETH
+              </ExternalLinkButton>
+              <ExternalLinkButton
+                href="https://rocketpool.net/node-staking/what-is-node-staking"
+                className="bg-white px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium grid-cols-1"
+              >
+                Run a Node
+              </ExternalLinkButton>
+            </div>
+          </div>
+
+          <div className="mt-12 md:mt-16">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
               Lending/Borrow Market
             </div>
-            <div className="mt-12 md:mt-20">
+            <div className="mt-8 md:mt-16">
               <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
                 Learn Strategy
               </div>
@@ -107,8 +121,8 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-16 md:mt-24">
-              <div className="text-xl md:text-3xl text-[#272E35] font-medium font-serif">
+            <div className="mt-12 md:mt-16">
+              <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
                 Liquidity Market
               </div>
               <div className="mt-12 md:mt-20">
