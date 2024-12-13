@@ -7,6 +7,14 @@ import '../styles/fonts.css'
 export const metadata: Metadata = {
   title: 'RocketFi',
   description: 'Rocket Pool DeFi Integration Explorer',
+  openGraph: {
+    title: 'RocketFi',
+    description: 'Rocket Pool DeFi Integration Explorer',
+    url: 'https://rocketfi.vercel.app/',
+    siteName: 'RocketFi',
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
