@@ -1,5 +1,5 @@
 import React from "react";
-import { Moonwell } from "@/lib/type";
+import { Moonwell, MoonwellIncentive } from "@/lib/type";
 import {
   Table,
   TableBody,
@@ -14,6 +14,7 @@ import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { RewardsIcon } from "@/components/icon";
 
 interface MoonwellListProps {
   data: Moonwell[];
@@ -67,7 +68,7 @@ const MoonwellList: React.FC<MoonwellListProps> = ({ data }) => {
                       </TooltipTrigger>
                       <TooltipContent className="select-none rounded-xl bg-white px-2 py-1.5 text-xs text-[#272E35] leading-relaxed w-[200px]">
                         <p>
-                          The Annual Percentage Yield (APY) represents the interest rate paid for borrowing assets from the protocol, including compound interest.
+                          The Annual Percentage Yield (APY) represents the interest paid for supplying assets to the protocol, including compound interest.
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -96,10 +97,56 @@ const MoonwellList: React.FC<MoonwellListProps> = ({ data }) => {
                     {formatTVL(Number(item.totalSupplyUSD))}
                   </TableCell>
                   <TableCell className="font-medium text-[#272E35] text-sm">
-                    {formatPercentage(Number(item.supplyAPR))}
+                    <div className="flex gap-2 place-items-center">
+                      <div>
+                        {formatPercentage(Number(item.supplyAPR))}
+                      </div>
+                      <div>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <div className="h-4 w-4 cursor-pointer mt-1">
+                              <RewardsIcon />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="select-none rounded-xl bg-white px-2 py-1.5 text-xs text-[#272E35] leading-relaxed w-[200px]">
+                            <div className="">
+                              Base APY : {formatPercentage(Number(item.baseSupplyAPR))}
+                            </div>
+                            {item.incentive.map((items: MoonwellIncentive, j: number) => (
+                              <div className="mt-1" key={j}>
+                                {items.token.symbol} Rewards APY : {formatPercentage(Number(items.supplyApr))}
+                              </div>
+                            ))}
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell className="font-medium text-[#272E35] text-sm">
-                    {formatPercentage(Number(item.borrowAPR))}
+                    <div className="flex gap-2 place-items-center">
+                      <div>
+                        {formatPercentage(Number(item.borrowAPR))}
+                      </div>
+                      <div>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <div className="h-4 w-4 cursor-pointer mt-1">
+                              <RewardsIcon />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="select-none rounded-xl bg-white px-2 py-1.5 text-xs text-[#272E35] leading-relaxed w-[200px]">
+                            <div className="">
+                              Base APY : {formatPercentage(Number(item.baseBorrowAPR))}
+                            </div>
+                            {item.incentive.map((items: MoonwellIncentive, j: number) => (
+                              <div className="mt-1" key={j}>
+                                {items.token.symbol} Rewards APY : {formatPercentage(Number(items.borrowApr))}
+                              </div>
+                            ))}
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-2 md:gap-4 items-center">

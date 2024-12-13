@@ -58,6 +58,19 @@ export interface Moonwell {
       symbol: string;
     };
   }[];
+
+}
+
+export interface MoonwellIncentive {
+  liquidStakingApr: number;
+  borrowApr: number;
+  supplyApr: number;
+  token: {
+    address: string;
+    decimals: number;
+    name: string;
+    symbol: string;
+  };
 }
 
 export interface Morpho {

@@ -31,6 +31,7 @@ export async function updateMoonwellData(): Promise<Moonwell[]> {
   try {
     const rETHMarketData = await fetchMoonwellMarketData();
 
+
     const rETHMarketDetails = rETHMarketData.map((rETHMarket, index) => ({
       marketIndex: index + 1,
       totalSupplyUSD: rETHMarket.totalSupplyUsd?.toString(),
@@ -42,9 +43,12 @@ export async function updateMoonwellData(): Promise<Moonwell[]> {
       incentive: rETHMarket.rewards,
     }));
 
+    console.log(rETHMarketDetails)
+
+
     return rETHMarketDetails
 
-   
+
   } catch (error) {
     console.error("Application error:", error);
     return []

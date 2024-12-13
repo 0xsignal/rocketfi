@@ -125,7 +125,7 @@ export default async function Home() {
               <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
                 Liquidity Market
               </div>
-              <div className="mt-12 md:mt-20">
+              <div className="mt-8 md:mt-16">
                 <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
                   Learn Strategy
                 </div>

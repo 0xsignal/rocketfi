@@ -32,7 +32,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         return (
           <Link
             href={href || '/'}
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-[#FF6E30]/80 hover:text-[#FF6E30] underline"
           >
             {children}
           </Link>
@@ -43,7 +43,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800 underline"
+          className="text-[#FF6E30]/80 hover:text-[#FF6E30] underline"
         >
           {children}
         </a>
