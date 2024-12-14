@@ -25,7 +25,7 @@ const protocols = [
     link: "https://app.eigenlayer.xyz/restake/rETH",
   },
   {
-    name: "Cureve",
+    name: "Curve",
     description: "Provide rETH liquidity on Curve like Balancer to earn yield and enhance your returns.",
     link: "https://curve.fi/#/ethereum/pools/factory-stable-ng-15/deposit",
   },
