@@ -68,7 +68,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     img: ({ src, alt }) => (
-      <div className="my-4">
+      <span className="my-4">
         {src && <Image
           src={src}
           alt={alt || ''}
@@ -76,7 +76,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           height={400}
           className="rounded-lg"
         />}
-      </div>
+      </span>
     ),
 
     table: ({ children }) => (

@@ -28,7 +28,7 @@ const GraphqlReqSchema = z.object({
 async function Process(endpoint: (typeof endpoints)[0]) {
   const client = new GraphQLClient(endpoint.url, {
     headers: {
-      Authorization: `Bearer ${env.API_KEY}`, 
+      Authorization: `Bearer ${env.API_KEY}`,
     },
   });
 

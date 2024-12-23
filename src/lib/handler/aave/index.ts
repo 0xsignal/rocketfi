@@ -30,6 +30,14 @@ const endpoints = [
   },
   {
     protocol: "AAVE",
+    url: "https://gateway.thegraph.com/api/subgraphs/id/3RWFxWNstn4nP3dXiDfKi9GgBoHx7xzc7APkXs1MLEgi",
+    pair: "rETH",
+    chain: "Optimism",
+    query: aaveOptimismQuery,
+    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0x9bcef72be871e61ed4fbbc7630889bee758eb81d&marketName=proto_optimism_v3",
+  },
+  {
+    protocol: "AAVE",
     url: "https://gateway.thegraph.com/api/subgraphs/id/JCNWRypm7FYwV8fx5HhzZPSFaMxgkPuw4TnR3Gpi81zk",
     pair: "RPL",
     chain: "Ethereum",

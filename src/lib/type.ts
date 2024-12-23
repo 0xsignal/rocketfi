@@ -151,3 +151,34 @@ export interface Uniswap {
   data: ChainData;
 }
 
+export interface Curve {
+  pair: string;
+  chain: string;
+  tvlUSD: string;
+
+}
+
+export interface poolData {
+  id: string;
+  address: string;
+  name: string;
+  symbol: string;
+  coins: Array<{
+    address: string;
+    usdPrice: number;
+    symbol: string;
+    name: string;
+  }>;
+  usdTotal: number;
+}
+
+export interface poolInfo {
+  address: string;
+  latestDailyApy: number;
+  latestWeeklyApy: number;
+  volumeUSD: number;
+}
+
+export interface gaugeData {
+
+}

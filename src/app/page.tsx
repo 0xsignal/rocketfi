@@ -25,6 +25,11 @@ const protocols = [
     link: "https://app.eigenlayer.xyz/restake/rETH",
   },
   {
+    name: "Pendle",
+    description: "Deposit rETH on Pendle to earn swap fee, PENDLE incentives, fixed yield and underlying yield. ",
+    link: "https://app.pendle.finance/trade/pools/0x14fbc760efaf36781cb0eb3cb255ad976117b9bd/zap/in?chain=arbitrum",
+  },
+  {
     name: "Curve",
     description: "Provide rETH liquidity on Curve like Balancer to earn yield and enhance your returns.",
     link: "https://curve.fi/#/ethereum/pools/factory-stable-ng-15/deposit",

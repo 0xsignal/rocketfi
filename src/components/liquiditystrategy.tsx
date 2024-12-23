@@ -177,7 +177,7 @@ export default function LiquidityStrategy() {
               <DialogTitle className='text-center text-[#272E35] text-base md:text-xl font-bold'>{strategy.title}</DialogTitle>
             </DialogHeader>
             {serializedContent && openDialog === index && (
-              <div className="prose dark:prose-invert">
+              <div className="">
                 <MDXRemote {...serializedContent} components={useMDXComponents({})}
                 />
               </div>

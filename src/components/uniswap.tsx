@@ -1,5 +1,5 @@
 import React from "react";
-import { Silo, Uniswap } from "@/lib/type";
+import { Uniswap } from "@/lib/type";
 import {
   Table,
   TableBody,

@@ -12,6 +12,8 @@ import { useMDXComponents } from '@/components/ui/mdx'
 const Longshort = `
 In this tutorial, we’ll explore how to use DeFi lending protocols to take long and short positions with the example of the ETH/RPL exchange rate. By utilizing lending protocols, you can leverage your assets to potentially increase profits while managing your risks.
 
+![Long/Short](/longshort.png)
+
 ## What are Long and Short Positions?
 
 - **Long Position**: Betting that the price of an asset will increase. In this case, you believe that RPL will outperform ETH in the coming months.
@@ -58,6 +60,8 @@ This strategy allows you to leverage your assets in the DeFi space by taking adv
 `
 const LeverageStaking = `
 Leverage staking allows ETH stakers to amplify their staking rewards by using borrowed funds in a cyclical process. This method is particularly beneficial for rETH holders seeking higher yields. Below, we outline how you can execute this strategy step-by-step, as well as key safety considerations.
+
+![LeverageStaking](/lerverage.png)
 
 ## What is Leverage Staking?
 
@@ -114,6 +118,8 @@ Leverage staking with rETH can significantly enhance your ETH staking rewards, b
 
 const Rpleth = `
 For node operators participating in the Rocket Pool ecosystem, staking RPL can unlock additional rewards and enhance yield. However, not every node operator is eager to purchase RPL outright. Fortunately, DeFi lending protocols offer a flexible alternative to obtain RPL without upfront investment.
+
+![Node](/node.png)
 
 ## Guide
 
@@ -252,7 +258,7 @@ export default function LendingStrategy() {
               <DialogTitle className='text-center text-[#272E35] text-base md:text-xl font-bold'>{strategy.title}</DialogTitle>
             </DialogHeader>
             {serializedContent && openDialog === index && (
-              <div className="prose dark:prose-invert">
+              <div className="">
                 <MDXRemote {...serializedContent} components={useMDXComponents({})}
                 />
               </div>
