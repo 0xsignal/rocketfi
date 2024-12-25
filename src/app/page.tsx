@@ -46,7 +46,7 @@ const protocols = [
   },
   {
     name: "Gravita",
-    description: "Collateralize rETH to mint Grar stablecoin and earn extra DeFi rewards.",
+    description: "Collateralize rETH to mint GRAI stablecoin and earn extra DeFi rewards.",
     link: "https://app.gravitaprotocol.com/vessels/reth",
   },
   {
@@ -280,7 +280,7 @@ export default async function Home() {
               More Integration
             </div>
             <div className="mt-8 md:mt-16">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
                 {protocols.map((protocol, index) => (
                   <div className="col-span-1">
                     <ProtocolCard
