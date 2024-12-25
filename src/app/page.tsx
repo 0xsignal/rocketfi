@@ -289,9 +289,8 @@ export default async function Home() {
             <div className="mt-8 md:mt-16">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
                 {protocols.map((protocol) => (
-                  <div className="col-span-1">
+                  <div className="col-span-1" key={protocol.id}>
                     <ProtocolCard
-                      key={protocol.id}
                       name={protocol.name}
                       description={protocol.description}
                       link={protocol.link}

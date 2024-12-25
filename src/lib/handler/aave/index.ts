@@ -30,7 +30,7 @@ const endpoints = [
   },
   {
     protocol: "AAVE",
-    url: "https://gateway.thegraph.com/api/subgraphs/id/3RWFxWNstn4nP3dXiDfKi9GgBoHx7xzc7APkXs1MLEgi",
+    url: "https://gateway.thegraph.com/api/deployments/id/QmRMNoAvjrr4DXT4tBJafCAPr2TQuRztMScyu51kKt542j",
     pair: "rETH",
     chain: "Optimism",
     query: aaveOptimismQuery,
