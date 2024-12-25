@@ -20,36 +20,43 @@ import { ProtocolCard } from "@/components/protocolcard";
 
 const protocols = [
   {
+    id: 1,
     name: "EigenLayer",
     description: "Stake rETH on EigenLayer to participate in Restaking, earn rewards, and boost your rETH yield.",
     link: "https://app.eigenlayer.xyz/restake/rETH",
   },
   {
+    id: 2,
     name: "Pendle",
     description: "Deposit rETH on Pendle to earn swap fee, PENDLE incentives, fixed yield and underlying yield. ",
     link: "https://app.pendle.finance/trade/pools/0x14fbc760efaf36781cb0eb3cb255ad976117b9bd/zap/in?chain=arbitrum",
   },
   {
+    id: 3,
     name: "Curve",
     description: "Provide rETH liquidity on Curve like Balancer to earn yield and enhance your returns.",
     link: "https://curve.fi/#/ethereum/pools/factory-stable-ng-15/deposit",
   },
   {
+    id: 4,
     name: "Pancake",
     description: "Provide rETH liquidity on Pancake like Balancer to earn yield and enhance your returns.",
     link: "https://pancakeswap.finance/liquidity/pool/eth/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd",
   },
   {
+    id: 5,
     name: "Contango",
     description: "Automate low-cost leverage staking to boost rETH staking yields.",
     link: "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144",
   },
   {
+    id: 6,
     name: "Gravita",
     description: "Collateralize rETH to mint GRAI stablecoin and earn extra DeFi rewards.",
     link: "https://app.gravitaprotocol.com/vessels/reth",
   },
   {
+    id: 7,
     name: "Spark",
     description: "Collateralize rETH to mint USDS stablecoin and earn extra DeFi rewards.",
     link: "https://app.spark.fi/borrow",
@@ -281,10 +288,10 @@ export default async function Home() {
             </div>
             <div className="mt-8 md:mt-16">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
-                {protocols.map((protocol, index) => (
+                {protocols.map((protocol) => (
                   <div className="col-span-1">
                     <ProtocolCard
-                      key={index}
+                      key={protocol.id}
                       name={protocol.name}
                       description={protocol.description}
                       link={protocol.link}
