@@ -72,6 +72,7 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                     <TableCell className="font-medium text-[#272E35] text-sm items-center">
                       {poolKey == "pool1" && "rETH/ETH"}
                       {poolKey == "pool2" && "RPL/ETH"}
+                      {poolKey == "pool3" && "RPL/rETH"}
                     </TableCell>
                     <TableCell className="font-medium text-[#272E35] text-sm">
                       <div className="flex gap-2 items-center">
@@ -82,13 +83,13 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                       </div>
                     </TableCell>
                     <TableCell className="font-medium text-[#272E35] text-sm">
-                      {formatTVL(Number(poolData.totalValueLockedUSD))}
+                      {poolData.totalValueLockedUSD ? formatTVL(Number(poolData.totalValueLockedUSD)) : '-'}
                     </TableCell>
                     <TableCell className="font-medium text-[#272E35] text-sm">
-                      {formatTVL(Number(poolData.poolDayData[0].volumeUSD))}
+                      {poolData.poolDayData[0]?.volumeUSD ? formatTVL(Number(poolData.poolDayData[0].volumeUSD)) : '-'}
                     </TableCell>
                     <TableCell className="font-medium text-[#272E35] text-sm">
-                      {toPercentage((Number(poolData.poolDayData[0].feesUSD) * 365 / Number(poolData.totalValueLockedUSD)))}
+                      {poolData.poolDayData[0]?.feesUSD && poolData.totalValueLockedUSD ? toPercentage((Number(poolData.poolDayData[0].feesUSD) * 365 / Number(poolData.totalValueLockedUSD))) : '-'}
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-2 md:gap-4 items-center">
@@ -106,6 +107,12 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                         </ExternalLinkButton>}
                         {(poolKey == "pool2" && chainData.chain == "Ethereum") && <ExternalLinkButton
                           href="https://app.uniswap.org/explore/pools/ethereum/0xe42318eA3b998e8355a3Da364EB9D48eC725Eb45"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
+                        </ExternalLinkButton>}
+                        {(poolKey == "pool3" && chainData.chain == "Ethereum") && <ExternalLinkButton
+                          href="https://app.uniswap.org/explore/pools/ethereum/0x3051607998fE3A690237af729CAa6c6d1D6d99B4"
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           Add Liquidity

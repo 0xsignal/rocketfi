@@ -61,6 +61,12 @@ const protocols = [
     description: "Collateralize rETH to mint USDS stablecoin and earn extra DeFi rewards.",
     link: "https://app.spark.fi/borrow",
   },
+  {
+    id: 8,
+    name: "Compound",
+    description: "Use rETH as collateral to borrow ETH, allowing you to leverage your position and earn more yields",
+    link: "https://app.compound.finance/?market=weth-op",
+  },
 ]
 
 export default async function Home() {

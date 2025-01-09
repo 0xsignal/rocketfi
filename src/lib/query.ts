@@ -132,32 +132,50 @@ export const moonwellOpQuery = `{
 
 /* Morpho Ethereum rETH */
 export const morphoQuery = `{
-  markets{
-      items {
-        uniqueKey
-        loanAsset {
-          address
-          symbol
-          decimals
-        }
-        collateralAsset {
-          address
-          symbol
-          decimals
-          chain {
+  markets(
+    first: 1000
+    orderBy: SupplyAssetsUsd
+    orderDirection: Desc
+  ) {
+        items {
+          uniqueKey
+          loanAsset {
+            address
+            symbol
+            priceUsd
+            decimals
+          }
+          collateralAsset {
+            address
+            symbol
+            priceUsd
+            decimals
+            chain {
             id
             network
           }
-        }
-        state {
-          borrowApy
-          borrowAssets
-          borrowAssetsUsd
-          supplyApy
-          supplyAssetsUsd
+          }
+          state {
+            supplyApy
+            borrowApy
+            netSupplyApy
+            netBorrowApy
+            supplyAssets
+            borrowAssets
+            collateralAssets
+            collateralAssetsUsd
+            supplyAssetsUsd
+            borrowAssetsUsd
+            rewards {
+              asset {
+                address
+              }
+              supplyApr
+              borrowApr
+            }
+          }
         }
       }
-    }
 }`;
 
 /* Balancer Pool */
@@ -301,6 +319,17 @@ export const uniswapEthereumQuery = `{
       totalValueLockedUSD
       poolDayData(first: 1, orderBy: date, where: {
       pool: "0xe42318ea3b998e8355a3da364eb9d48ec725eb45",
+      date_gt: ${Math.floor(Date.now() / 1000) - 24 * 60 * 60}} ) {
+      date
+      volumeUSD
+      feesUSD
+      tvlUSD
+    }
+	}
+    pool3:pool(id: "0x3051607998fe3a690237af729caa6c6d1d6d99b4") {
+      totalValueLockedUSD
+      poolDayData(first: 1, orderBy: date, where: {
+      pool: "0x3051607998fe3a690237af729caa6c6d1d6d99b4",
       date_gt: ${Math.floor(Date.now() / 1000) - 24 * 60 * 60}} ) {
       date
       volumeUSD

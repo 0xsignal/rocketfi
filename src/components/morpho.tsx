@@ -9,9 +9,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { formatTVL, formatPercentage } from "@/lib/utils";
+import { formatTVL, toPercentage } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
-import { ChainIcon } from "@/components/icon";
+import { ChainIcon, RewardsIcon } from "@/components/icon";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
@@ -106,14 +106,37 @@ const MorphoList: React.FC<MorphoListProps> = ({ data }) => {
                     {formatTVL(Number(item.state.supplyAssetsUsd))}
                   </TableCell>
                   <TableCell className="font-medium text-[#272E35] text-sm">
-                    {formatPercentage(Number(item.state.supplyApy))}
+                    {toPercentage(Number(item.state.supplyApy))}
                   </TableCell>
                   <TableCell className="font-medium text-[#272E35] text-sm">
-                    {formatPercentage(Number(item.state.borrowApy))}
+                    <div className="flex gap-2 place-items-center">
+                      <div>
+                        {toPercentage(Number(item.state.netBorrowApy))}
+                      </div>
+                      <div>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <div className="h-4 w-4 cursor-pointer mt-1">
+                              <RewardsIcon />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="select-none rounded-xl bg-white px-2 py-1.5 text-xs text-[#272E35] leading-relaxed w-[230px]">
+                            <div className="">
+                              Base APY : {toPercentage(Number(item.state.borrowApy))}
+                            </div>
+                            {item.state.rewards.length > 0 && (
+                              <div className="mt-1">
+                                MORPHO Rewards APY : - {toPercentage(Number(item.state.rewards[0].borrowApr))}
+                              </div>
+                            )}
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-2 md:gap-4 items-center">
-                      {item.loanAsset.symbol == "WETH" && (
+                      {item.loanAsset.symbol == "WETH" && item.collateralAsset.chain.network == "base" && (
                         <ExternalLinkButton
                           href="https://app.morpho.org/market?id=0xdc69cf2caae7b7d1783fb5a9576dc875888afad17ab3d1a3fc102f741441c165&network=base"
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
@@ -121,9 +144,25 @@ const MorphoList: React.FC<MorphoListProps> = ({ data }) => {
                           Lend
                         </ExternalLinkButton>
                       )}
-                      {item.loanAsset.symbol == "WETH" && (
+                      {item.loanAsset.symbol == "WETH" && item.collateralAsset.chain.network == "base" && (
                         <ExternalLinkButton
                           href="https://app.morpho.org/market?id=0xdc69cf2caae7b7d1783fb5a9576dc875888afad17ab3d1a3fc102f741441c165&network=base"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Borrow
+                        </ExternalLinkButton>
+                      )}
+                      {item.loanAsset.symbol == "WETH" && item.collateralAsset.chain.network == "ethereum" && (
+                        <ExternalLinkButton
+                          href="https://app.morpho.org/market?id=0x3c83f77bde9541f8d3d82533b19bbc1f97eb2f1098bb991728acbfbede09cc5d&network=mainnet"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Lend
+                        </ExternalLinkButton>
+                      )}
+                      {item.loanAsset.symbol == "WETH" && item.collateralAsset.chain.network == "ethereum" && (
+                        <ExternalLinkButton
+                          href="https://app.morpho.org/market?id=0x3c83f77bde9541f8d3d82533b19bbc1f97eb2f1098bb991728acbfbede09cc5d&network=mainnet"
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           Borrow
@@ -135,6 +174,22 @@ const MorphoList: React.FC<MorphoListProps> = ({ data }) => {
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           Lend
+                        </ExternalLinkButton>
+                      )}
+                      {item.loanAsset.symbol == "EURC" && (
+                        <ExternalLinkButton
+                          href="https://app.morpho.org/market?id=0x0103cbcd14c690f68a91ec7c84607153311e9954c94ac6eac06c9462db3fabb6&network=base"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Lend
+                        </ExternalLinkButton>
+                      )}
+                      {item.loanAsset.symbol == "EURC" && (
+                        <ExternalLinkButton
+                          href="https://app.morpho.org/market?id=0x0103cbcd14c690f68a91ec7c84607153311e9954c94ac6eac06c9462db3fabb6&network=base"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Borrow
                         </ExternalLinkButton>
                       )}
                       {item.loanAsset.symbol == "USDC" && (

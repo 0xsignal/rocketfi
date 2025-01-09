@@ -95,6 +95,15 @@ export interface Morpho {
     borrowAssetsUsd: number;
     supplyApy: number;
     supplyAssetsUsd: number;
+    netSupplyApy: number;
+    netBorrowApy: number;
+    rewards: {
+      asset: {
+        address: string;
+      };
+      supplyApr: number;
+      borrowApr: number;
+    }[];
   };
 };
 
