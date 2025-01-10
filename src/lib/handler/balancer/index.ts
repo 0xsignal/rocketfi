@@ -1,5 +1,4 @@
 import { GraphQLClient } from "graphql-request";
-import { z } from "zod";
 import { env } from "@/env/server";
 import { balancerQuery } from "@/lib/query";
 import { Balancer, BalancerResponse } from "@/lib/type";
@@ -22,7 +21,7 @@ async function Process(endpoint: typeof endpoints[0]): Promise<{ data?: Balancer
 
   try {
     const data = await client.request(endpoint.query);
-    return { data: data as BalancerResponse }; 
+    return { data: data as BalancerResponse };
   } catch (error) {
     console.error(`Failed to fetch data:`, error);
     return {
