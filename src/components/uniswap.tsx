@@ -73,6 +73,7 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                       {poolKey == "pool1" && "rETH/ETH"}
                       {poolKey == "pool2" && "RPL/ETH"}
                       {poolKey == "pool3" && "RPL/rETH"}
+                      {poolKey == "pool4" && "wUSDM/rETH"}
                     </TableCell>
                     <TableCell className="font-medium text-[#272E35] text-sm">
                       <div className="flex gap-2 items-center">
@@ -140,6 +141,30 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           Liquidity Management
+                        </ExternalLinkButton>}
+                        {(poolKey == "pool1" && chainData.chain == "Optimism") && <ExternalLinkButton
+                          href="https://app.uniswap.org/explore/pools/optimism/0xAEfC1edaeDE6ADaDcdF3bB344577D45A80B19582"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
+                        </ExternalLinkButton>}
+                        {(poolKey == "pool1" && chainData.chain == "Optimism") && <ExternalLinkButton
+                          href="https://www.okx.com/zh-hans/web3/defi/detail/323184191#source=activitypage&activitySourcePage=uniswapv3"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          OP Incentive
+                        </ExternalLinkButton>}
+                        {(poolKey == "pool4" && chainData.chain == "Optimism") && <ExternalLinkButton
+                          href="https://app.uniswap.org/explore/pools/optimism/0x966A8bcE7dc11f4Ec5a8885a7d31F0f170e3E00d"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
+                        </ExternalLinkButton>}
+                        {(poolKey == "pool4" && chainData.chain == "Optimism") && <ExternalLinkButton
+                          href="https://www.okx.com/zh-hans/web3/defi/detail/30075#source=activitypage&activitySourcePage=uniswapv3"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          OP Incentive
                         </ExternalLinkButton>}
 
                       </div>

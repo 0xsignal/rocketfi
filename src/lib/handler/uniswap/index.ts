@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import { z } from "zod";
 import { env } from "@/env/server";
-import { uniswapEthereumQuery, uniswapArbitrumQuery } from "@/lib/query";
+import { uniswapEthereumQuery, uniswapArbitrumQuery, uniswapOptimismQuery } from "@/lib/query";
 import { Uniswap } from "@/lib/type";
 
 const endpoints = [
@@ -17,6 +17,13 @@ const endpoints = [
     query: uniswapArbitrumQuery,
     link: "",
   },
+  {
+    url: "https://gateway.thegraph.com/api/subgraphs/id/7SVwgBfXoWmiK6x1NF1VEo1szkeWLniqWN1oYsX3UMb5",
+    chain: "Optimism",
+    query: uniswapOptimismQuery,
+    link: "",
+  },
+
 ];
 
 const GraphqlReqSchema = z.object({

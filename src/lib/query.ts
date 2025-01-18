@@ -363,3 +363,27 @@ export const uniswapArbitrumQuery = `{
     }
 	}
 }`;
+export const uniswapOptimismQuery = `{
+  pool1:pool(id: "0xaefc1edaede6adadcdf3bb344577d45a80b19582") {
+    totalValueLockedUSD
+    poolDayData(first: 1, orderBy: date, where: {
+    pool: "0xaefc1edaede6adadcdf3bb344577d45a80b19582",
+    date_gt: ${Math.floor(Date.now() / 1000) - 24 * 60 * 60}} ) {
+    date
+    volumeUSD
+    feesUSD
+    tvlUSD
+  }
+}
+  pool4:pool(id: "0x966a8bce7dc11f4ec5a8885a7d31f0f170e3e00d") {
+    totalValueLockedUSD
+    poolDayData(first: 1, orderBy: date, where: {
+    pool: "0x966a8bce7dc11f4ec5a8885a7d31f0f170e3e00d",
+    date_gt: ${Math.floor(Date.now() / 1000) - 24 * 60 * 60}} ) {
+    date
+    volumeUSD
+    feesUSD
+    tvlUSD
+  }
+}
+}`;
