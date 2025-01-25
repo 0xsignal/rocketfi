@@ -148,25 +148,12 @@ const UniswapList: React.FC<UniswapListProps> = ({ data }) => {
                         >
                           Add Liquidity
                         </ExternalLinkButton>}
-                        {(poolKey == "pool1" && chainData.chain == "Optimism") && <ExternalLinkButton
-                          href="https://www.okx.com/zh-hans/web3/defi/detail/323184191#source=activitypage&activitySourcePage=uniswapv3"
-                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
-                        >
-                          OP Incentive
-                        </ExternalLinkButton>}
                         {(poolKey == "pool4" && chainData.chain == "Optimism") && <ExternalLinkButton
                           href="https://app.uniswap.org/explore/pools/optimism/0x966A8bcE7dc11f4Ec5a8885a7d31F0f170e3E00d"
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           Add Liquidity
                         </ExternalLinkButton>}
-                        {(poolKey == "pool4" && chainData.chain == "Optimism") && <ExternalLinkButton
-                          href="https://www.okx.com/zh-hans/web3/defi/detail/30075#source=activitypage&activitySourcePage=uniswapv3"
-                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
-                        >
-                          OP Incentive
-                        </ExternalLinkButton>}
-
                       </div>
                     </TableCell>
                   </TableRow>
