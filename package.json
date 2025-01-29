@@ -20,6 +20,8 @@
     "@t3-oss/env-nextjs": "^0.11.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "ethers": "^6.13.4",
     "graphql-request": "^7.1.0",
     "gray-matter": "^4.0.3",

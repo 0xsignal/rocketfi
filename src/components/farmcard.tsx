@@ -1,26 +1,31 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ExternalLinkButton } from "@/components/ui/externallink"
-import { Badge } from "@/components/ui/badge"
+import { TokenIcon } from "@/components/icon"
 
-interface ProtocolCardProps {
+interface FarmCardProps {
   name: string
-  tags: string
   description: string
+  rewardTokens: string[]
   link: string
 }
 
-export function ProtocolCard({ name, tags, description, link }: ProtocolCardProps) {
+export function FarmCard({ name, description, rewardTokens, link }: FarmCardProps) {
   return (
     <Card className="w-full rounded-2xl bg-white">
-      <CardHeader className="flex flex-row items-center px-3 md:px-6">
+      <CardHeader className="px-3 md:px-6">
         <CardTitle className="text-base font-inter text-[#272E35] ">{name}</CardTitle>
-        <div className="grow"></div>
-        <Badge variant="secondary" className="ml-2">
-          {tags}
-        </Badge>
       </CardHeader>
       <CardContent className="px-3 md:px-6">
         <CardDescription className="text-xs text-[#6B7280] font-inter">{description}</CardDescription>
+        <div className="mt-4">
+          <div className="flex items-center -space-x-2 overflow-hidden">
+            {rewardTokens.map((item, index) => (
+              <div key={index} className="inline-block w-5 h-5">
+                <TokenIcon icon={item} />
+              </div>
+            ))}
+          </div>
+        </div>
       </CardContent>
       <CardFooter className="px-3 md:px-6">
         <ExternalLinkButton

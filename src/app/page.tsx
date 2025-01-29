@@ -17,55 +17,93 @@ import LendingStrategy from "@/components/lendingstrategy";
 import LiquidityStrategy from "@/components/liquiditystrategy";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ProtocolCard } from "@/components/protocolcard";
+import OppotunityCarousel from "@/components/opportunitycarousel";
+import Footer from "@/components/footer";
 
 const protocols = [
   {
     id: 1,
     name: "EigenLayer",
+    tag: "Restaking",
     description: "Stake rETH on EigenLayer to participate in Restaking, earn rewards, and boost your rETH yield.",
     link: "https://app.eigenlayer.xyz/restake/rETH",
   },
   {
     id: 2,
     name: "Pendle",
+    tag: "Yield",
     description: "Deposit rETH on Pendle to earn swap fee, PENDLE incentives, fixed yield and underlying yield. ",
     link: "https://app.pendle.finance/trade/pools/0x14fbc760efaf36781cb0eb3cb255ad976117b9bd/zap/in?chain=arbitrum",
   },
   {
     id: 3,
     name: "Curve",
+    tag: "Liquidity",
     description: "Provide rETH liquidity on Curve like Balancer to earn yield and enhance your returns.",
     link: "https://curve.fi/#/ethereum/pools/factory-stable-ng-15/deposit",
   },
   {
     id: 4,
     name: "Pancake",
+    tag: "Liquidity",
     description: "Provide rETH liquidity on Pancake like Balancer to earn yield and enhance your returns.",
     link: "https://pancakeswap.finance/liquidity/pool/eth/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd",
   },
   {
     id: 5,
     name: "Contango",
+    tag: "Leverage",
     description: "Automate low-cost leverage staking to boost rETH staking yields.",
     link: "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144",
   },
   {
     id: 6,
     name: "Gravita",
+    tag: "Stablecoin",
     description: "Collateralize rETH to mint GRAI stablecoin and earn extra DeFi rewards.",
     link: "https://app.gravitaprotocol.com/vessels/reth",
   },
   {
     id: 7,
     name: "Spark",
+    tag: "Stablecoin",
     description: "Collateralize rETH to mint USDS stablecoin and earn extra DeFi rewards.",
     link: "https://app.spark.fi/borrow",
   },
   {
     id: 8,
     name: "Compound",
+    tag: "Lend/Borrow",
     description: "Use rETH as collateral to borrow ETH, allowing you to leverage your position and earn more yields",
     link: "https://app.compound.finance/?market=weth-op",
+  },
+  {
+    id: 9,
+    name: "Euler",
+    tag: "Lend/Borrow",
+    description: "Use rETH as collateral to borrow ETH, allowing you to leverage your position and earn more yields",
+    link: "https://app.euler.finance/?asset=RETH&network=ethereum",
+  },
+  {
+    id: 10,
+    name: "Gearbox",
+    tag: "Leverage",
+    description: "Automate low-cost leverage staking to boost rETH staking yields.",
+    link: "https://app.gearbox.fi/strategies/open/0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+  },
+  {
+    id: 11,
+    name: "Maia DAO",
+    tag: "Interoperability",
+    description: "Bridge rETH to other chains and earn rewards on Maia DAO.",
+    link: "https://app.maiadao.io/earn/0x77658ecceeeb02574649055e4eda353139fbacbf",
+  },
+  {
+    id: 12,
+    name: "Liquity",
+    tag: "Stablecoin",
+    description: "Collateralize rETH to mint LUSD/BOLD stablecoin and earn extra DeFi rewards.",
+    link: "https://liquity.app/borrow/reth",
   },
 ]
 
@@ -128,7 +166,15 @@ export default async function Home() {
           </div>
           <div className="mt-12 md:mt-16">
             <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
-              Lending/Borrow Market
+              Opportunity
+            </div>
+            <div className="mt-10">
+              <OppotunityCarousel />
+            </div>
+          </div>
+          <div className="mt-12 md:mt-16">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
+              Lending/Borrowing Market
             </div>
             <div className="mt-8 md:mt-16">
               <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
@@ -298,6 +344,7 @@ export default async function Home() {
                   <div className="col-span-1" key={protocol.id}>
                     <ProtocolCard
                       name={protocol.name}
+                      tags={protocol.tag}
                       description={protocol.description}
                       link={protocol.link}
                     />
@@ -307,6 +354,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </main>
   );
