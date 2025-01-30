@@ -107,6 +107,13 @@ const protocols = [
   },
 ]
 
+const farmData = [
+  { id: 1, name: "Contango OP Incentive", apr: "60", description: "Open an rETH/ETH long position of Compound to maximize incentives.", rewardTokens: ["OP", "RPL", "COMP"], link: "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144" },
+  { id: 2, name: "Euler Incentive", apr: "20", description: "Choose an rETH-based strategy to maximize yields on Euler.", rewardTokens: ["EUL"], link: "https://app.euler.finance/strategies?collateralAsset=RETH&network=ethereum" },
+  { id: 3, name: "Pancake & Cakepie Liquidity Farming", apr: "20", description: "Add rETH/ETH liquidity on PancakeSwap and stake the LP tokens in CakePie to boost yields.", rewardTokens: ["CAKE"], link: "https://www.pancake.magpiexyz.io/stake/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd" },
+  { id: 4, name: "Maia Liquidity Farming", apr: "100", description: "Provide liquidity for rETH (Ethereum) / rETH (Arbitrum) to earn rewards.", rewardTokens: ["MAIA"], link: "http://app.maiadao.io/earn/0x77658ecceeeb02574649055e4eda353139fbacbf" }
+]
+
 export default async function Home() {
 
   const [aaveData, moonwellData, siloData, morphoData, balancerData, uniswapData] = await Promise.all([
@@ -169,7 +176,7 @@ export default async function Home() {
               Opportunity
             </div>
             <div className="mt-10">
-              <OppotunityCarousel />
+              <OppotunityCarousel farmData={farmData} />
             </div>
           </div>
           <div className="mt-12 md:mt-16">

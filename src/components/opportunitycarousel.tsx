@@ -6,14 +6,18 @@ import { useEffect, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { cn } from "@/lib/utils"
 
-const farmData = [
-  { id: 1, name: "Contango OP Incentive", description: "Open an rETH/ETH long position of Compound to maximize incentives.", rewardTokens: ["OP", "RPL", "COMP"], link: "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144" },
-  { id: 2, name: "Euler Incentive", description: "Choose an rETH-based strategy to maximize yields on Euler.", rewardTokens: ["EUL"], link: "https://app.euler.finance/strategies?collateralAsset=RETH&network=ethereum" },
-  { id: 3, name: "Pancake & Cakepie Liquidity Farming", description: "Add rETH/ETH liquidity on PancakeSwap and stake the LP tokens in CakePie to boost yields.", rewardTokens: ["CAKE"], link: "https://www.pancake.magpiexyz.io/stake/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd" },
-  { id: 4, name: "Maia Liquidity Farming", description: "Provide liquidity for rETH (Ethereum) / rETH (Arbitrum) to earn rewards.", rewardTokens: ["MAIA"], link: "http://app.maiadao.io/earn/0x77658ecceeeb02574649055e4eda353139fbacbf" }
-]
+interface OpportunityCarouselProps {
+  farmData: {
+    id: number;
+    name: string;
+    apr: string;
+    description: string;
+    rewardTokens: string[];
+    link: string;
+  }[];
+}
 
-export default function OppotunityCarousel() {
+export default function OpportunityCarousel({ farmData }: OpportunityCarouselProps) {
   const [api, setApi] = useState<any>()
   const [current, setCurrent] = useState(0)
 
@@ -40,7 +44,7 @@ export default function OppotunityCarousel() {
         className="w-full"
         plugins={[
           Autoplay({
-            delay: 8000,
+            delay: 5200,
           }),
         ]}
         opts={{
@@ -53,6 +57,7 @@ export default function OppotunityCarousel() {
             <CarouselItem key={farm.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
               <FarmCard
                 name={farm.name}
+                apr={farm.apr}
                 description={farm.description}
                 rewardTokens={farm.rewardTokens}
                 link={farm.link}
@@ -77,4 +82,3 @@ export default function OppotunityCarousel() {
     </div>
   )
 }
-
