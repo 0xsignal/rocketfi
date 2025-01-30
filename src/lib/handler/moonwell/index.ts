@@ -9,7 +9,7 @@ async function fetchMoonwellMarketData() {
           rpcUrls: ["https://mainnet.base.org", "https://base.llamarpc.com"],
         },
         optimism: {
-          rpcUrls: ["https://mainnet.optimism.io"],
+          rpcUrls: ["https://mainnet.optimism.io", "https://optimism.llamarpc.com"],
         },
       },
     });
@@ -38,7 +38,7 @@ export async function updateMoonwellData(): Promise<Moonwell[]> {
       supplyAPR: rETHMarket.totalSupplyApr?.toString(),
       borrowAPR: rETHMarket.totalBorrowApr?.toString(),
       baseSupplyAPR: rETHMarket.baseSupplyApy?.toString(),
-      baseBorrowAPR: rETHMarket.baseSupplyApy?.toString(),
+      baseBorrowAPR: rETHMarket.baseBorrowApy?.toString(),
       chain: rETHMarket.chainId,
       incentive: rETHMarket.rewards,
     }));
