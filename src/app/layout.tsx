@@ -1,8 +1,20 @@
 import * as React from 'react'
 import type { Metadata } from 'next'
-
+import { IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
 import '../styles/globals.css'
-import '../styles/fonts.css'
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plex-sans",
+});
+
+const ibmPlexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plex-serif",
+});
+
 
 export const metadata: Metadata = {
   title: 'Rocket Pool DeFi Integration Explorer - RocketFi',
@@ -38,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable}`}>
       <body >
         {children}
       </body>

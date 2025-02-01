@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     fontFamily: {
       inter: ['Inter'],
-      serif: ['Noto Serif'],
+      sans: ["var(--font-plex-sans)"],
+      serif: ["var(--font-plex-serif)"],
     },
     extend: {
       colors: {

@@ -15,7 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     p: ({ children }) => (
-      <p className="text-sm text-[#272E35] font-inter leading-loose mb-4">{children}</p>
+      <p className="text-sm text-[#272E35] font-sans leading-loose mb-4">{children}</p>
     ),
 
     ul: ({ children }) => (

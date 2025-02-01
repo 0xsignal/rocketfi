@@ -50,7 +50,7 @@ export default async function Home() {
           </div>
 
           <div className="mt-10 md:mt-16">
-            <div className="text-sm md:text-base text-[#272E35] font-inter leading-relaxed">
+            <div className="text-sm md:text-base text-[#272E35] font-sans leading-relaxed">
               RocketFi is a community-driven, unofficial explorer for Rocket Pool DeFi integration. It helps rETH holders maximize their participation in DeFi to earn rewards and unlock the utility of rETH. Additionally, it supports node operators in leveraging DeFi to enhance their node operations.
             </div>
             <div className="mt-4 md:flex md:items-center gap-2 md:gap-3 grid grid-cols-3">
@@ -93,7 +93,7 @@ export default async function Home() {
               Lending/Borrowing Market
             </div>
             <div className="mt-8 md:mt-16">
-              <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
+              <div className="text-[#272E35] text-sm md:text-base font-sans font-medium">
                 Learn
               </div>
               <div className="mt-10">
@@ -195,7 +195,7 @@ export default async function Home() {
                 Liquidity Market
               </div>
               <div className="mt-8 md:mt-16">
-                <div className="text-[#272E35] text-sm md:text-base font-inter font-medium">
+                <div className="text-[#272E35] text-sm md:text-base font-sans font-medium">
                   Learn
                 </div>
                 <div className="mt-10">
@@ -255,7 +255,7 @@ export default async function Home() {
               More Integration
             </div>
             <div className="mt-8 md:mt-16">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                 {protocols.map((protocol) => (
                   <div className="col-span-1" key={protocol.id}>
                     <ProtocolCard
