@@ -11,7 +11,7 @@ export default function Footer() {
             <Heart className="h-4 w-4 text-red-500" />
             <span>by</span>
             <Link
-              href="ttps://x.com/signal0x"
+              href="https://x.com/signal0x"
               className="font-bold hover:text-black transition-colors"
             >
               @signal0x
