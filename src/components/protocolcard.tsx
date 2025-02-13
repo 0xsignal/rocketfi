@@ -15,7 +15,7 @@ export function ProtocolCard({ name, tags, description, link }: ProtocolCardProp
       <CardHeader className="flex flex-row items-center px-3 md:px-6">
         <CardTitle className="text-base font-sans text-[#272E35] tracking-wide">{name}</CardTitle>
         <div className="grow"></div>
-        <Badge variant="secondary" className="ml-2">
+        <Badge variant="secondary" className="ml-2 tracking-wide">
           {tags}
         </Badge>
       </CardHeader>

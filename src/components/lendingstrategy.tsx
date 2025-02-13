@@ -227,8 +227,9 @@ export default function LendingStrategy() {
             </CardHeader>
             <CardContent className='text-sm text-[#6B7280] font-sans'>
               <CardDescription className='leading-relaxed'>{strategy.description}</CardDescription>
-              <div className="flex items-center space-x-2 text-xs mt-4">
+              <div className="flex items-center space-x-2 text-xs mt-6">
                 <Badge
+                  className="tracking-wide"
                   variant={
                     strategy.risk === "Low"
                       ? "secondary"
@@ -240,6 +241,7 @@ export default function LendingStrategy() {
                   {strategy.risk} Risk
                 </Badge>
                 <Badge
+                  className="tracking-wide"
                   variant={
                     strategy.apy === "Low"
                       ? "secondary"
