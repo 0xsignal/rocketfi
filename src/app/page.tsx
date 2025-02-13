@@ -81,7 +81,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="mt-12 md:mt-16">
-            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
               Opportunity
             </div>
             <div className="mt-10">
@@ -89,7 +89,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="mt-12 md:mt-16">
-            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
               Lending/Borrowing Market
             </div>
             <div className="mt-8 md:mt-16">
@@ -191,7 +191,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="mt-12 md:mt-16">
-              <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
+              <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
                 Liquidity Market
               </div>
               <div className="mt-8 md:mt-16">
@@ -251,7 +251,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="mt-12 md:mt-16">
-            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
               More Integration
             </div>
             <div className="mt-8 md:mt-16">

@@ -14,7 +14,7 @@ export function FarmCard({ name, apr, description, rewardTokens, link }: FarmCar
   return (
     <Card className="w-full rounded-2xl bg-white">
       <CardHeader className="px-3 md:px-6">
-        <CardTitle className="text-base font-sans text-[#272E35] ">{name}</CardTitle>
+        <CardTitle className="text-base font-sans text-[#272E35] tracking-wide">{name}</CardTitle>
       </CardHeader>
       <CardContent className="px-3 md:px-6">
         <CardDescription className="text-sm text-[#6B7280] font-sans">{description}</CardDescription>

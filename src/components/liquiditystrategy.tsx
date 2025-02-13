@@ -125,7 +125,7 @@ export default function LiquidityStrategy() {
         <Dialog key={index} open={openDialog === index} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <Card className="bg-white rounded-2xl">
             <CardHeader className='flex flex-row items-center space-x-2 space-y-0'>
-              <div className='text-sm md:text-base font-bold text-[#272E35]'>
+              <div className='text-sm md:text-base font-bold text-[#272E35] tracking-wide'>
                 {strategy.title}
               </div>
               <div className='grow'></div>
