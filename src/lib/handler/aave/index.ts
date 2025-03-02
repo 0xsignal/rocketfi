@@ -10,7 +10,6 @@ import {
 import { Aave } from "@/lib/type";
 import { unstable_cache } from 'next/cache';
 
-
 const endpoints = [
   {
     protocol: "AAVE",
@@ -46,53 +45,132 @@ const endpoints = [
   },
 ];
 
+// Schema for GraphQL request
 const GraphqlReqSchema = z.object({
   query: z.string().min(1),
   operationName: z.string().optional().nullable(),
   variables: z.record(z.unknown()).optional().nullable(),
 });
 
+// Schema for endpoint configuration
+const EndpointSchema = z.object({
+  protocol: z.string(),
+  url: z.string().url(),
+  pair: z.string(),
+  chain: z.string(),
+  query: z.string(),
+  link: z.string().url(),
+});
+
+// Schema for successful response data
+// Note: This is a basic schema, you should adjust it based on your actual data structure
+const AaveResponseSchema = z.object({
+  reserve: z.object({
+    name: z.string().optional(),
+    symbol: z.string().optional(),
+    decimals: z.number().optional(),
+    liquidityRate: z.string().optional(),
+    utilizationRate: z.string().optional(),
+    totalATokenSupply: z.string().optional(),
+    totalCurrentVariableDebt: z.string().optional(),
+    // Add other fields as needed
+  }).optional(),
+  // You may need to adjust this based on your actual query response
+});
+
+// Schema for process result
+const ProcessResultSchema = z.object({
+  protocol: z.string(),
+  chain: z.string(),
+  pair: z.string(),
+  link: z.string().url(),
+  data: z.unknown(),
+  error: z.string().optional(),
+});
+
 export async function Process(endpoint: (typeof endpoints)[0]) {
-  const client = new GraphQLClient(endpoint.url, {
-    headers: {
-      Authorization: `Bearer ${env.API_KEY}`, // Set if needed, otherwise remove
-    },
-  });
-
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
   try {
-    await delay(100);
-    const data = await client.request(endpoint.query);
+    // Validate endpoint
+    const validatedEndpoint = EndpointSchema.parse(endpoint);
+
+    const client = new GraphQLClient(validatedEndpoint.url, {
+      headers: {
+        Authorization: `Bearer ${env.API_KEY}`, // Set if needed, otherwise remove
+      },
+    });
+
+    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+    try {
+      await delay(100);
+
+      // Make the request
+      const data = await client.request(validatedEndpoint.query);
+
+      // Try to validate the response data
+      // This is optional and can be adjusted based on your needs
+      try {
+        AaveResponseSchema.parse(data);
+      } catch (validationError) {
+        console.warn(`Response validation warning for ${endpoint.chain}:`, validationError);
+        // Continue even if validation fails, but log the warning
+      }
+
+      // Validate and return the result
+      return ProcessResultSchema.parse({
+        protocol: validatedEndpoint.protocol,
+        chain: validatedEndpoint.chain,
+        pair: validatedEndpoint.pair,
+        link: validatedEndpoint.link,
+        data: data,
+      });
+    } catch (error) {
+      console.error(`Failed to fetch data from ${validatedEndpoint.chain}:`, error);
+
+      // Validate and return error result
+      return ProcessResultSchema.parse({
+        protocol: validatedEndpoint.protocol,
+        chain: validatedEndpoint.chain,
+        pair: validatedEndpoint.pair,
+        link: validatedEndpoint.link,
+        error: error instanceof Error ? error.message : "Unknown error",
+      });
+    }
+  } catch (validationError) {
+    // Handle endpoint validation error
+    console.error(`Invalid endpoint configuration:`, validationError);
     return {
-      protocol: endpoint.protocol,
-      chain: endpoint.chain,
-      pair: endpoint.pair,
-      link: endpoint.link,
-      data: data,
-    };
-  } catch (error) {
-    console.error(`Failed to fetch data from ${endpoint.chain}:`, error);
-    return {
-      protocol: endpoint.protocol,
-      chain: endpoint.chain,
-      pair: endpoint.pair,
-      link: endpoint.link,
-      error: error instanceof Error ? error.message : "Unknown error",
+      protocol: endpoint.protocol || "UNKNOWN",
+      chain: endpoint.chain || "UNKNOWN",
+      pair: endpoint.pair || "UNKNOWN",
+      link: endpoint.link || "#",
+      error: "Invalid endpoint configuration",
     };
   }
 }
 
 export const updateAaveData = unstable_cache(
   async () => {
+    // Validate all endpoints before processing
+    const validEndpoints = endpoints.filter(endpoint => {
+      try {
+        EndpointSchema.parse(endpoint);
+        return true;
+      } catch (error) {
+        console.error(`Invalid endpoint skipped:`, endpoint, error);
+        return false;
+      }
+    });
 
-    const results = await Promise.all(endpoints.map(Process));
+    const results = await Promise.all(validEndpoints.map(Process));
+    console.log(results);
 
-    console.log(results)
+    // Define a type guard for successful results
+    const isSuccessfulResult = (result: any): result is Aave => {
+      return result !== null && !result.error;
+    };
 
-    const successfulResults = results.filter(
-      (result): result is Aave => result !== null
-    );
+    const successfulResults = results.filter(isSuccessfulResult);
 
     console.log("Aave data updated from cache");
 
