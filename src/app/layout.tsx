@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Serif, Inter } from "next/font/google";
 import '../styles/globals.css'
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -14,6 +14,12 @@ const ibmPlexSerif = IBM_Plex_Serif({
   weight: ["400", "500", "700"],
   variable: "--font-plex-serif",
 });
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 
 
 export const metadata: Metadata = {
@@ -50,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable}`}>
+    <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable} ${inter.variable}`}>
       <body >
         {children}
       </body>

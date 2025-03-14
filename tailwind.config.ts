@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      inter: ['Inter'],
+      inter: ["var(--font-inter)"],
       sans: ["var(--font-plex-sans)"],
       serif: ["var(--font-plex-serif)"],
     },

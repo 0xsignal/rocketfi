@@ -225,7 +225,7 @@ export default function LendingStrategy() {
                 </DialogTrigger>
               </div>
             </CardHeader>
-            <CardContent className='text-sm text-[#6B7280] font-sans'>
+            <CardContent className='text-sm text-[#6B7280] font-inter'>
               <CardDescription className='leading-relaxed'>{strategy.description}</CardDescription>
               <div className="flex items-center space-x-2 text-xs mt-6">
                 <Badge
