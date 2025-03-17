@@ -19,7 +19,7 @@ import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ProtocolCard } from "@/components/protocolcard";
 import OppotunityCarousel from "@/components/opportunitycarousel";
 import Footer from "@/components/footer";
-
+import Twitter from "@/components/twitter";
 import protocols from "@/data/protocols.json";
 import farmData from "@/data/farmdata.json";
 
@@ -268,6 +268,12 @@ export default async function Home() {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="mt-12 md:mt-16">
+            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
+              More Tutorial
+            </div>
+            <Twitter />
           </div>
         </div>
         <Footer />
