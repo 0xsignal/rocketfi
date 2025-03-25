@@ -33,12 +33,12 @@
   },
   {
     "id": 4,
-    "name": "Maia Liquidity Farming",
-    "apr": "100",
-    "description": "Provide liquidity for rETH (Ethereum) / rETH (Arbitrum) to earn rewards.",
+    "name": "OP Incentive Liquidity Farming",
+    "apr": "20",
+    "description": "Provide liquidity for rETH (OP) pool to earn rewards.",
     "rewardTokens": [
-      "MAIA"
+      "OP"
     ],
-    "link": "http://app.maiadao.io/earn/0x77658ecceeeb02574649055e4eda353139fbacbf"
+    "link": "https://web3.okx.com/defi/detail/323184191#source=activitypage&activitySourcePage=uniswapv3"
   }
 ]
