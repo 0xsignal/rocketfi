@@ -82,5 +82,12 @@
     "tag": "Stablecoin",
     "description": "Collateralize rETH to mint LUSD/BOLD stablecoin and earn extra DeFi rewards.",
     "link": "https://liquity.app/borrow/reth"
+  },
+  {
+    "id": 13,
+    "name": "Plaza Deposit Incentives",
+    "tag": "Yield",
+    "description": "Deposit rETH into the Plaza Deposit Program to receive Plaza Points on top of your rETH yield.",
+    "link": "https://deposit.plaza.finance"
   }
 ]
