@@ -269,12 +269,6 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-12 md:mt-16">
-            <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
-              More Tutorial
-            </div>
-            <Twitter />
-          </div>
         </div>
         <Footer />
       </div>
