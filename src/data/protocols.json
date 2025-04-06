@@ -85,7 +85,7 @@
   },
   {
     "id": 13,
-    "name": "Plaza Deposit Incentives",
+    "name": "Plaza",
     "tag": "Yield",
     "description": "Deposit rETH into the Plaza Deposit Program to receive Plaza Points on top of your rETH yield.",
     "link": "https://deposit.plaza.finance"

@@ -28,5 +28,15 @@
       "OP"
     ],
     "link": "https://web3.okx.com/defi/detail/323184191#source=activitypage&activitySourcePage=uniswapv3"
+  },
+  {
+    "id": 4,
+    "name": "Plaza Deposit Incentive",
+    "apr": "10",
+    "description": "Deposit rETH into the Plaza to earn Points",
+    "rewardTokens": [
+      "OP"
+    ],
+    "link": "https://deposit.plaza.finance/"
   }
 ]
