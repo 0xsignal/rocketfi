@@ -22,11 +22,12 @@
   {
     "id": 3,
     "name": "OP Incentive Liquidity Farming",
-    "apr": "20",
-    "description": "Provide liquidity for rETH (OP) pool to earn rewards.",
+    "apr": "10",
+    "description": "Leverage rETH on Moonwell to earn OP&WELL rewards.",
     "rewardTokens": [
-      "OP"
+      "OP",
+      "WELL"
     ],
-    "link": "https://web3.okx.com/defi/detail/323184191#source=activitypage&activitySourcePage=uniswapv3"
+    "link": "https://moonwell.fi/markets/supply/optimism/reth"
   }
 ]
