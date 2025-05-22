@@ -89,5 +89,12 @@
     "tag": "Yield",
     "description": "Deposit rETH into the Plaza Deposit Program to receive Plaza Points on top of your rETH yield.",
     "link": "https://deposit.plaza.finance"
+  },
+  {
+    "id": 14,
+    "name": "ExtraFi Lend",
+    "tag": "Lend/Borrow",
+    "description": "Use rETH as collateral to borrow ETH/USDC, and earn more yields",
+    "link": "https://xlend.extrafi.io/"
   }
 ]

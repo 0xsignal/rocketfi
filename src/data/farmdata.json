@@ -1,23 +1,23 @@
 [
   {
     "id": 1,
-    "name": "Euler Incentive",
-    "apr": "20",
-    "description": "Choose an rETH-based strategy to maximize yields on Euler.",
+    "name": "Liquity V2",
+    "apr": "10+",
+    "description": "Collateralize rETH to mint BOLD stablecoin and earn extra DeFi rewards.",
     "rewardTokens": [
-      "EUL"
+      "BOLD"
     ],
-    "link": "https://app.euler.finance/strategies?collateralAsset=RETH&network=ethereum"
+    "link": "https://liquity.app/"
   },
   {
     "id": 2,
-    "name": "Pancake & Cakepie Liquidity Farming",
-    "apr": "20",
-    "description": "Add rETH/ETH liquidity on PancakeSwap and stake the LP tokens in CakePie to boost yields.",
+    "name": "Aerodrome",
+    "apr": "20+",
+    "description": "Add rETH/USDC liquidity on Aerodrome and earn AERO rewards.",
     "rewardTokens": [
-      "CAKE"
+      "AERO"
     ],
-    "link": "https://www.pancake.magpiexyz.io/stake/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd"
+    "link": "https://aerodrome.finance/liquidity?query=rETH"
   },
   {
     "id": 3,
