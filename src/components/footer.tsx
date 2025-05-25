@@ -11,16 +11,16 @@ export default function Footer() {
             <Heart className="h-4 w-4 text-red-500" />
             <span>by</span>
             <Link
-              href="https://x.com/signal0x"
+              href="https://x.com/signalxu00"
               className="font-bold hover:text-black transition-colors"
             >
-              @signal0x
+              @signalxu
             </Link>
           </div>
           <div>
-            Funded by{" "}
+            Granted by{" "}
             <Link href="https://rocketpool.net/" className="font-bold hover:text-black transition-colors">
-              RocketPool
+              RocketPool GMC
             </Link>
           </div>
         </div>
