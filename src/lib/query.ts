@@ -281,7 +281,7 @@ export const balancerQuery = `
         }
       }
     },
-    pool6:poolGetPool(id:"0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",chain:BASE){
+    pool6:poolGetPool(id:"0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be",chain:OPTIMISM){
       id
       name
       type
@@ -300,7 +300,68 @@ export const balancerQuery = `
           apr
         }
       }
-    }
+    },
+    pool7:poolGetPool(id:"0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03",chain:OPTIMISM){
+      id
+      name
+      type
+      version
+      chain
+      poolTokens {
+        address
+        symbol
+        balance
+        hasNestedPool
+      }
+      dynamicData {
+        totalLiquidity
+        aprItems {
+          type
+          apr
+        }
+      }
+    },
+    pool8:poolGetPool(id:"0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",chain:BASE){
+      id
+      name
+      type
+      version
+      chain
+      poolTokens {
+        address
+        symbol
+        balance
+        hasNestedPool
+      }
+      dynamicData {
+        totalLiquidity
+        aprItems {
+          type
+          apr
+        }
+      }
+    },
+    pool9:poolGetPool(id:"0xb7b8b3afc010169779c5c2385ec0eb0477fe3347",chain:BASE){
+      id
+      name
+      type
+      version
+      chain
+      poolTokens {
+        address
+        symbol
+        balance
+        hasNestedPool
+      }
+      dynamicData {
+        totalLiquidity
+        aprItems {
+          type
+          apr
+        }
+      }
+    },
+    
 }`;
 
 export const uniswapEthereumQuery = `{

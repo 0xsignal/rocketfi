@@ -24,7 +24,7 @@ interface AprItem {
   apr: number;
 }
 function calculateTotalApr(items: AprItem[]): number {
-  const typesToSum = ["VEBAL_EMISSIONS", "STAKING_BOOST", "IB_YIELD", "SWAP_FEE"];
+  const typesToSum = ["VEBAL_EMISSIONS", "STAKING", "STAKING_BOOST", "IB_YIELD", "SWAP_FEE"];
 
   const sum = items
     .filter(item => typesToSum.includes(item.type))
@@ -137,7 +137,7 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                               .filter((items: AprItem) => !items.type.includes("SWAP_FEE"))
                               .map((items: AprItem, j: number) => {
                                 const rewardToken = items.type === "STAKING"
-                                  ? "RPL"
+                                  ? "Incentive"
                                   : items.type === "VEBAL_EMISSIONS"
                                     ? "BAL"
                                     : items.type === "STAKING_BOOST"
@@ -249,6 +249,28 @@ const BalancerList: React.FC<BalancerListProps> = ({ data }) => {
                           className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
                         >
                           LP APR Boost
+                        </ExternalLinkButton>}
+                      {(item.id == "0xb7b8b3afc010169779c5c2385ec0eb0477fe3347") &&
+                        <ExternalLinkButton
+                          href="https://balancer.fi/pools/base/v3/0xb7b8b3afc010169779c5c2385ec0eb0477fe3347"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
+                        </ExternalLinkButton>
+                      }
+                      {(item.id == "0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be") &&
+                        <ExternalLinkButton
+                          href="https://balancer.fi/pools/optimism/v3/0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
+                        </ExternalLinkButton>}
+                      {(item.id == "0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03") &&
+                        <ExternalLinkButton
+                          href="https://balancer.fi/pools/optimism/v3/0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03"
+                          className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        >
+                          Add Liquidity
                         </ExternalLinkButton>}
                     </div>
 

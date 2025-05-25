@@ -217,7 +217,7 @@ export default async function Home() {
                   since 2019 balancer.fi
                 </ExternalLinkButton>
                 <ExternalLinkButton
-                  href="https://silopedia.silo.finance/security/audit"
+                  href="https://github.com/balancer/balancer-v3-monorepo/tree/main/audits"
                   className="bg-white px-1 text-xs text-[#272E35] gap-1 font-medium grid-cols-1"
                 >
                   Audit
