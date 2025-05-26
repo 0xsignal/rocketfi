@@ -29,5 +29,15 @@
       "WELL"
     ],
     "link": "https://moonwell.fi/markets/supply/optimism/reth"
+  },
+  {
+    "id": 4,
+    "name": "Balancer v3 Liquidity Farming",
+    "apr": "20",
+    "description": "Add rETH/ETH liquidity on Balancer and earn incentive rewards.",
+    "rewardTokens": [
+      "OP"
+    ],
+    "link": "https://balancer.fi/pools/optimism/v3/0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03"
   }
 ]
