@@ -96,5 +96,12 @@
     "tag": "Lend/Borrow",
     "description": "Use rETH as collateral to borrow ETH/USDC, and earn more yields",
     "link": "https://xlend.extrafi.io/"
+  },
+  {
+    "id": 15,
+    "name": "Flat Money",
+    "tag": "Yield",
+    "description": "Use rETH as collateral to mint unit/margin, and earn more rewards",
+    "link": "https://v1.flat.money/flatcoin"
   }
 ]

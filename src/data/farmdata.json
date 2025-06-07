@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Liquity V2",
-    "apr": "10+",
+    "apr": "10",
     "description": "Collateralize rETH to mint BOLD stablecoin and earn extra DeFi rewards.",
     "rewardTokens": [
       "BOLD"
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "name": "Aerodrome",
-    "apr": "20+",
+    "apr": "20",
     "description": "Add rETH/USDC liquidity on Aerodrome and earn AERO rewards.",
     "rewardTokens": [
       "AERO"
@@ -39,5 +39,15 @@
       "OP"
     ],
     "link": "https://balancer.fi/pools/optimism/v3/0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03"
+  },
+  {
+    "id": 5,
+    "name": "Contango Farming",
+    "apr": "60",
+    "description": "Open an rETH/ETH long position of Morpho to maximize incentives.",
+    "rewardTokens": [
+      "OP"
+    ],
+    "link": "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144"
   }
 ]
