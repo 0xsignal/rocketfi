@@ -16,8 +16,12 @@ export default async function fetchPendleMarkets(
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
 
-        const allMarkets: PendleMarket[] = json.markets ?? [];
-
+        const allMarkets: PendleMarket[] = (json.markets ?? []).map(
+          (m: PendleMarket) => ({
+            ...m,
+            chainId,
+          }),
+        );
         if (nameFilter && nameFilter.length > 0) {
           return allMarkets.filter((m) =>
             nameFilter.some((key) =>

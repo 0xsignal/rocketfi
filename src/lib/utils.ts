@@ -113,11 +113,10 @@ export function formatPercentage(numStr: string | number): string {
   return `${num.toFixed(2)}%`;
 }
 
-export function toPercentage (value: number): string {
-  const percentage = (value * 100).toFixed(2); 
+export function toPercentage(value: number): string {
+  const percentage = (value * 100).toFixed(2);
   return `${percentage}%`;
-};
-
+}
 
 export function getChainName(chainId: number | string): string {
   // Convert string chainId to a number, handling hex or decimal formats
@@ -134,14 +133,14 @@ export function getChainName(chainId: number | string): string {
     97: ["Binance Smart Chain Testnet", "BSC Testnet"],
     43114: ["Avalanche C-Chain Mainnet", "Avalanche Mainnet"],
     43113: ["Avalanche Fuji Testnet", "Avalanche Testnet"],
-    42161: ["Arbitrum One", "Arbitrum", "ARBITRUM"],
+    42161: ["Arbitrum", "ARBITRUM"],
     421613: ["Arbitrum Goerli Testnet", "Arbitrum Goerli"],
-    10: ["Optimism", "Optimism Mainnet","OPTIMISM"],
+    10: ["Optimism", "Optimism Mainnet", "OPTIMISM"],
     420: ["Optimism Goerli Testnet", "Optimism Testnet"],
     250: ["Fantom Opera", "Fantom Mainnet"],
     4002: ["Fantom Testnet", "Fantom Testnet"],
     100: ["Gnosis Chain (xDai)", "xDai"],
-    8453: ["Base", "Base Layer","BASE"],
+    8453: ["Base", "Base Layer", "BASE"],
   };
 
   const names = chainIdToNames[id];
@@ -153,5 +152,3 @@ export function capitalizeFirstLetter(str: string): string {
   if (!str) return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
-

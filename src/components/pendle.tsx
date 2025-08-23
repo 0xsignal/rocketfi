@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { formatTVL, toPercentage } from "@/lib/utils";
+import { formatTVL, toPercentage, getChainName } from "@/lib/utils";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ChainIcon } from "@/components/icon";
 import {
@@ -54,7 +54,7 @@ const PendleMarketList: React.FC<PendleMarketListProps> = ({ data }) => {
                       <TooltipContent className="select-none rounded-xl bg-white px-2 py-1.5 text-xs text-[#272E35] leading-relaxed w-[200px]">
                         <p>
                           Estimates annual yield by multiplying the current TVL
-                          by the 24-hour Fee, then annualizing it.
+                          by the PT/Pendle/Fee, then annualizing it.
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -85,8 +85,8 @@ const PendleMarketList: React.FC<PendleMarketListProps> = ({ data }) => {
                   <TableCell>
                     <div className="flex gap-2 md:gap-4 items-center">
                       <ExternalLinkButton
-                        href={`https://app.pendle.finance/trade/pools/${item.address}`}
-                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#272E35] gap-1 font-medium"
+                        href={`https://app.pendle.finance/trade/pools/${item.address}/zap/in?chain=${getChainName(item.chainId).toLowerCase()}`}
+                        className="bg-[#191D200F] px-1 md:px-2 text-xs md:text-sm text-[#222E35] gap-1 font-medium"
                       >
                         Add Liquidity
                       </ExternalLinkButton>

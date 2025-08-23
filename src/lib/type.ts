@@ -255,4 +255,5 @@ export type PendleMarket = {
   isNew: boolean;
   isPrime: boolean;
   timestamp: string; // ISO string
+  chainId: number;
 };

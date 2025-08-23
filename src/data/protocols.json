@@ -8,97 +8,83 @@
   },
   {
     "id": 2,
-    "name": "Pendle",
-    "tag": "Yield",
-    "description": "Deposit rETH on Pendle to earn swap fee, PENDLE incentives, fixed yield and underlying yield.",
-    "link": "https://app.pendle.finance/trade/pools/0x14fbc760efaf36781cb0eb3cb255ad976117b9bd/zap/in?chain=arbitrum"
-  },
-  {
-    "id": 3,
-    "name": "Curve",
-    "tag": "Liquidity",
-    "description": "Provide rETH liquidity on Curve like Balancer to earn yield and enhance your returns.",
-    "link": "https://curve.fi/#/ethereum/pools/factory-stable-ng-15/deposit"
-  },
-  {
-    "id": 4,
     "name": "Pancake",
     "tag": "Liquidity",
     "description": "Provide rETH liquidity on Pancake like Balancer to earn yield and enhance your returns.",
     "link": "https://pancakeswap.finance/liquidity/pool/eth/0x2201d2400d30BFD8172104B4ad046d019CA4E7bd"
   },
   {
-    "id": 5,
+    "id": 3,
     "name": "Contango",
     "tag": "Leverage",
     "description": "Automate low-cost leverage staking to boost rETH staking yields.",
     "link": "https://app.contango.xyz/strategies/leveraged-staking/eth?selectedChains=1%2C10%2C56%2C100%2C137%2C8453%2C42161%2C43114%2C534352%2C59144"
   },
   {
-    "id": 6,
+    "id": 4,
     "name": "Gravita",
     "tag": "Stablecoin",
     "description": "Collateralize rETH to mint GRAI stablecoin and earn extra DeFi rewards.",
     "link": "https://app.gravitaprotocol.com/vessels/reth"
   },
   {
-    "id": 7,
+    "id": 5,
     "name": "Spark",
     "tag": "Stablecoin",
     "description": "Collateralize rETH to mint USDS stablecoin and earn extra DeFi rewards.",
     "link": "https://app.spark.fi/borrow"
   },
   {
-    "id": 8,
+    "id": 6,
     "name": "Compound",
     "tag": "Lend/Borrow",
     "description": "Use rETH as collateral to borrow ETH, allowing you to leverage your position and earn more yields",
     "link": "https://app.compound.finance/?market=weth-op"
   },
   {
-    "id": 9,
+    "id": 7,
     "name": "Euler",
     "tag": "Lend/Borrow",
     "description": "Use rETH as collateral to borrow ETH, allowing you to leverage your position and earn more yields",
     "link": "https://app.euler.finance/?asset=RETH&network=ethereum"
   },
   {
-    "id": 10,
+    "id": 8,
     "name": "Gearbox",
     "tag": "Leverage",
     "description": "Automate low-cost leverage staking to boost rETH staking yields.",
     "link": "https://app.gearbox.fi/strategies/open/0x9bcef72be871e61ed4fbbc7630889bee758eb81d"
   },
   {
-    "id": 11,
+    "id": 9,
     "name": "Maia DAO",
     "tag": "Interoperability",
     "description": "Bridge rETH to other chains and earn rewards on Maia DAO.",
     "link": "https://app.maiadao.io/earn/0x77658ecceeeb02574649055e4eda353139fbacbf"
   },
   {
-    "id": 12,
+    "id": 10,
     "name": "Liquity",
     "tag": "Stablecoin",
     "description": "Collateralize rETH to mint LUSD/BOLD stablecoin and earn extra DeFi rewards.",
     "link": "https://liquity.app/borrow/reth"
   },
   {
-    "id": 13,
+    "id": 11,
     "name": "Plaza",
     "tag": "Yield",
     "description": "Deposit rETH into the Plaza Deposit Program to receive Plaza Points on top of your rETH yield.",
     "link": "https://deposit.plaza.finance"
   },
   {
-    "id": 14,
+    "id": 12,
     "name": "ExtraFi Lend",
     "tag": "Lend/Borrow",
     "description": "Use rETH as collateral to borrow ETH/USDC, and earn more yields",
     "link": "https://xlend.extrafi.io/"
   },
   {
-    "id": 15,
+    "id": 13,
     "name": "Flat Money",
     "tag": "Yield",
     "description": "Use rETH as collateral to mint unit/margin, and earn more rewards",
