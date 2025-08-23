@@ -8,7 +8,7 @@ import {
   aaveEthereumRPLQuery,
 } from "@/lib/query";
 import { Aave } from "@/lib/type";
-import { unstable_cache } from 'next/cache';
+import { unstable_cache } from "next/cache";
 
 const endpoints = [
   {
@@ -26,14 +26,6 @@ const endpoints = [
     chain: "Arbitrum",
     query: aaveArbitrumQuery,
     link: "https://app.aave.com/reserve-overview/?underlyingAsset=0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8&marketName=proto_arbitrum_v3",
-  },
-  {
-    protocol: "AAVE",
-    url: "https://gateway.thegraph.com/api/deployments/id/QmRMNoAvjrr4DXT4tBJafCAPr2TQuRztMScyu51kKt542j",
-    pair: "rETH",
-    chain: "Optimism",
-    query: aaveOptimismQuery,
-    link: "https://app.aave.com/reserve-overview/?underlyingAsset=0x9bcef72be871e61ed4fbbc7630889bee758eb81d&marketName=proto_optimism_v3",
   },
   {
     protocol: "AAVE",
@@ -65,16 +57,18 @@ const EndpointSchema = z.object({
 // Schema for successful response data
 // Note: This is a basic schema, you should adjust it based on your actual data structure
 const AaveResponseSchema = z.object({
-  reserve: z.object({
-    name: z.string().optional(),
-    symbol: z.string().optional(),
-    decimals: z.number().optional(),
-    liquidityRate: z.string().optional(),
-    utilizationRate: z.string().optional(),
-    totalATokenSupply: z.string().optional(),
-    totalCurrentVariableDebt: z.string().optional(),
-    // Add other fields as needed
-  }).optional(),
+  reserve: z
+    .object({
+      name: z.string().optional(),
+      symbol: z.string().optional(),
+      decimals: z.number().optional(),
+      liquidityRate: z.string().optional(),
+      utilizationRate: z.string().optional(),
+      totalATokenSupply: z.string().optional(),
+      totalCurrentVariableDebt: z.string().optional(),
+      // Add other fields as needed
+    })
+    .optional(),
   // You may need to adjust this based on your actual query response
 });
 
@@ -99,7 +93,8 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
       },
     });
 
-    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const delay = (ms: number) =>
+      new Promise((resolve) => setTimeout(resolve, ms));
 
     try {
       await delay(100);
@@ -112,7 +107,10 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
       try {
         AaveResponseSchema.parse(data);
       } catch (validationError) {
-        console.warn(`Response validation warning for ${endpoint.chain}:`, validationError);
+        console.warn(
+          `Response validation warning for ${endpoint.chain}:`,
+          validationError,
+        );
         // Continue even if validation fails, but log the warning
       }
 
@@ -125,7 +123,10 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
         data: data,
       });
     } catch (error) {
-      console.error(`Failed to fetch data from ${validatedEndpoint.chain}:`, error);
+      console.error(
+        `Failed to fetch data from ${validatedEndpoint.chain}:`,
+        error,
+      );
 
       // Validate and return error result
       return ProcessResultSchema.parse({
@@ -152,7 +153,7 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
 export const updateAaveData = unstable_cache(
   async () => {
     // Validate all endpoints before processing
-    const validEndpoints = endpoints.filter(endpoint => {
+    const validEndpoints = endpoints.filter((endpoint) => {
       try {
         EndpointSchema.parse(endpoint);
         return true;
@@ -182,15 +183,15 @@ export const updateAaveData = unstable_cache(
       data: result.data,
     }));
   },
-  ['aave-data'],
+  ["aave-data"],
   {
     revalidate: 300,
-    tags: ['aave-data']
-  }
+    tags: ["aave-data"],
+  },
 );
 
 export async function revalidateAaveData() {
-  const { revalidateTag } = require('next/cache');
+  const { revalidateTag } = require("next/cache");
   console.log("Aave data revalidate");
-  revalidateTag('aave-data');
+  revalidateTag("aave-data");
 }

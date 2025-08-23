@@ -7,31 +7,44 @@ import MoonwellList from "@/components/moonwell";
 import MorphoList from "@/components/morpho";
 import BalancerList from "@/components/balancer";
 import UniswapList from "@/components/uniswap";
+import CurveMarketList from "@/components/curve";
+import updateCurveData from "@/lib/handler/curve";
 import { updateUniswapData } from "@/lib/handler/uniswap";
 import { updateBalancerData } from "@/lib/handler/balancer";
 import { updateAaveData } from "@/lib/handler/aave";
 import { updateMoonwellData } from "@/lib/handler/moonwell";
 import { updateSiloData } from "@/lib/handler/silo";
 import { updateMorphoData } from "@/lib/handler/morpho";
+import updatePendleData from "@/lib/handler/pendle";
+import PendleMarketList from "@/components/pendle";
 import LendingStrategy from "@/components/lendingstrategy";
 import LiquidityStrategy from "@/components/liquiditystrategy";
 import { ExternalLinkButton } from "@/components/ui/externallink";
 import { ProtocolCard } from "@/components/protocolcard";
 import OppotunityCarousel from "@/components/opportunitycarousel";
 import Footer from "@/components/footer";
-import Twitter from "@/components/twitter";
 import protocols from "@/data/protocols.json";
 import farmData from "@/data/farmdata.json";
 
 export default async function Home() {
-
-  const [aaveData, moonwellData, siloData, morphoData, balancerData, uniswapData] = await Promise.all([
+  const [
+    aaveData,
+    moonwellData,
+    siloData,
+    morphoData,
+    balancerData,
+    uniswapData,
+    curveData,
+    pendleData,
+  ] = await Promise.all([
     updateAaveData(),
     updateMoonwellData(),
     updateSiloData(),
     updateMorphoData(),
     updateBalancerData(),
     updateUniswapData(),
+    updateCurveData(),
+    updatePendleData([42161, 8453], ["rETH"]),
   ]);
 
   return (
@@ -45,13 +58,19 @@ export default async function Home() {
               </div>
             </Link>
             <Link href="/">
-              <div className="text-base md:text-2xl text-[#272E35] font-bold">RocketFi</div>
+              <div className="text-base md:text-2xl text-[#272E35] font-bold">
+                RocketFi
+              </div>
             </Link>
           </div>
 
           <div className="mt-10 md:mt-16">
             <div className="text-sm md:text-base text-[#272E35] font-inter leading-relaxed">
-              RocketFi is a community-driven, unofficial explorer for Rocket Pool DeFi integration. It helps rETH holders maximize their participation in DeFi to earn rewards and unlock the utility of rETH. Additionally, it supports node operators in leveraging DeFi to enhance their node operations.
+              RocketFi is a community-driven, unofficial explorer for Rocket
+              Pool DeFi integration. It helps rETH holders maximize their
+              participation in DeFi to earn rewards and unlock the utility of
+              rETH. Additionally, it supports node operators in leveraging DeFi
+              to enhance their node operations.
             </div>
             <div className="mt-4 md:flex md:items-center gap-2 md:gap-3 grid grid-cols-3">
               <ExternalLinkButton
@@ -249,6 +268,50 @@ export default async function Home() {
                 <UniswapList data={uniswapData} />
               </div>
             </div>
+            <div className="mt-10">
+              <div className="w-10 h-fit">
+                <ProtocolIcon icon="Curve" />
+              </div>
+              <div className="mt-4 md:flex md:items-center gap-2 md:gap-3 grid grid-cols-2">
+                <ExternalLinkButton
+                  href="https://curve.fiance/"
+                  className="bg-[#191D200F] px-1 text-xs text-[#272E35] gap-1 font-medium grid-cols-1"
+                >
+                  since 2020 curve.finance
+                </ExternalLinkButton>
+                <ExternalLinkButton
+                  href="https://docs.curve.finance/security/security/#security-audits"
+                  className="bg-[#191D200F] px-1 text-xs text-[#272E35] gap-1 font-medium grid-cols-1"
+                >
+                  Audit
+                </ExternalLinkButton>
+              </div>
+              <div className="mt-10">
+                <CurveMarketList data={curveData} />
+              </div>
+            </div>
+            <div className="mt-10">
+              <div className="w-24 h-fit bg-[#6079FF]">
+                <ProtocolIcon icon="Pendle" />
+              </div>
+              <div className="mt-4 md:flex md:items-center gap-2 md:gap-3 grid grid-cols-2">
+                <ExternalLinkButton
+                  href="https://pendle.fiance/"
+                  className="bg-[#191D200F] px-1 text-xs text-[#272E35] gap-1 font-medium grid-cols-1"
+                >
+                  since 2021 pendle.finance
+                </ExternalLinkButton>
+                <ExternalLinkButton
+                  href="https://github.com/pendle-finance/pendle-core-v2-public/tree/main/audits/"
+                  className="bg-[#191D200F] px-1 text-xs text-[#272E35] gap-1 font-medium grid-cols-1"
+                >
+                  Audit
+                </ExternalLinkButton>
+              </div>
+              <div className="mt-10">
+                <PendleMarketList data={pendleData} />
+              </div>
+            </div>
           </div>
           <div className="mt-12 md:mt-16">
             <div className="text-xl md:text-2xl text-[#272E35] font-medium font-serif tracking-wide">
@@ -275,4 +338,3 @@ export default async function Home() {
     </main>
   );
 }
-

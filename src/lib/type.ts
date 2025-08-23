@@ -1,4 +1,4 @@
-export interface Market {
+export type Market = {
   id: string;
   name: string;
   rates: {
@@ -6,22 +6,21 @@ export interface Market {
     side: "BORROWER" | "LENDER";
   }[];
   totalValueLockedUSD: string;
-}
+};
 
-export interface AaveData {
+export type AaveData = {
   markets: Market[];
-}
+};
 
-export interface Aave {
+export type Aave = {
   protocol: string;
   chain: string;
   pair: string;
   link: string;
   data: AaveData;
-}
+};
 
-
-export interface Silo {
+export type Silo = {
   protocol: string;
   chain: string;
   pair: string;
@@ -37,9 +36,9 @@ export interface Silo {
       totalValueLockedUSD?: string;
     }[];
   };
-}
+};
 
-export interface Moonwell {
+export type Moonwell = {
   marketIndex: number;
   totalSupplyUSD: string;
   supplyAPR: string;
@@ -58,10 +57,9 @@ export interface Moonwell {
       symbol: string;
     };
   }[];
+};
 
-}
-
-export interface MoonwellIncentive {
+export type MoonwellIncentive = {
   liquidStakingApr: number;
   borrowApr: number;
   supplyApr: number;
@@ -71,9 +69,9 @@ export interface MoonwellIncentive {
     name: string;
     symbol: string;
   };
-}
+};
 
-export interface Morpho {
+export type Morpho = {
   uniqueKey: string;
   loanAsset: {
     address: string;
@@ -107,24 +105,24 @@ export interface Morpho {
   };
 };
 
-export interface PoolToken {
+export type PoolToken = {
   address: string;
   symbol: string;
   balance: string;
   hasNestedPool: boolean;
-}
+};
 
-export interface AprItem {
+export type AprItem = {
   type: string;
   apr: number;
-}
+};
 
-export interface DynamicData {
+export type DynamicData = {
   totalLiquidity: string;
   aprItems: AprItem[];
-}
+};
 
-export interface Balancer {
+export type Balancer = {
   id: string;
   name: string;
   type: string;
@@ -132,42 +130,41 @@ export interface Balancer {
   chain: string;
   poolTokens: PoolToken[];
   dynamicData: DynamicData;
-}
+};
 
-export interface BalancerResponse {
+export type BalancerResponse = {
   [key: string]: Balancer;
-}
+};
 
-export interface PoolDayData {
+export type PoolDayData = {
   date: number;
   feesUSD: string;
   tvlUSD: string;
   volumeUSD: string;
-}
+};
 
-export interface Pool {
+export type Pool = {
   poolDayData: PoolDayData[];
   totalValueLockedUSD: string;
-}
+};
 
-export interface ChainData {
+export type ChainData = {
   [poolName: string]: Pool;
-}
+};
 
-export interface Uniswap {
+export type Uniswap = {
   chain: string;
   link: string;
   data: ChainData;
-}
+};
 
-export interface Curve {
+export type Curve = {
   pair: string;
   chain: string;
   tvlUSD: string;
+};
 
-}
-
-export interface poolData {
+export type poolData = {
   id: string;
   address: string;
   name: string;
@@ -179,15 +176,83 @@ export interface poolData {
     name: string;
   }>;
   usdTotal: number;
-}
+};
 
-export interface poolInfo {
+export type poolInfo = {
   address: string;
   latestDailyApy: number;
   latestWeeklyApy: number;
   volumeUSD: number;
-}
+};
 
-export interface gaugeData {
+export type CurveMarket = {
+  name: string;
+  address: string;
+  n_coins: number;
+  tvl_usd: number;
+  balances: number[];
+  trading_volume_24h: number;
+  trading_fee_24h: number;
+  liquidity_volume_24h: number;
+  liquidity_fee_24h: number;
+  coins: {
+    pool_index: number;
+    symbol: string;
+    address: string;
+    decimals: number;
+  }[];
+  base_daily_apr: number;
+  base_weekly_apr: number;
+  virtual_price: number;
+  pool_methods: string[];
+};
 
-}
+export type CurveMarketGauge = {
+  name: string;
+  address: string;
+  n_coins: number;
+  tvl_usd: number;
+  balances: number[];
+  trading_volume_24h: number;
+  trading_fee_24h: number;
+  liquidity_volume_24h: number;
+  liquidity_fee_24h: number;
+  coins: {
+    pool_index: number;
+    symbol: string;
+    address: string;
+    decimals: number;
+  }[];
+  base_daily_apr: number;
+  base_weekly_apr: number;
+  virtual_price: number;
+  pool_methods: string[];
+  guage_apy_min: number;
+  guage_apy_max: number;
+  url: string;
+};
+
+export type PendleMarket = {
+  name: string;
+  address: string;
+  expiry: string; // ISO string
+  pt: string;
+  yt: string;
+  sy: string;
+  underlyingAsset: string;
+  details: {
+    liquidity: number;
+    pendleApy: number;
+    impliedApy: number;
+    feeRate: number;
+    yieldRange: {
+      min: number;
+      max: number;
+    };
+    aggregatedApy: number;
+    maxBoostedApy: number;
+  };
+  isNew: boolean;
+  isPrime: boolean;
+  timestamp: string; // ISO string
+};
