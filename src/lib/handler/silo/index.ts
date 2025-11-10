@@ -73,6 +73,11 @@ const GraphqlReqSchema = z.object({
 
 async function Process(endpoint: (typeof endpoints)[0]) {
   const client = new GraphQLClient(endpoint.url, {
+    fetch: (url, options) =>
+      fetch(url, {
+        ...options,
+        next: { revalidate: 10 },
+      }),
     headers: {
       Authorization: `Bearer ${env.API_KEY}`, // Set if needed, otherwise remove
     },
@@ -136,16 +141,14 @@ async function readContractMethod(
 }
 
 export async function updateSiloData(): Promise<Silo[]> {
-
   try {
     const results = await Promise.all(endpoints.map(Process));
 
     const successfulResults = results.filter(
-      (result): result is Silo => result !== null
+      (result): result is Silo => result !== null,
     );
 
     console.log(`SILO data updated successfully`);
-
 
     return successfulResults.map((result) => ({
       protocol: result.protocol,
@@ -154,10 +157,8 @@ export async function updateSiloData(): Promise<Silo[]> {
       link: result.link,
       data: result.data,
     }));
-
-
   } catch (error) {
     console.error("Failed to update SILO data:", error);
-    return []
+    return [];
   }
 }

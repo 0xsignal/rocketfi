@@ -1,7 +1,11 @@
 import { GraphQLClient } from "graphql-request";
 import { z } from "zod";
 import { env } from "@/env/server";
-import { uniswapEthereumQuery, uniswapArbitrumQuery, uniswapOptimismQuery } from "@/lib/query";
+import {
+  uniswapEthereumQuery,
+  uniswapArbitrumQuery,
+  uniswapOptimismQuery,
+} from "@/lib/query";
 import { Uniswap } from "@/lib/type";
 
 const endpoints = [
@@ -23,7 +27,6 @@ const endpoints = [
     query: uniswapOptimismQuery,
     link: "",
   },
-
 ];
 
 const GraphqlReqSchema = z.object({
@@ -34,6 +37,11 @@ const GraphqlReqSchema = z.object({
 
 async function Process(endpoint: (typeof endpoints)[0]) {
   const client = new GraphQLClient(endpoint.url, {
+    fetch: (url, options) =>
+      fetch(url, {
+        ...options,
+        next: { revalidate: 10 },
+      }),
     headers: {
       Authorization: `Bearer ${env.API_KEY}`,
     },
@@ -58,24 +66,20 @@ async function Process(endpoint: (typeof endpoints)[0]) {
 }
 
 export async function updateUniswapData(): Promise<Uniswap[]> {
-
   try {
     const results = await Promise.all(endpoints.map(Process));
 
     const successfulResults = results.filter(
-      (result): result is Uniswap => result !== null
+      (result): result is Uniswap => result !== null,
     );
-
 
     return successfulResults.map((result) => ({
       chain: result.chain,
       link: result.link,
       data: result.data,
     }));
-
-
   } catch (error) {
     console.error("Failed to update Uniswap data:", error);
-    return []
+    return [];
   }
 }

@@ -88,6 +88,11 @@ export async function Process(endpoint: (typeof endpoints)[0]) {
     const validatedEndpoint = EndpointSchema.parse(endpoint);
 
     const client = new GraphQLClient(validatedEndpoint.url, {
+      fetch: (url, options) =>
+        fetch(url, {
+          ...options,
+          next: { revalidate: 10 },
+        }),
       headers: {
         Authorization: `Bearer ${env.API_KEY}`, // Set if needed, otherwise remove
       },

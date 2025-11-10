@@ -3,7 +3,6 @@ import { env } from "@/env/server";
 import { balancerQuery } from "@/lib/query";
 import { Balancer, BalancerResponse } from "@/lib/type";
 
-
 const endpoints = [
   {
     protocol: "Balancer",
@@ -12,11 +11,15 @@ const endpoints = [
   },
 ];
 
-async function Process(endpoint: typeof endpoints[0]): Promise<{ data?: BalancerResponse, error?: string }> {
+async function Process(
+  endpoint: (typeof endpoints)[0],
+): Promise<{ data?: BalancerResponse; error?: string }> {
   const client = new GraphQLClient(endpoint.url, {
-    headers: {
-      Authorization: `Bearer ${env.API_KEY}`, // Set if needed, otherwise remove
-    },
+    fetch: (url, options) =>
+      fetch(url, {
+        ...options,
+        next: { revalidate: 10 },
+      }),
   });
 
   try {
@@ -39,7 +42,7 @@ export async function updateBalancerData(): Promise<Balancer[]> {
     const successfulResults = results.filter((result) => !result.error);
 
     const unifiedData: Balancer[] = successfulResults.flatMap((result) =>
-      result.data ? Object.values(result.data) : []
+      result.data ? Object.values(result.data) : [],
     );
 
     console.log(`BAL data updated successfully`);

@@ -33,8 +33,8 @@ const PRESET_LIST: {
 export default async function updateCurveData(): Promise<CurveMarketGauge[]> {
   try {
     const [marketsRes, gaugesRes] = await Promise.all([
-      fetch(CURVE_API),
-      fetch(CURVE_GAUGES_API),
+      fetch(CURVE_API, { next: { revalidate: 10 } }),
+      fetch(CURVE_GAUGES_API, { next: { revalidate: 10 } }),
     ]);
 
     if (!marketsRes.ok) throw new Error(`Markets HTTP ${marketsRes.status}`);

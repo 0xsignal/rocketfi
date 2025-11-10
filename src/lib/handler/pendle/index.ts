@@ -12,7 +12,7 @@ export default async function fetchPendleMarkets(
       const url = `${BASE_URL}/${chainId}/markets/active`;
 
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, { next: { revalidate: 10 } });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
 
