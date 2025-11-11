@@ -201,7 +201,7 @@ export const balancerQuery = `
         }
       }
     },
-    pool2:poolGetPool(id:"0x05ff47afada98a98982113758878f9a8b9fdda0a000000000000000000000645",chain:MAINNET){
+    pool2:poolGetPool(id:"0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be",chain:OPTIMISM){
       id
       name
       type
@@ -221,7 +221,7 @@ export const balancerQuery = `
         }
       }
     },
-    pool3:poolGetPool(id:"0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b",chain:MAINNET){
+    pool3:poolGetPool(id:"0xb7b8b3afc010169779c5c2385ec0eb0477fe3347",chain:BASE){
       id
       name
       type
@@ -241,127 +241,7 @@ export const balancerQuery = `
         }
       }
     },
-    pool4:poolGetPool(id:"0xd0ec47c54ca5e20aaae4616c25c825c7f48d40690000000000000000000004ef",chain:ARBITRUM){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    pool5:poolGetPool(id:"0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106",chain:OPTIMISM){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    pool6:poolGetPool(id:"0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be",chain:OPTIMISM){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    pool7:poolGetPool(id:"0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03",chain:OPTIMISM){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    pool8:poolGetPool(id:"0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",chain:BASE){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    pool9:poolGetPool(id:"0xb7b8b3afc010169779c5c2385ec0eb0477fe3347",chain:BASE){
-      id
-      name
-      type
-      version
-      chain
-      poolTokens {
-        address
-        symbol
-        balance
-        hasNestedPool
-      }
-      dynamicData {
-        totalLiquidity
-        aprItems {
-          type
-          apr
-        }
-      }
-    },
-    
+
 }`;
 
 export const uniswapEthereumQuery = `{
