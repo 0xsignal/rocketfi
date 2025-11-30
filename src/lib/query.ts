@@ -181,7 +181,7 @@ export const morphoQuery = `{
 /* Balancer Pool */
 export const balancerQuery = `
   query {
-    pool1:poolGetPool(id:"0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",chain:MAINNET){
+    pool1:poolGetPool(id:"0x1ea5870f7c037930ce1d5d8d9317c670e89e13e3",chain:MAINNET){
       id
       name
       type
@@ -241,6 +241,26 @@ export const balancerQuery = `
         }
       }
     },
+    pool4:poolGetPool(id:"0x5418a64e0cdb20548acb394f5d00a089baf02161",chain:ARBITRUM){
+      id
+      name
+      type
+      version
+      chain
+      poolTokens {
+        address
+        symbol
+        balance
+        hasNestedPool
+      }
+      dynamicData {
+        totalLiquidity
+        aprItems {
+          type
+          apr
+        }
+      }
+    }
 
 }`;
 
